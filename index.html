@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AniPoint Site Research | Data-Driven Site Selection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 50%, #1e293b 100%);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(37, 99, 235, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.75rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(135deg, #60a5fa, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .hero-content .slogan {
+            font-size: 1.1rem;
+            color: #60a5fa;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .hero .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #3b82f6);
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        .hero .btn-secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        .hero .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: var(--white);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.125rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .problem .section-header h2 {
+            color: var(--white);
+        }
+
+        .problem .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .problem .badge {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .problem-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+        }
+
+        .problem-stat {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f87171;
+            margin-top: 16px;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 36px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* Differentiators */
+        .differentiators {
+            background: var(--white);
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .diff-card {
+            display: flex;
+            gap: 24px;
+            padding: 32px;
+            background: var(--light);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .diff-card:hover {
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .diff-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .diff-content h3 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+        }
+
+        .diff-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .comparison-label {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(239, 68, 68, 0.1);
+            color: #dc2626;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 12px;
+            text-decoration: line-through;
+        }
+
+        /* ROI Section */
+        .roi {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            color: var(--white);
+        }
+
+        .roi .section-header h2 {
+            color: var(--white);
+        }
+
+        .roi .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .roi .badge {
+            background: rgba(255,255,255,0.2);
+            color: var(--white);
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .roi-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 36px;
+            text-align: center;
+        }
+
+        .roi-card .client-type {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+
+        .roi-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .roi-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #86efac;
+        }
+
+        .roi-value span {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--light);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-header {
+            text-align: center;
+            padding-bottom: 24px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+
+        .pricing-tier {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .pricing-original {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--gray);
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            margin-bottom: 4px;
+            opacity: 0.7;
+        }
+
+        .pricing-intro-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--secondary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 50px;
+            margin-top: 8px;
+        }
+
+        .pricing-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            width: 24px;
+            height: 24px;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--white);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            right: -20px;
+            top: 40px;
+            font-size: 1.5rem;
+            color: var(--gray);
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto 24px;
+        }
+
+        .process-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+        }
+
+        .process-step p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Data Sources */
+        .data-sources {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .data-sources .section-header h2 {
+            color: var(--white);
+        }
+
+        .data-sources .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .data-sources .badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .data-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .data-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .data-card p {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .data-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .cta .btn-primary {
+            background: var(--secondary);
+        }
+
+        .cta .btn-primary:hover {
+            background: #059669;
+        }
+
+        /* Founder Section */
+        .founder {
+            background: var(--white);
+        }
+
+        .founder-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .founder-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--white);
+            margin: 0 auto;
+        }
+
+        .founder-bio h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .founder-title {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .founder-bio p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .founder-credentials {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .credential-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.75rem;
+        }
+
+        /* Sample Section */
+        .sample {
+            background: var(--light);
+        }
+
+        .sample-preview {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .sample-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .sample-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .sample-metric {
+            text-align: center;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 12px;
+        }
+
+        .sample-metric-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .sample-metric-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .founder-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .founder-credentials {
+                justify-content: center;
+            }
+            .sample-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: rgba(255,255,255,0.7);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        footer .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        footer .logo span {
+            color: #60a5fa;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        footer p:last-child {
+            color: rgba(255,255,255,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .services-grid,
+            .problem-grid,
+            .roi-grid,
+            .pricing-grid,
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step::after {
+                display: none;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Ani<span>Point</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="slogan">Finding a place is easy but finding the right place is a science.</p>
+                <h1>Don't Risk <span>$500K</span> on the Wrong Location</h1>
+                <p>Before you invest in a car wash location, know exactly which locations have the traffic, customers, and opportunity you need. Real data. Clear answers. No guesswork.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">The Problem</span>
+                <h2>Bad Locations Kill Good Businesses</h2>
+                <p>Most location decisions are based on gut feel, not data. The result? Expensive failures.</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon" style="font-size: 2rem; font-weight: 800; color: #f87171;">!</div>
+                    <h3>Guesswork Over Data</h3>
+                    <p>Many businesses choose locations based on gut feel, leading to preventable failures.</p>
+                    <div class="problem-stat">High failure risk</div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon" style="font-size: 2rem; font-weight: 800; color: #f87171;">$</div>
+                    <h3>Costly Mistakes</h3>
+                    <p>A bad location decision can mean losing your entire investment-often $300K to $500K+.</p>
+                    <div class="problem-stat">$500K+ at stake</div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon" style="font-size: 2rem; font-weight: 800; color: #f87171;">?</div>
+                    <h3>No Way to Know the Risk</h3>
+                    <p>Without proper analysis, you're flying blind on one of your biggest business decisions.</p>
+                    <div class="problem-stat">Unknown odds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Our Services</span>
+                <h2>Comprehensive Location Intelligence</h2>
+                <p>Everything you need to make confident location decisions, backed by real data.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">01</div>
+                    <h3>Find the Best Locations</h3>
+                    <p>We identify which areas have the right mix of traffic, customers, and low competition for your business.</p>
+                    <ul class="service-features">
+                        <li>Neighborhood-level detail</li>
+                        <li>Ranked recommendations</li>
+                        <li>Clear scoring criteria</li>
+                        <li>Easy-to-read maps</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">02</div>
+                    <h3>Know Your Customers</h3>
+                    <p>Understand who lives nearby-their income, spending habits, and whether they match your ideal customer.</p>
+                    <ul class="service-features">
+                        <li>Population & income data</li>
+                        <li>Household characteristics</li>
+                        <li>Growth trends</li>
+                        <li>Customer fit analysis</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">03</div>
+                    <h3>Real Traffic Counts</h3>
+                    <p>Know exactly how many cars pass by each day using official government traffic data-not guesses.</p>
+                    <ul class="service-features">
+                        <li>Actual vehicle counts</li>
+                        <li>Federal highway data</li>
+                        <li>Traffic pattern insights</li>
+                        <li>Visibility scoring</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">04</div>
+                    <h3>Revenue Projections</h3>
+                    <p>See what you could earn-with best case, expected, and worst case scenarios so you can plan ahead.</p>
+                    <ul class="service-features">
+                        <li>3 realistic scenarios</li>
+                        <li>Based on real traffic</li>
+                        <li>Industry benchmarks</li>
+                        <li>Clear assumptions</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">05</div>
+                    <h3>Risk Assessment</h3>
+                    <p>Understand what could go wrong and the likelihood of different outcomes before you commit.</p>
+                    <ul class="service-features">
+                        <li>Probability of success</li>
+                        <li>Downside scenarios</li>
+                        <li>Clear Go/No-Go advice</li>
+                        <li>Honest risk ratings</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">06</div>
+                    <h3>Competition Mapping</h3>
+                    <p>See where competitors are located and find underserved areas with room for your business.</p>
+                    <ul class="service-features">
+                        <li>Competitor locations</li>
+                        <li>Market saturation</li>
+                        <li>Gap identification</li>
+                        <li>Distance analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentiators Section -->
+    <section class="differentiators" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Why AniPoint</span>
+                <h2>What Makes Us Different</h2>
+                <p>We don't guess-we calculate. Our methodology is transparent, validated, and data-driven.</p>
+            </div>
+            <div class="diff-grid">
+                <div class="diff-card">
+                    <div class="diff-icon">A</div>
+                    <div class="diff-content">
+                        <h3>Real Traffic Data</h3>
+                        <p>We use actual traffic counts, not demographic proxies or estimates. Real numbers, real accuracy.</p>
+                        <span class="comparison-label">Competitors: Estimated traffic</span>
+                    </div>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">B</div>
+                    <div class="diff-content">
+                        <h3>Probabilistic Modeling</h3>
+                        <p>We run extensive scenario modeling to show you the range of possible outcomes &mdash; not just one number.</p>
+                        <span class="comparison-label">Competitors: One number guess</span>
+                    </div>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">C</div>
+                    <div class="diff-content">
+                        <h3>Interactive Maps</h3>
+                        <p>Web-based maps let you explore data yourself. Perfect for investor presentations.</p>
+                        <span class="comparison-label">Competitors: Static PDFs</span>
+                    </div>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">D</div>
+                    <div class="diff-content">
+                        <h3>Transparent Methodology</h3>
+                        <p>We show you exactly how scores are calculated. Want to weight something differently? Just ask.</p>
+                        <span class="comparison-label">Competitors: Black box analysis</span>
+                    </div>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">E</div>
+                    <div class="diff-content">
+                        <h3>Reliable & Consistent</h3>
+                        <p>Our analysis is automated and tested-so you get accurate results every time, not manual errors.</p>
+                        <span class="comparison-label">Competitors: Manual, error-prone</span>
+                    </div>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">F</div>
+                    <div class="diff-content">
+                        <h3>Rapid Turnaround</h3>
+                        <p>We deliver comprehensive analyses in days, not weeks.</p>
+                        <span class="comparison-label">Competitors: 2-4 week delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Section -->
+    <section class="roi">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Potential Savings</span>
+                <h2>What's at Stake?</h2>
+                <p>A small investment in research can help you avoid a costly location mistake.</p>
+            </div>
+            <div class="roi-grid">
+                <div class="roi-card">
+                    <div class="client-type">Your Investment</div>
+                    <h3>Average car wash build cost</h3>
+                    <div class="roi-value">$300K&ndash;$1.5M</div>
+                </div>
+                <div class="roi-card">
+                    <div class="client-type">Our Analysis</div>
+                    <h3>Location analysis study</h3>
+                    <div class="roi-value">$549&ndash;$2,899</div>
+                    <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 6px;">Intro pricing &mdash; all three tiers</p>
+                </div>
+                <div class="roi-card">
+                    <div class="client-type">Potential ROI</div>
+                    <h3>If we help you avoid one bad location</h3>
+                    <div class="roi-value">60&ndash;400x <span>return</span></div>
+                </div>
+            </div>
+            <div style="max-width: 800px; margin: 60px auto 0; background: rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; text-align: left;">
+                <h3 style="margin-bottom: 16px; font-size: 1.25rem;">Case Study: The Cost of a Wrong Location</h3>
+                <p style="color: rgba(255,255,255,0.85); line-height: 1.8;">
+                    Imagine you're considering two areas for your car wash. Area A looks promising &mdash; good visibility, busy road. Area B seems similar. Without data, you might flip a coin.<br><br>
+                    <strong>But our analysis reveals:</strong> Area A has 18,000 vehicles/day passing by. Area B? Only 6,000. Area A is in a neighborhood with growing population and fewer competitors. Area B is in a declining area with 3 car washes within 2 miles.<br><br>
+                    <strong>The difference?</strong> Area A could generate $400K+ in annual revenue. Area B might struggle to break even. A $1,599 Standard analysis just helped you avoid a potential $300K+ loss.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Introductory Pricing</span>
+                <h2>Three Tiers of Decision-Grade Analysis</h2>
+                <p>Pick the depth that fits the decision. Launch pricing reflects a limited-time discount on every tier &mdash; standard rates apply once we exit early access.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-tier">Tier 1 &mdash; Basic</div>
+                        <div class="pricing-price">
+                            <span class="pricing-original">$1,099</span>
+                            $549<span>+</span>
+                        </div>
+                        <div class="pricing-desc">Top-10 tract shortlist for one market</div>
+                        <span class="pricing-intro-badge">Intro pricing</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Executive summary &amp; verdict</li>
+                        <li>Market-at-a-glance demographics</li>
+                        <li>Top 10 recommendations table</li>
+                        <li>Market growth &amp; commuter analysis</li>
+                        <li>Top-10 preview map with tract stats on hover</li>
+                        <li>Methodology &amp; data sources</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Best Value</div>
+                    <div class="pricing-header">
+                        <div class="pricing-tier">Tier 2 &mdash; Standard</div>
+                        <div class="pricing-price">
+                            <span class="pricing-original">$3,199</span>
+                            $1,599<span>+</span>
+                        </div>
+                        <div class="pricing-desc">Compare locations &middot; revenue projections</div>
+                        <span class="pricing-intro-badge">Intro pricing</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Basic</li>
+                        <li>Three-scenario revenue projections</li>
+                        <li>Peer-county density benchmark (vs same-state counties)</li>
+                        <li>Full competitor map covering all recommended locations, color-graded by score</li>
+                        <li>Highway traffic viability map (wash-type-aware, market-adjusted thresholds)</li>
+                        <li>Full investment-outlook callout</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Contact Us</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-tier">Tier 3 &mdash; Premium</div>
+                        <div class="pricing-price">
+                            <span class="pricing-original">$5,799</span>
+                            $2,899<span>+</span>
+                        </div>
+                        <div class="pricing-desc">Investor-ready &middot; full risk modeling</div>
+                        <span class="pricing-intro-badge">Intro pricing</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Standard</li>
+                        <li>Probabilistic risk modeling at scale</li>
+                        <li>Probability of loss / VaR / upside metrics</li>
+                        <li>Tract-level risk profile map (Monte Carlo probability of loss)</li>
+                        <li>Full opportunity-zones map with property filters</li>
+                        <li>National &amp; local industry context</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Our Process</span>
+                <h2>From Question to Answer in Days</h2>
+                <p>We deliver thorough analysis faster than traditional consultants-so you can move quickly on opportunities.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">1</div>
+                    <h3>Tell Us Your Goals</h3>
+                    <p>Share your target areas, budget, and what matters most to your business.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">2</div>
+                    <h3>We Gather the Data</h3>
+                    <p>We collect traffic counts, demographics, and competitor info from official sources.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">3</div>
+                    <h3>We Run the Numbers</h3>
+                    <p>We score locations, project revenues, and identify the best opportunities.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">4</div>
+                    <h3>You Get Answers</h3>
+                    <p>Maps, reports, and clear recommendations you can act on.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Sources Section -->
+    <section class="data-sources">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">Data-Driven</span>
+                <h2>Powered by Authoritative Sources</h2>
+                <p>We don't guess-we use official government data and real-time mapping services.</p>
+            </div>
+            <div class="data-grid">
+                <div class="data-card">
+                    <h4>Federal Highway Data</h4>
+                    <p>Actual daily traffic counts measured at the road-segment level.</p>
+                    <span class="data-badge">Official Source</span>
+                </div>
+                <div class="data-card">
+                    <h4>Census Demographics</h4>
+                    <p>Detailed neighborhood data: population, income, age, education, and more.</p>
+                    <span class="data-badge">Official Source</span>
+                </div>
+                <div class="data-card">
+                    <h4>Economic Trends</h4>
+                    <p>County-level economic data to understand market growth potential.</p>
+                    <span class="data-badge">Official Source</span>
+                </div>
+                <div class="data-card">
+                    <h4>Business Counts</h4>
+                    <p>Official counts of businesses by industry to measure competition levels.</p>
+                    <span class="data-badge">Official Source</span>
+                </div>
+                <div class="data-card">
+                    <h4>Competitor Locations</h4>
+                    <p>Real-world business locations to map exactly where competitors operate.</p>
+                    <span class="data-badge">Live Data</span>
+                </div>
+                <div class="data-card">
+                    <h4>Inflation Data</h4>
+                    <p>Purchasing power adjustments so revenue projections reflect real value.</p>
+                    <span class="data-badge">Official Source</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="founder">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge">About</span>
+                <h2>Who's Behind AniPoint</h2>
+            </div>
+            <div class="founder-content">
+                <div class="founder-image">RB</div>
+                <div class="founder-bio">
+                    <h3>Robed Beauvile-Owen</h3>
+                    <p class="founder-title">Founder &amp; Principal Consultant &middot; PhD, Mathematics</p>
+                    <p>Senior data scientist with five years building production analytics and geospatial systems across the marketing-analytics and e-commerce industries. PhD in Mathematics from the University of Pittsburgh. I started AniPoint to bring that same rigor to a high-stakes decision car wash operators face every time they sign a lease.</p>
+                    <p style="margin-top: 8px;">
+                        <a href="https://www.linkedin.com/in/robedbeauvile/" target="_blank" rel="noopener" style="color: var(--primary); font-weight: 600; text-decoration: none;">Connect on LinkedIn &rarr;</a>
+                    </p>
+                    <div class="founder-credentials">
+                        <div class="credential">
+                            <div class="credential-icon">PhD</div>
+                            <span>Mathematics, University of Pittsburgh</span>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon">5+</div>
+                            <span>Years Senior DS / ML Engineering</span>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon">GIS</div>
+                            <span>GeoPandas &amp; production geospatial pipelines</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Location?</h2>
+            <p>Get in touch to discuss your project. We'll answer your questions and see how we can help.</p>
+            <div class="cta-buttons">
+                <a href="mailto:contact@anipoint.com?subject=Site%20Selection%20Inquiry" class="btn btn-primary">Email Us</a>
+                <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 0.9rem; opacity: 0.7;">contact@anipoint.com</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">Ani<span>Point</span> Site Research</div>
+            <p>Strategic Site Selection & Market Intelligence</p>
+            <p style="margin-top: 24px; font-size: 0.875rem;">© 2026 AniPoint Site Research. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
