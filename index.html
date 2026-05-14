@@ -60,16 +60,21 @@
             font-size: 1.5rem;
             color: var(--primary);
             display: flex;
-            align-items: center;
+            align-items: baseline;
             gap: 8px;
             text-decoration: none;
         }
 
-        nav .logo svg {
-            height: 32px;
-            width: auto;
-            display: block;
+        .wordmark {
+            display: inline-block;
+            letter-spacing: -0.02em;
+            border-bottom: 2px solid var(--dark);
+            padding-bottom: 2px;
+            line-height: 1;
         }
+
+        .wordmark .ani { color: var(--primary); }
+        .wordmark .point { color: var(--dark); }
 
         .nav-links {
             display: flex;
@@ -915,15 +920,18 @@
             color: var(--white);
             margin-bottom: 12px;
             display: flex;
-            align-items: center;
+            align-items: baseline;
             justify-content: center;
             gap: 10px;
         }
 
-        footer .logo svg {
-            height: 44px;
-            width: auto;
-            display: block;
+        footer .wordmark {
+            border-bottom-color: #ffffff;
+        }
+
+        footer .wordmark .ani,
+        footer .wordmark .point {
+            color: #ffffff;
         }
 
         footer p {
@@ -999,10 +1007,7 @@
     <nav>
         <div class="container">
             <a href="#" class="logo" aria-label="AniPoint Site Research home">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515 200" role="img" aria-label="AniPoint">
-                    <text x="0" y="130" font-family="Inter, -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="800" font-size="120" letter-spacing="-3"><tspan fill="#2563eb">Ani</tspan><tspan fill="#1e293b">Point</tspan></text>
-                    <line x1="0" y1="170" x2="490" y2="170" stroke="#1e293b" stroke-width="4"/>
-                </svg>
+                <span class="wordmark"><span class="ani">Ani</span><span class="point">Point</span></span>
                 <span style="color: var(--dark); font-weight: 600;">Site Research</span>
             </a>
             <ul class="nav-links">
@@ -1439,10 +1444,7 @@
     <footer>
         <div class="container">
             <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515 200" role="img" aria-label="AniPoint">
-                    <text x="0" y="130" font-family="Inter, -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="800" font-size="120" letter-spacing="-3" fill="#ffffff">AniPoint</text>
-                    <line x1="0" y1="170" x2="490" y2="170" stroke="#ffffff" stroke-width="4"/>
-                </svg>
+                <span class="wordmark"><span class="ani">Ani</span><span class="point">Point</span></span>
                 <span style="color: rgba(255,255,255,0.85); font-weight: 600;">Site Research</span>
             </div>
             <p>Strategic Site Selection & Market Intelligence</p>
