@@ -58,10 +58,14 @@
             font-weight: 800;
             font-size: 1.5rem;
             color: var(--primary);
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--dark);
+        nav .logo svg {
+            height: 32px;
+            width: auto;
+            display: block;
         }
 
         .nav-links {
@@ -907,10 +911,16 @@
             font-weight: 800;
             color: var(--white);
             margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
 
-        footer .logo span {
-            color: #60a5fa;
+        footer .logo svg {
+            height: 44px;
+            width: auto;
+            display: block;
         }
 
         footer p {
@@ -985,7 +995,12 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">Ani<span>Point</span></div>
+            <a href="#" class="logo" aria-label="AniPoint Site Research home">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="AniPoint">
+                    <text x="40" y="130" font-family="Inter, -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="800" font-size="120" letter-spacing="-3"><tspan fill="#2563eb">Ani</tspan><tspan fill="#1e293b">Point</tspan></text>
+                    <line x1="40" y1="170" x2="680" y2="170" stroke="#1e293b" stroke-width="4"/>
+                </svg>
+            </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
                 <li><a href="#why-us">Why Us</a></li>
@@ -1141,7 +1156,7 @@
                     <div class="diff-icon">B</div>
                     <div class="diff-content">
                         <h3>Probabilistic Modeling</h3>
-                        <p>We run extensive scenario modeling to show you the range of possible outcomes &mdash; not just one number.</p>
+                        <p>We run extensive scenario modeling to show you the range of possible outcomes - not just one number.</p>
                         <span class="comparison-label">Competitors: One number guess</span>
                     </div>
                 </div>
@@ -1199,7 +1214,7 @@
                     <div class="client-type">Our Analysis</div>
                     <h3>Location analysis study</h3>
                     <div class="roi-value">$549&ndash;$2,899</div>
-                    <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 6px;">Intro pricing &mdash; all three tiers</p>
+                    <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 6px;">Intro pricing - all three tiers</p>
                 </div>
                 <div class="roi-card">
                     <div class="client-type">Potential ROI</div>
@@ -1210,7 +1225,7 @@
             <div style="max-width: 800px; margin: 60px auto 0; background: rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; text-align: left;">
                 <h3 style="margin-bottom: 16px; font-size: 1.25rem;">Case Study: The Cost of a Wrong Location</h3>
                 <p style="color: rgba(255,255,255,0.85); line-height: 1.8;">
-                    Imagine you're considering two areas for your car wash. Area A looks promising &mdash; good visibility, busy road. Area B seems similar. Without data, you might flip a coin.<br><br>
+                    Imagine you're considering two areas for your car wash. Area A looks promising - good visibility, busy road. Area B seems similar. Without data, you might flip a coin.<br><br>
                     <strong>But our analysis reveals:</strong> Area A has 18,000 vehicles/day passing by. Area B? Only 6,000. Area A is in a neighborhood with growing population and fewer competitors. Area B is in a declining area with 3 car washes within 2 miles.<br><br>
                     <strong>The difference?</strong> Area A could generate $400K+ in annual revenue. Area B might struggle to break even. A $1,599 Standard analysis just helped you avoid a potential $300K+ loss.
                 </p>
@@ -1224,12 +1239,12 @@
             <div class="section-header">
                 <span class="badge">Introductory Pricing</span>
                 <h2>Three Tiers of Decision-Grade Analysis</h2>
-                <p>Pick the depth that fits the decision. Launch pricing reflects a limited-time discount on every tier &mdash; standard rates apply once we exit early access.</p>
+                <p>Pick the depth that fits the decision. Launch pricing reflects a limited-time discount on every tier - standard rates apply once we exit early access.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <div class="pricing-tier">Tier 1 &mdash; Basic</div>
+                        <div class="pricing-tier">Tier 1 - Basic</div>
                         <div class="pricing-price">
                             <span class="pricing-original">$1,099</span>
                             $549<span>+</span>
@@ -1250,7 +1265,7 @@
                 <div class="pricing-card featured">
                     <div class="featured-badge">Best Value</div>
                     <div class="pricing-header">
-                        <div class="pricing-tier">Tier 2 &mdash; Standard</div>
+                        <div class="pricing-tier">Tier 2 - Standard</div>
                         <div class="pricing-price">
                             <span class="pricing-original">$3,199</span>
                             $1,599<span>+</span>
@@ -1270,7 +1285,7 @@
                 </div>
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <div class="pricing-tier">Tier 3 &mdash; Premium</div>
+                        <div class="pricing-tier">Tier 3 - Premium</div>
                         <div class="pricing-price">
                             <span class="pricing-original">$5,799</span>
                             $2,899<span>+</span>
@@ -1419,7 +1434,13 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="logo">Ani<span>Point</span> Site Research</div>
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="AniPoint">
+                    <text x="40" y="130" font-family="Inter, -apple-system, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-weight="800" font-size="120" letter-spacing="-3" fill="#ffffff">AniPoint</text>
+                    <line x1="40" y1="170" x2="680" y2="170" stroke="#ffffff" stroke-width="4"/>
+                </svg>
+                <span style="color: rgba(255,255,255,0.85); font-weight: 600;">Site Research</span>
+            </div>
             <p>Strategic Site Selection & Market Intelligence</p>
             <p style="margin-top: 24px; font-size: 0.875rem;">© 2026 AniPoint Site Research. All rights reserved.</p>
         </div>
