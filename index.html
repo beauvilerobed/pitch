@@ -584,28 +584,12 @@
             color: var(--gray);
         }
 
-        .pricing-original {
+        .pricing-modifier {
             display: block;
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             font-weight: 500;
             color: var(--gray);
-            text-decoration: line-through;
-            text-decoration-thickness: 2px;
-            margin-bottom: 4px;
-            opacity: 0.7;
-        }
-
-        .pricing-intro-badge {
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.12);
-            color: var(--secondary);
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 4px 10px;
-            border-radius: 50px;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .pricing-guarantee-badge {
@@ -1233,18 +1217,6 @@
         </div>
     </section>
 
-    <!-- Early Access / Case Study Stub -->
-    <section style="background: var(--dark); color: var(--white); padding: 70px 0;">
-        <div class="container">
-            <div style="max-width: 760px; margin: 0 auto; text-align: center;">
-                <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">Early Access</span>
-                <h2 style="font-size: 2rem; font-weight: 700; margin: 20px 0 14px; color: var(--white);">First 5 Standard-tier slots open at intro pricing</h2>
-                <p style="color: rgba(255,255,255,0.78); font-size: 1.05rem; line-height: 1.7;">Standard analysis at <strong>$2,999</strong> (vs $3,999 list) in exchange for a written reference. Named case studies will be published here as engagements close.</p>
-                <p style="margin-top: 20px;"><a href="#contact" style="color: #60a5fa; font-weight: 600; text-decoration: none; font-size: 1rem;">Reserve a slot &rarr;</a></p>
-            </div>
-        </div>
-    </section>
-
     <!-- ROI Section -->
     <section class="roi">
         <div class="container">
@@ -1262,8 +1234,8 @@
                 <div class="roi-card">
                     <div class="client-type">Our Analysis</div>
                     <h3>Location analysis study</h3>
-                    <div class="roi-value">$899&ndash;$6,500</div>
-                    <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 6px;">Three tiers</p>
+                    <div class="roi-value">$1,500&ndash;$9,500</div>
+                    <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 6px;">Three tiers &middot; fixed fee</p>
                 </div>
                 <div class="roi-card">
                     <div class="client-type">Loss Avoided</div>
@@ -1276,7 +1248,7 @@
                 <p style="color: rgba(255,255,255,0.85); line-height: 1.8;">
                     Imagine you're considering two areas for your car wash. Area A looks promising - good visibility, busy road. Area B seems similar. Without data, you might flip a coin.<br><br>
                     <strong>But our analysis reveals:</strong> Area A has 18,000 vehicles/day passing by. Area B? Only 6,000. Area A is in a neighborhood with growing population and fewer competitors. Area B is in a declining area with 3 car washes within 2 miles.<br><br>
-                    <strong>The difference?</strong> Area A could generate $400K+ in annual revenue. Area B might struggle to break even. A $3,999 Standard analysis just helped you avoid a potential $300K+ loss.
+                    <strong>The difference?</strong> Area A could generate $400K+ in annual revenue. Area B might struggle to break even. A $4,500 Standard analysis just helped you avoid a potential $300K+ loss &mdash; a 60x return on the cost of the report.
                 </p>
             </div>
         </div>
@@ -1295,9 +1267,9 @@
                     <div class="pricing-header">
                         <div class="pricing-tier">Tier 1 - Basic</div>
                         <div class="pricing-price">
-                            $899<span>+</span>
+                            $1,500
                         </div>
-                        <div class="pricing-desc">Starter shortlist for one market</div>
+                        <div class="pricing-desc">Async shortlist for one market</div>
                     </div>
                     <ul class="pricing-features">
                         <li>Executive summary &amp; verdict</li>
@@ -1307,6 +1279,7 @@
                         <li>Top-10 preview map with tract stats on hover</li>
                         <li>FHWA HPMS traffic-count join at tract level</li>
                         <li>Wash-type-aware traffic thresholds (express vs flex vs IBA)</li>
+                        <li><strong>Async delivery</strong> &mdash; written report only, one revision pass, no live calls</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
                 </div>
@@ -1315,19 +1288,19 @@
                     <div class="pricing-header">
                         <div class="pricing-tier">Tier 2 - Standard</div>
                         <div class="pricing-price">
-                            $3,999<span>+</span>
+                            $4,500
                         </div>
-                        <div class="pricing-intro-badge">First 5 clients: $2,999 with written reference</div>
                         <div class="pricing-guarantee-badge"><strong>Top-3 redo guarantee:</strong> name one metric upfront; if our #1 site fails it on verified data, we redo the analysis free.</div>
-                        <div class="pricing-desc">Compare locations &middot; revenue projections</div>
+                        <div class="pricing-desc">Single market &middot; revenue projections &middot; walkthrough call</div>
                     </div>
                     <ul class="pricing-features">
                         <li>Everything in Basic</li>
-                        <li>Three-scenario revenue projections</li>
+                        <li>Three-scenario revenue projections (base / bull / bear) for the chosen market</li>
                         <li>Peer-county density benchmark (vs same-state counties)</li>
                         <li>Full competitor map covering all recommended locations, color-graded by score</li>
                         <li>Highway traffic viability map (wash-type-aware, market-adjusted thresholds)</li>
                         <li>Full investment-outlook callout</li>
+                        <li>30-minute results walkthrough call + two revision rounds</li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Contact Us</a>
                 </div>
@@ -1335,22 +1308,24 @@
                     <div class="pricing-header">
                         <div class="pricing-tier">Tier 3 - Premium</div>
                         <div class="pricing-price">
-                            $6,500<span>+</span>
+                            $9,500
                         </div>
-                        <div class="pricing-desc">Investor-ready &middot; full risk modeling</div>
+                        <span class="pricing-modifier">+ $2,500 per additional market beyond #3</span>
+                        <div class="pricing-desc">Investor-grade &middot; multi-market portfolio &middot; full risk modeling</div>
                     </div>
                     <ul class="pricing-features">
                         <li>Everything in Standard</li>
-                        <li>Probabilistic risk modeling at scale</li>
-                        <li>Probability of loss / VaR / upside metrics</li>
+                        <li>Full Monte Carlo distribution (not 3 pre-set scenarios) &mdash; probability of loss, VaR, upside</li>
                         <li>Tract-level risk profile map (Monte Carlo probability of loss)</li>
-                        <li>Multi-market portfolio comparison (rank 3+ markets side-by-side on the same scoring framework)</li>
+                        <li>Multi-market portfolio comparison: rank up to 3 markets side-by-side on the same scoring framework</li>
                         <li>Sensitivity tables: revenue &amp; loss probability under traffic, competition, and demographic-shift scenarios</li>
+                        <li>Custom revenue model calibrated to your operating assumptions (wash type, pricing, hours, ramp curve)</li>
+                        <li>Investor / lender PDF appendix with full methodology and source citations</li>
+                        <li>60-minute results walkthrough + 30 days of email Q&amp;A post-delivery</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 40px; font-size: 0.95rem; color: var(--gray); max-width: 720px; margin-left: auto; margin-right: auto;">Repeat buyer? Annual retainer available for brokers, lenders, and franchise developers - one study per month plus email Q&amp;A from $2,750/mo. <a href="#contact" style="color: var(--primary); font-weight: 600; text-decoration: none;">Contact us</a>.</p>
         </div>
     </section>
 
