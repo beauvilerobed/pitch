@@ -513,15 +513,15 @@
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
             align-items: stretch;
         }
 
         .pricing-card {
             background: var(--white);
             border-radius: 20px;
-            padding: 40px;
+            padding: 28px;
             position: relative;
             border: 2px solid transparent;
             transition: all 0.3s;
@@ -967,9 +967,12 @@
             .services-grid,
             .problem-grid,
             .roi-grid,
-            .pricing-grid,
             .data-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .diff-grid {
@@ -990,6 +993,10 @@
         }
 
         @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
             .hero-content h1 {
                 font-size: 2.5rem;
             }
@@ -1234,8 +1241,8 @@
                 <div class="roi-card">
                     <div class="client-type">Our Analysis</div>
                     <h3>Location analysis study</h3>
-                    <div class="roi-value">$1,500&ndash;$9,500</div>
-                    <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 6px;">Three tiers &middot; fixed fee</p>
+                    <div class="roi-value">$1,500&ndash;$29,500+</div>
+                    <p style="opacity: 0.7; font-size: 0.85rem; margin-top: 6px;">Four tiers &middot; fixed fee</p>
                 </div>
                 <div class="roi-card">
                     <div class="client-type">Loss Avoided</div>
@@ -1251,6 +1258,14 @@
                     <strong>The difference?</strong> Area A could generate $400K+ in annual revenue. Area B might struggle to break even. A $4,500 Standard analysis just helped you avoid a potential $300K+ loss &mdash; a 60x return on the cost of the report.
                 </p>
             </div>
+            <div style="max-width: 800px; margin: 32px auto 0; background: rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; text-align: left;">
+                <h3 style="margin-bottom: 16px; font-size: 1.25rem;">Case Study: The Multi-Market Bet</h3>
+                <p style="color: rgba(255,255,255,0.85); line-height: 1.8;">
+                    A franchise developer is evaluating four candidate markets for builds totaling roughly $2.4M in capital. On surface demographics the markets look comparable, and the developer is ready to commit to all four.<br><br>
+                    <strong>A Tier 3 portfolio analysis runs Monte Carlo on each market:</strong> Markets A and B clear an 80%+ probability of positive year-one EBITDA. Market C sits at 34% &mdash; commuter patterns don't pull through to the candidate tracts, and two new competitors have already filed lease commitments inside the trade area. Market D is mid-pack but carries a heavy downside tail (VaR-95 = -$180K) tied to one operating assumption.<br><br>
+                    <strong>The decision:</strong> drop Market C, hold Market D pending the operator-side pricing assumptions, proceed on A and B. A $9,500 portfolio study just prevented a probable ~$600K loss on Market C alone &mdash; and reshaped the lender conversation on the rest of the footprint.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -1259,27 +1274,27 @@
         <div class="container">
             <div class="section-header">
                 <span class="badge">Pricing</span>
-                <h2>Three Tiers of Decision-Grade Analysis</h2>
+                <h2>Four Tiers of Decision-Grade Analysis</h2>
                 <p>Pick the depth that fits the decision. Every engagement is fixed-fee with a defined deliverable.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <div class="pricing-tier">Tier 1 - Basic</div>
+                        <div class="pricing-tier">Tier 1 - Shortlist</div>
                         <div class="pricing-price">
                             $1,500
                         </div>
-                        <div class="pricing-desc">Async shortlist for one market</div>
+                        <div class="pricing-desc">Async shortlist scoped to one ZIP or sub-county &middot; designed as a lead-in to a full Tier 2 analysis</div>
                     </div>
                     <ul class="pricing-features">
                         <li>Executive summary &amp; verdict</li>
                         <li>Market-at-a-glance demographics</li>
-                        <li>Top 10 recommendations table</li>
-                        <li>Market growth &amp; commuter analysis</li>
-                        <li>Top-10 preview map with tract stats on hover</li>
+                        <li>Top 5 tract recommendations table (geography capped to one ZIP or sub-county)</li>
+                        <li>Top-5 preview map with tract stats on hover</li>
                         <li>FHWA HPMS traffic-count join at tract level</li>
                         <li>Wash-type-aware traffic thresholds (express vs flex vs IBA)</li>
                         <li><strong>Async delivery</strong> &mdash; written report only, one revision pass, no live calls</li>
+                        <li><strong>Not decision-grade alone</strong> &mdash; revenue projections, full competitor map, and walkthrough call live in Tier 2</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
                 </div>
@@ -1294,7 +1309,7 @@
                         <div class="pricing-desc">Single market &middot; revenue projections &middot; walkthrough call</div>
                     </div>
                     <ul class="pricing-features">
-                        <li>Everything in Basic</li>
+                        <li>Everything in Shortlist</li>
                         <li>Three-scenario revenue projections (base / bull / bear) for the chosen market</li>
                         <li>Peer-county density benchmark (vs same-state counties)</li>
                         <li>Full competitor map covering all recommended locations, color-graded by score</li>
@@ -1310,7 +1325,7 @@
                         <div class="pricing-price">
                             $9,500
                         </div>
-                        <span class="pricing-modifier">+ $2,500 per additional market beyond #3</span>
+                        <span class="pricing-modifier">+ $3,500 per additional market beyond #3</span>
                         <div class="pricing-desc">Investor-grade &middot; multi-market portfolio &middot; full risk modeling</div>
                     </div>
                     <ul class="pricing-features">
@@ -1322,6 +1337,26 @@
                         <li>Custom revenue model calibrated to your operating assumptions (wash type, pricing, hours, ramp curve)</li>
                         <li>Investor / lender PDF appendix with full methodology and source citations</li>
                         <li>60-minute results walkthrough + 30 days of email Q&amp;A post-delivery</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-tier">Tier 4 - Portfolio</div>
+                        <div class="pricing-price">
+                            $29,500
+                        </div>
+                        <span class="pricing-modifier">starting &middot; typical range $29,500&ndash;$45,000+</span>
+                        <div class="pricing-desc">Lender / franchise developer engagements &middot; 5+ markets or full-footprint analysis</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Everything in Premium</li>
+                        <li>5+ markets (or a full target footprint) on a single scoring framework</li>
+                        <li>Cross-market portfolio risk model &mdash; correlated downside scenarios, not single-site Monte Carlo</li>
+                        <li>Lender / capital-partner investment memo: tract-level methodology, risk register, dataset citations</li>
+                        <li>Custom delivery: hosted interactive dashboard in addition to the static report</li>
+                        <li>Working sessions with the analyst (90 min) + 60 days of email and call support post-delivery</li>
+                        <li>Optional quarterly refresh under a follow-on SOW</li>
                     </ul>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
                 </div>
