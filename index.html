@@ -525,6 +525,8 @@
             position: relative;
             border: 2px solid transparent;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-card:hover {
@@ -562,6 +564,7 @@
             padding-bottom: 24px;
             border-bottom: 1px solid rgba(0,0,0,0.08);
             margin-bottom: 24px;
+            min-height: 215px;
         }
 
         .pricing-tier {
@@ -608,12 +611,14 @@
         .pricing-desc {
             color: var(--gray);
             font-size: 0.9rem;
-            margin-top: 8px;
+            margin-top: auto;
+            padding-top: 12px;
         }
 
         .pricing-features {
             list-style: none;
             margin-bottom: 32px;
+            flex-grow: 1;
         }
 
         .pricing-features li {
