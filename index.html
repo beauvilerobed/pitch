@@ -525,6 +525,34 @@
             border-radius: 6px;
         }
 
+        .demo-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .demo-stats div {
+            padding: 10px 12px;
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+        }
+
+        .demo-stats strong {
+            display: block;
+            font: 700 1.25rem Helvetica, Arial, sans-serif;
+            color: var(--primary);
+        }
+
+        .demo-stats span {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.8rem;
+            line-height: 1.35;
+            color: var(--text-medium);
+        }
+
         .demo-dialog-note {
             margin-top: 12px;
             font-size: 0.85rem;
@@ -1481,7 +1509,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/01-location-ranking.jpg" alt="Map of Adams County, PA block groups shaded by opportunity zone, from recommended to high competition" loading="lazy" width="960" height="600">
-            <p class="demo-dialog-note"><strong>68</strong> block groups ranked &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>68</strong><span>block groups ranked</span></div><div><strong>59</strong><span>top site score (0-100)</span></div><div><strong>36</strong><span>block groups more than 3 km from a competitor</span></div><div><strong>6</strong><span>factors in every score: traffic, income, density, vehicles, growth, competition</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-02" aria-labelledby="demo-02-title">
             <div class="demo-dialog-head">
@@ -1489,7 +1518,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/02-customer-profile.jpg" alt="Map of Adams County, PA block groups shaded by share of residents with a 30+ minute commute" loading="lazy" width="960" height="600">
-            <p class="demo-dialog-note"><strong>83%</strong> drive alone in the strongest commuter area &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>106,115</strong><span>people in the county</span></div><div><strong>$84,092</strong><span>median household income</span></div><div><strong>46</strong><span>median age</span></div><div><strong>2.14</strong><span>vehicles per household</span></div><div><strong>85%</strong><span>drive alone to work</span></div><div><strong>30%</strong><span>commute 30+ minutes</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-03" aria-labelledby="demo-03-title">
             <div class="demo-dialog-head">
@@ -1497,7 +1527,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/03-traffic-demand.jpg" alt="Map of Adams County, PA block groups shaded by traffic on roads a customer can turn in from" loading="lazy" width="960" height="600">
-            <p class="demo-dialog-note"><strong>1,861</strong> road segments with federal counts; 116 freeway segments excluded &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>1,861</strong><span>road segments with federal counts</span></div><div><strong>116</strong><span>freeway segments excluded</span></div><div><strong>9,717</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>8 of 68</strong><span>block groups meet the 8,500 a day minimum</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-04" aria-labelledby="demo-04-title">
             <div class="demo-dialog-head">
@@ -1505,7 +1536,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <div class="slider" role="region" aria-roledescription="carousel" aria-label="Revenue projection charts" tabindex="0"><div class="slider-track"><img src="demo/04-revenue-1.jpg" alt="Annual revenue distribution across block groups, with median and break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-2.jpg" alt="Annual revenue against site score, colored by capacity utilization" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-3.jpg" alt="Average daily customers by scenario against break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-4.jpg" alt="Profit margin distribution, profitable and unprofitable block groups" loading="lazy" width="1200" height="750"></div><div class="slider-nav"><button type="button" class="slider-prev" aria-label="Previous chart">&#8249;</button><div class="slider-dots"><button type="button" class="slider-dot" aria-label="Chart 1"></button><button type="button" class="slider-dot" aria-label="Chart 2"></button><button type="button" class="slider-dot" aria-label="Chart 3"></button><button type="button" class="slider-dot" aria-label="Chart 4"></button></div><span class="slider-count"></span><button type="button" class="slider-next" aria-label="Next chart">&#8250;</button></div></div>
-            <p class="demo-dialog-note"><strong>3</strong> revenue scenarios for every block group &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>$130K</strong><span>worst case, strongest block group</span></div><div><strong>$488K</strong><span>expected, strongest block group</span></div><div><strong>$1.46M</strong><span>best case, strongest block group</span></div><div><strong>45 of 68</strong><span>block groups above break-even</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-05" aria-labelledby="demo-05-title">
             <div class="demo-dialog-head">
@@ -1513,7 +1545,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/05-risk-assessment.jpg" alt="Map of Adams County, PA block groups ranked by simulated probability of loss" loading="lazy" width="960" height="600">
-            <p class="demo-dialog-note"><strong>5,000</strong> simulations per block group &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>5,000</strong><span>simulations per block group</span></div><div><strong>15%</strong><span>lowest chance of a loss</span></div><div><strong>63%</strong><span>median chance of a loss</span></div><div><strong>3 of 68</strong><span>block groups at 20% or lower</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-06" aria-labelledby="demo-06-title">
             <div class="demo-dialog-head">
@@ -1521,7 +1554,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/06-competitive-mapping.jpg" alt="Map of existing car washes and candidate areas in Adams County, PA, with road traffic" loading="lazy" width="960" height="600">
-            <p class="demo-dialog-note"><strong>26</strong> car washes mapped in the county &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>26</strong><span>car washes in the county</span></div><div><strong>3.2 km</strong><span>median distance to the nearest</span></div><div><strong>19</strong><span>block groups with little competitor overlap</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-07" aria-labelledby="demo-07-title">
             <div class="demo-dialog-head">
@@ -1529,7 +1563,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/07-causal-impact.jpg" alt="Map of Adams County, PA block groups shaded by estimated incremental revenue opportunity" loading="lazy" width="960" height="600">
-            <p class="demo-dialog-note"><strong>89</strong> comparison counties, 2012-2023 &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>89</strong><span>comparison counties</span></div><div><strong>12</strong><span>years of history, 2012-2023</span></div><div><strong>95%</strong><span>likely range reported per site</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-08" aria-labelledby="demo-08-title">
             <div class="demo-dialog-head">
@@ -1537,7 +1572,8 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/08-zoning-feasibility.jpg" alt="Map of candidate sites in Adams County, PA colored by number of feasibility red flags" loading="lazy" width="960" height="600">
-            <p class="demo-dialog-note"><strong>13</strong> sites screened; 8 carry a red flag &middot; Sample analysis of Adams County, Pennsylvania</p>
+            <div class="demo-stats"><div><strong>13</strong><span>candidate sites screened</span></div><div><strong>5</strong><span>weak main-road access</span></div><div><strong>2</strong><span>steep land</span></div><div><strong>1</strong><span>flood zone</span></div><div><strong>1</strong><span>wetlands</span></div><div><strong>0</strong><span>fuel-tank releases</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
 
 
