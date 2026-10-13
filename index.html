@@ -458,6 +458,30 @@
             margin-bottom: 6px;
         }
 
+        .demo {
+            margin: 14px 0 0;
+        }
+
+        .demo img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+        }
+
+        .demo figcaption {
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: var(--text-medium);
+        }
+
+        .demo figcaption strong {
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-right: 4px;
+        }
+
         .numbered-item .body p {
             font-size: 0.92rem;
             color: var(--text-medium);
@@ -1256,7 +1280,7 @@
             <div class="container">
                 <h2>What our analysis delivers</h2>
                 <div class="section-eyebrow">II. Coverage</div>
-                <p class="section-lede">Eight ways we evaluate every site, all built on real data.</p>
+                <p class="section-lede">Eight ways we evaluate every site, all built on real data. The examples below come from a sample analysis of Adams County, Pennsylvania.</p>
 
                 <div class="grid-2">
                     <div class="numbered-item">
@@ -1264,6 +1288,10 @@
                         <div class="body">
                             <h3>Location Ranking</h3>
                             <p>Ranks the neighborhoods in your target area by traffic, how well residents match your customers, and how crowded the competition is, so the strongest options rise to the top.</p>
+                            <figure class="demo">
+                                <img src="demo/01-location-ranking.jpg" alt="Map of Adams County, PA block groups shaded by opportunity zone, from recommended to high competition" loading="lazy" width="960" height="600">
+                                <figcaption><strong>68</strong> block groups ranked</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -1272,6 +1300,10 @@
                         <div class="body">
                             <h3>Customer Profile Analysis</h3>
                             <p>A profile of who lives near the site - population, income, age, vehicles, and commutes - and how closely they match the customers your business depends on.</p>
+                            <figure class="demo">
+                                <img src="demo/02-customer-profile.jpg" alt="Map of Adams County, PA block groups shaded by share of residents with a 30+ minute commute" loading="lazy" width="960" height="600">
+                                <figcaption><strong>83%</strong> drive alone in the strongest commuter area</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -1280,6 +1312,10 @@
                         <div class="body">
                             <h3>Traffic &amp; Demand Analysis</h3>
                             <p>Daily traffic from official federal counts on nearby roads a customer can actually turn in from (freeways excluded), plus local signs of how busy the area is.</p>
+                            <figure class="demo">
+                                <img src="demo/03-traffic-demand.jpg" alt="Map of Adams County, PA block groups shaded by traffic on roads a customer can turn in from" loading="lazy" width="960" height="600">
+                                <figcaption><strong>1,861</strong> road segments with federal counts; 116 freeway segments excluded</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -1288,6 +1324,10 @@
                         <div class="body">
                             <h3>Revenue Projections</h3>
                             <p>Expected, best-case, and worst-case revenue for the site, built from your operating costs and local demand, so you see the realistic range before committing.</p>
+                            <figure class="demo">
+                                <img src="demo/04-revenue-projections.jpg" alt="Charts of revenue distribution, revenue versus site score, daily customers by scenario, and profit margin for Adams County, PA" loading="lazy" width="960" height="684">
+                                <figcaption><strong>3</strong> revenue scenarios for every block group</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -1296,6 +1336,10 @@
                         <div class="body">
                             <h3>Risk Assessment</h3>
                             <p>Simulates thousands of outcomes for traffic, customer capture, and ticket price to estimate the chance the site loses money, so you know the downside before you sign.</p>
+                            <figure class="demo">
+                                <img src="demo/05-risk-assessment.jpg" alt="Map of Adams County, PA block groups ranked by simulated probability of loss" loading="lazy" width="960" height="600">
+                                <figcaption><strong>5,000</strong> simulations per block group</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -1304,6 +1348,10 @@
                         <div class="body">
                             <h3>Competitive Mapping</h3>
                             <p>Maps known competitors near the site and shows how much they overlap with the area your customers would come from.</p>
+                            <figure class="demo">
+                                <img src="demo/06-competitive-mapping.jpg" alt="Map of existing car washes and candidate areas in Adams County, PA, with road traffic" loading="lazy" width="960" height="600">
+                                <figcaption><strong>26</strong> car washes mapped in the county</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -1312,6 +1360,10 @@
                         <div class="body">
                             <h3>Causal Impact Analysis</h3>
                             <p>Estimates how much new revenue a wash would actually add, based on how car wash markets in comparable counties changed over a decade, with a likely range instead of a single guess.</p>
+                            <figure class="demo">
+                                <img src="demo/07-causal-impact.jpg" alt="Map of Adams County, PA block groups shaded by estimated incremental revenue opportunity" loading="lazy" width="960" height="600">
+                                <figcaption><strong>89</strong> comparison counties, 2012-2023</figcaption>
+                            </figure>
                         </div>
                     </div>
 
@@ -1321,6 +1373,10 @@
                         <div class="body">
                             <h3>Zoning &amp; Feasibility Screening</h3>
                             <p>A quick check of each site for flood risk, wetlands, steep land, access from a main road, old underground fuel tanks, and zoning where the county publishes a zoning map. Flags problem sites before you pay for inspections; it doesn't replace a call to the planning office.</p>
+                            <figure class="demo">
+                                <img src="demo/08-zoning-feasibility.jpg" alt="Map of candidate sites in Adams County, PA colored by number of feasibility red flags" loading="lazy" width="960" height="600">
+                                <figcaption><strong>13</strong> sites screened; 8 carry a red flag</figcaption>
+                            </figure>
                         </div>
                     </div>
                 </div>
