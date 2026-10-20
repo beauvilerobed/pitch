@@ -843,6 +843,12 @@
         }
 
         .pricing-card ul li:last-child { border-bottom: none; }
+        .addons { margin-top: 3.5rem; }
+        .addons h4 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .addons-lede { font-size: 0.95rem; color: var(--text-muted, #555); margin-bottom: 1.25rem; }
+        .addon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem 2rem; }
+        .addon { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 0.95rem; }
+        .addon-price { font-weight: 600; white-space: nowrap; }
 
         .pricing-card ul li::before {
             content: "+";
@@ -1371,7 +1377,7 @@
                 <nav id="primaryNav">
                     <ul>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#pricing">Reports</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
                         <li><a href="#process">Process</a></li>
                         <li><a href="#contact" class="nav-cta">Request a Report</a></li>
                     </ul>
@@ -1383,16 +1389,16 @@
         <header class="cover">
             <div class="org-name">AniPoint Site Research</div>
             <h1><span class="word">Finding</span> <span class="word">a</span> <span class="word">location</span> <span class="word">is</span> <span class="word">easy.</span><br><span class="word">Finding</span> <span class="word">the</span> <span class="word">right</span> <span class="word">location</span> <span class="word">is</span> <span class="word">a</span> <span class="word">science.</span></h1>
-            <!-- <p class="subtitle">Tract-level demographic, traffic, and competitor analysis - before you sign a lease or commit to a build.</p> -->
+            <p class="subtitle">Fixed-fee site research for car washes and other drive-by businesses: traffic, competition, expected revenue, and the chance a site loses money, delivered in days, before you sign a lease or commit to a build.</p>
             <p class="audience">Car wash &middot; QSR &middot; Gas &middot; C-store &middot; Drive-thru &middot; Brokers &middot; Automotive Services &middot; Franchise developers</p>
             <div class="cover-cta">
-                <a href="#contact" class="btn btn-primary">Request a Report</a>
-                <a href="#pricing" class="btn btn-secondary">View Tiers</a>
+                <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Market%20Preview%20Request" class="btn btn-primary">Get a Free Market Preview</a>
+                <a href="#pricing" class="btn btn-secondary">See Pricing</a>
             </div>
             <div class="cover-meta">
                 <span>Coverage <strong>U.S. nationwide</strong></span>
                 <span>Turnaround <strong>Days, not weeks</strong></span>
-                <span>Report <strong>Fixed fee</strong></span>
+                <span>Pricing <strong>From $4,500, fixed fee</strong></span>
             </div>
         </header>
 
@@ -1409,7 +1415,7 @@
                         </div>
                         <div class="card card-accent">
                             <h3>Revenue estimates before you invest</h3>
-                            <p>A new site is a $300K&ndash;$1.5M commitment. Expected, best-case, and worst-case revenue estimates show what that money can realistically earn.</p>
+                            <p>A new site is often a seven-figure commitment. Expected, best-case, and worst-case revenue estimates show what that money can realistically earn.</p>
                         </div>
                         <div class="card card-accent">
                             <h3>Telling similar sites apart</h3>
@@ -1589,13 +1595,13 @@
                 <div class="metric-strip stagger">
                     <div class="metric">
                         <div class="metric-label">Capital Investment</div>
-                        <div class="metric-value">$<span data-count="300" data-suffix="K">0</span>&ndash;$<span data-count="1.5" data-decimals="1" data-suffix="M">0</span></div>
-                        <div class="metric-sub">Typical car wash development cost</div>
+                        <div class="metric-value">$<span data-count="1" data-suffix="M+">0</span></div>
+                        <div class="metric-sub">Typical new car wash, including land and equipment</div>
                     </div>
 
                     <div class="metric highlight">
                         <div class="metric-label">Research Investment</div>
-                        <div class="metric-value">$<span data-count="4500" data-comma="1">0</span>&ndash;$<span data-count="24500" data-comma="1" data-suffix="+">0</span></div>
+                        <div class="metric-value">$<span data-count="4500" data-comma="1">0</span>&ndash;$<span data-count="14500" data-comma="1" data-suffix="+">0</span></div>
                         <div class="metric-sub">Three report tiers, fixed fee</div>
                     </div>
 
@@ -1632,7 +1638,7 @@
             <div class="container">
                 <h2>Clear data. Smart site selection.</h2>
                 <div class="section-eyebrow">IV. Site Validation</div>
-                <p class="section-lede">Pick the level of analysis that fits your project.</p>
+                <p class="section-lede">Pick the level of analysis that fits your project. Every report is a fixed fee, quoted in writing before work starts. Not sure yet? Ask for a free preview of your county: the top 10 areas for a new wash, with existing competitors mapped.</p>
                 
                 <!-- Expanded width horizontal framework for wide screens -->
                 <div class="pricing-narrow-wrapper" style="max-width: 1600px; margin: 0 auto; padding: 0 1rem;">
@@ -1641,7 +1647,7 @@
                         <!-- Phase 1: The Site Validator -->
                         <div class="flow-segment" style="flex: 1; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 3.5rem;">
                             <div class="tier-name" style="font-size: 1.25rem; margin-bottom: 0.5rem;">1. The Site Validator</div>
-                            <!-- <div class="price" style="font-size: 1.5rem; margin-bottom: 0.5rem;">$<span data-count="4500" data-comma="1">0</span></div> -->
+                            <div class="price" style="font-size: 1.5rem; margin-bottom: 0.5rem;">$<span data-count="4500" data-comma="1">0</span></div>
                             <div class="tier-desc" style="margin-bottom: 1rem; font-weight: bold; color: var(--text-muted, #555);">Perfect for validating a single location.</div>
                             <p class="marketing-hook" style="margin-bottom: 1.5rem;">Know exactly how a specific property stacks up. We map nearby competitors, measure traffic around the site, and estimate its revenue so you can decide on the land with evidence in hand.</p>
                             <p class="segment-details" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-subtle, #777);"><strong>Includes:</strong> Maps ranking the surrounding neighborhoods, expected, best-case, and worst-case revenue for the location, a score for nearby competition, and a 30-minute walkthrough presentation with two revision rounds.</p>
@@ -1650,21 +1656,37 @@
                         <!-- Phase 2: The Underwriting Defender -->
                         <div class="flow-segment" style="flex: 1; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 3.5rem;">
                             <div class="tier-name" style="font-size: 1.25rem; margin-bottom: 0.5rem;">2. The Underwriting Defender</div>
-                            <!-- <div class="price" style="font-size: 1.5rem; margin-bottom: 0.5rem;">$<span data-count="9500" data-comma="1">0</span></div> -->
+                            <div class="price" style="font-size: 1.5rem; margin-bottom: 0.5rem;">$<span data-count="9500" data-comma="1">0</span></div>
                             <div class="tier-desc" style="margin-bottom: 1rem; font-weight: bold; color: var(--text-muted, #555);">Built to justify tough investment decisions and conservative estimates.</div>
                             <p class="marketing-hook" style="margin-bottom: 1.5rem;">Adds a full risk analysis to your purchase decision. We test your chosen site against the market conditions most likely to hurt it.</p>
-                            <p class="segment-details" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-subtle, #777);"><strong>Includes:</strong> Everything in 1, plus the odds the site loses money, rankings adjusted for risk, and a revenue model built around your actual site plan.</p>
+                            <p class="segment-details" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-subtle, #777);"><strong>Includes:</strong> Everything in 1, plus the odds the site loses money, rankings adjusted for risk, a revenue model built around your actual site plan, and payback measured against your project budget.</p>
                         </div>
 
                         <!-- Phase 3: The Portfolio Scale -->
                         <div class="flow-segment" style="flex: 1; border-left: 1px solid rgba(0,0,0,0.1); padding-left: 3.5rem;">
                             <div class="tier-name" style="font-size: 1.25rem; margin-bottom: 0.5rem;">3. The Regional Aggregator</div>
-                            <!-- <div class="price" style="font-size: 1.5rem; margin-bottom: 0.5rem;">$<span data-count="24500" data-comma="1">0</span></div> -->
+                            <div class="price" style="font-size: 1.5rem; margin-bottom: 0.5rem;">From $<span data-count="14500" data-comma="1">0</span></div>
                             <div class="tier-desc" style="margin-bottom: 1rem; font-weight: bold; color: var(--text-muted, #555);">Designed for operators deploying capital across multiple territories.</div>
                             <p class="marketing-hook" style="margin-bottom: 1.5rem;">Compare sites in different markets side by side to plan where to expand next and grow faster.</p>
-                            <p class="segment-details" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-subtle, #777);"><strong>Includes:</strong> Scores for every site, maps comparing regions, and an investor-ready summary for your capital partners.</p>
+                            <p class="segment-details" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-subtle, #777);"><strong>Includes:</strong> Up to three markets, scores for every site, maps comparing regions, and an investor-ready summary for your capital partners. Each additional market is $3,500.</p>
                         </div>
 
+                    </div>
+
+                    <!-- Individual analyses -->
+                    <div class="addons">
+                        <h4>Individual analyses</h4>
+                        <p class="addons-lede">Add to any report, or order on their own for a site you already have in mind.</p>
+                        <div class="addon-grid">
+                            <div class="addon"><span class="addon-name">Additional site, same county</span><span class="addon-price">$1,500</span></div>
+                            <div class="addon"><span class="addon-name">Additional market (county)</span><span class="addon-price">$3,500</span></div>
+                            <div class="addon"><span class="addon-name">Risk analysis on your site plan</span><span class="addon-price">$2,500</span></div>
+                            <div class="addon"><span class="addon-name">Zoning &amp; site-condition screen, up to 10 sites</span><span class="addon-price">$1,250</span></div>
+                            <div class="addon"><span class="addon-name">Competitor &amp; traffic map pack</span><span class="addon-price">$1,000</span></div>
+                            <div class="addon"><span class="addon-name">Lender or investor package</span><span class="addon-price">$1,500</span></div>
+                            <div class="addon"><span class="addon-name">Annual data refresh</span><span class="addon-price">$1,500</span></div>
+                            <div class="addon"><span class="addon-name">Quarterly market monitoring</span><span class="addon-price">$300/mo</span></div>
+                        </div>
                     </div>
 
                     <!-- Professional Hybrid / Customization Section -->
@@ -1808,8 +1830,8 @@
             <p>Share the geography, target use case, or candidate sites, and we'll recommend an appropriate research scope.</p>
 
             <div class="cta-buttons">
-                <a href="mailto:rbeauvile@anipointresearch.com?subject=Site%20Selection%20Inquiry" class="btn btn-primary">Contact Us</a>
-                <a href="#pricing" class="btn btn-secondary">Review</a>
+                <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Market%20Preview%20Request" class="btn btn-primary">Get a Free Market Preview</a>
+                <a href="mailto:rbeauvile@anipointresearch.com?subject=Site%20Selection%20Inquiry" class="btn btn-secondary">Request a Quote</a>
             </div>
         </div>
 
