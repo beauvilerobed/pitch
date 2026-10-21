@@ -844,6 +844,12 @@
 
         .pricing-card ul li:last-child { border-bottom: none; }
         .addons-note { margin-top: 2.5rem; text-align: center; font-size: 0.95rem; color: var(--text-muted, #555); }
+        .custom-band { margin-top: 28px; background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--secondary); border-radius: 8px; padding: 26px 28px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: center; }
+        .custom-band h3 { font-family: Helvetica, Arial, sans-serif; font-size: 1.2rem; color: var(--primary); margin: 0 0 8px; }
+        .custom-band p { font-family: Georgia, serif; font-size: 0.95rem; color: var(--text-medium); line-height: 1.6; margin: 0 0 16px; }
+        .custom-band-options { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .custom-band-options li { font-family: Helvetica, Arial, sans-serif; font-size: 0.8rem; color: var(--primary); background: var(--bg-light); border: 1px solid var(--border-light); border-radius: 999px; padding: 6px 12px; }
+        @media (max-width: 760px) { .custom-band { grid-template-columns: 1fr; padding: 22px 20px; } }
         .pricing-fineprint { max-width: 720px; margin: 12px auto 0; text-align: center; font-size: 0.8rem; line-height: 1.6; color: var(--text-light); }
 
         .pricing-card ul li::before {
@@ -1684,7 +1690,23 @@
                     </div>
                 </div>
 
-                <p class="addons-note">Add-ons such as extra sites, extra markets and lender packages are quoted with your report. Need something different? We scope custom and mixed-site projects to your criteria.</p>
+                <div class="custom-band">
+                    <div class="custom-band-text">
+                        <h3>Built around your project</h3>
+                        <p>Every report can be tailored. Add sites, combine sites across markets, work from your own site plan, or tell us what you need and we'll scope it to your criteria, quoted in writing before work starts.</p>
+                        <a href="mailto:rbeauvile@anipointresearch.com?subject=Custom%20Project" class="btn btn-outline">Scope a Custom Project</a>
+                    </div>
+                    <ul class="custom-band-options" aria-label="Popular add-ons">
+                        <li>Extra sites</li>
+                        <li>Extra markets</li>
+                        <li>Your own site plan</li>
+                        <li>Zoning &amp; site screen</li>
+                        <li>Competitor &amp; traffic maps</li>
+                        <li>Lender &amp; investor package</li>
+                        <li>Annual refresh</li>
+                        <li>Quarterly monitoring</li>
+                    </ul>
+                </div>
                 <p class="pricing-fineprint">Our reports screen markets and sites before you commit capital. They don't confirm that a property is for sale, guarantee results, or replace zoning, utility and site-access checks with the municipality and your engineer.</p>
             </div>
         </section>
