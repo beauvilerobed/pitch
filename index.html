@@ -488,6 +488,51 @@
             box-shadow: 0 20px 60px rgba(15, 23, 42, 0.35);
         }
 
+        /* Open popups are a column: the image shrinks to the space the
+           header, stats and note leave, so the numbers fit without scrolling. */
+        .demo-dialog[open] {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-dialog > img,
+        .demo-dialog > .slider {
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+
+        /* Height cap as well as the flex shrink: Safari does not always let
+           an image shrink inside a flex column. The reserve covers the header,
+           up to two rows of stats and the note. */
+        .demo-dialog > img {
+            max-height: calc(92vh - 280px);
+            object-fit: contain;
+        }
+
+        .demo-dialog > .slider {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .demo-dialog .slider-track {
+            flex: 1 1 auto;
+            min-height: 0;
+        }
+
+        .demo-dialog .slider-track > img {
+            max-height: calc(92vh - 330px);
+            height: auto;
+            min-height: 0;
+            align-self: stretch;
+            object-fit: contain;
+        }
+
+        .demo-dialog > .demo-stats,
+        .demo-dialog > .demo-dialog-note,
+        .demo-dialog-head {
+            flex: none;
+        }
+
         .demo-dialog::backdrop {
             background: rgba(15, 23, 42, 0.6);
         }
@@ -1496,7 +1541,7 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/01-location-ranking.jpg" alt="Map of Adams County, PA block groups shaded by opportunity zone, from recommended to high competition" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>68</strong><span>block groups ranked</span></div><div><strong>70</strong><span>top site score (0-100)</span></div><div><strong>36</strong><span>block groups more than 3 km from a competitor</span></div><div><strong>6</strong><span>factors in every score: traffic, income, density, vehicles, growth, competition</span></div></div>
+            <div class="demo-stats"><div><strong>68</strong><span>block groups ranked</span></div><div><strong>79</strong><span>top site score (0-100)</span></div><div><strong>36</strong><span>block groups more than 3 km from a competitor</span></div><div><strong>6</strong><span>factors in every score: traffic, income, density, vehicles, growth, competition</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-02" aria-labelledby="demo-02-title">
@@ -1514,7 +1559,7 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/03-traffic-demand.jpg" alt="Map of Adams County, PA block groups shaded by traffic on roads a customer can turn in from" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>1,861</strong><span>road segments with federal counts</span></div><div><strong>116</strong><span>freeway segments excluded</span></div><div><strong>9,717</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>8 of 68</strong><span>block groups meet the 8,500 a day minimum</span></div></div>
+            <div class="demo-stats"><div><strong>10,954</strong><span>road segments with federal counts</span></div><div><strong>391</strong><span>freeway segments excluded</span></div><div><strong>27,566</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>48 of 68</strong><span>block groups meet the 8,500 a day minimum</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-04" aria-labelledby="demo-04-title">
@@ -1523,7 +1568,7 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <div class="slider" role="region" aria-roledescription="carousel" aria-label="Revenue projection charts" tabindex="0"><div class="slider-track"><img src="demo/04-revenue-1.jpg" alt="Annual revenue distribution across block groups, with median and break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-2.jpg" alt="Annual revenue against site score, colored by capacity utilization" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-3.jpg" alt="Average daily customers by scenario against break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-4.jpg" alt="Profit margin distribution, profitable and unprofitable block groups" loading="lazy" width="1200" height="750"></div><div class="slider-nav"><button type="button" class="slider-prev" aria-label="Previous chart">&#8249;</button><div class="slider-dots"><button type="button" class="slider-dot" aria-label="Chart 1"></button><button type="button" class="slider-dot" aria-label="Chart 2"></button><button type="button" class="slider-dot" aria-label="Chart 3"></button><button type="button" class="slider-dot" aria-label="Chart 4"></button></div><span class="slider-count"></span><button type="button" class="slider-next" aria-label="Next chart">&#8250;</button></div></div>
-            <div class="demo-stats"><div><strong>$120K</strong><span>worst case, strongest block group</span></div><div><strong>$561K</strong><span>expected, strongest block group</span></div><div><strong>$1.36M</strong><span>best case, strongest block group</span></div><div><strong>42 of 68</strong><span>block groups above break-even</span></div></div>
+            <div class="demo-stats"><div><strong>$215K</strong><span>worst case, strongest block group</span></div><div><strong>$1.07M</strong><span>expected, strongest block group</span></div><div><strong>$2.85M</strong><span>best case, strongest block group</span></div><div><strong>30 of 68</strong><span>block groups above break-even</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-05" aria-labelledby="demo-05-title">
@@ -1532,7 +1577,7 @@
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
             <img src="demo/05-risk-assessment.jpg" alt="Map of Adams County, PA block groups ranked by simulated probability of loss" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>5,000</strong><span>simulations per block group</span></div><div><strong>19%</strong><span>lowest chance of a loss</span></div><div><strong>51%</strong><span>median chance of a loss</span></div><div><strong>15 of 68</strong><span>block groups at 30% or lower</span></div></div>
+            <div class="demo-stats"><div><strong>5,000</strong><span>simulations per block group</span></div><div><strong>32%</strong><span>lowest chance of a loss</span></div><div><strong>55%</strong><span>median chance of a loss</span></div><div><strong>11 of 68</strong><span>block groups recommended, ranked by risk</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-06" aria-labelledby="demo-06-title">
