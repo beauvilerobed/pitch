@@ -204,6 +204,13 @@
             max-width: 1100px;
         }
 
+        .cover .tagline {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.35rem;
+            color: var(--white);
+            margin: 0 auto 14px;
+        }
+
         .cover .subtitle {
             font-family: Georgia, serif;
             font-style: italic;
@@ -1244,6 +1251,7 @@
         .cover h1 .word.in { opacity: 1; transform: none; }
 
         .cover .org-name,
+        .cover .tagline,
         .cover .subtitle,
         .cover .audience,
         .cover-cta,
@@ -1253,6 +1261,7 @@
             transition: opacity 0.7s ease, transform 0.7s ease;
         }
         .cover.in .org-name { opacity: 1; transform: none; transition-delay: 0.05s; }
+        .cover.in .tagline { opacity: 1; transform: none; transition-delay: 0.75s; }
         .cover.in .subtitle { opacity: 1; transform: none; transition-delay: 0.85s; }
         .cover.in .audience { opacity: 1; transform: none; transition-delay: 1.0s; }
         .cover.in .cover-cta { opacity: 1; transform: none; transition-delay: 1.15s; }
@@ -1351,7 +1360,7 @@
                 transition-duration: 0.001ms !important;
             }
             .reveal, .stagger > *, .cover h1 .word,
-            .cover .org-name, .cover .subtitle, .cover .audience,
+            .cover .org-name, .cover .tagline, .cover .subtitle, .cover .audience,
             .cover-cta, .cover-meta {
                 opacity: 1 !important;
                 transform: none !important;
@@ -1436,18 +1445,19 @@
         <!-- Cover -->
         <header class="cover">
             <div class="org-name">AniPoint Site Research</div>
-            <h1><span class="word">We</span> <span class="word">Help</span> <span class="word">You</span> <span class="word">Find</span> <span class="word">the</span> <span class="word">Right</span> <span class="word">Location.</span></h1>
-            <p class="subtitle">Projected car counts, plus traffic, competition, expected revenue and the chance a site loses money, delivered in days not weeks.</p>
-            <p class="audience">Operators &middot; Developers &middot; Brokers &middot; Investors &middot; Lenders</p>
+            <h1><span class="word">The</span> <span class="word">Right</span> <span class="word">Location</span> <span class="word">Changes</span> <span class="word">Everything.</span></h1>
+            <p class="tagline">Take the guesswork out of site selection.</p>
+            <p class="subtitle">Evaluate locations with confidence using projected car counts, traffic data, competitive analysis, revenue forecasts, and financial risk assessments &mdash; delivered in days, not weeks.</p>
+            <p class="audience">For owners, operators, developers, brokers, investors, and lenders making high-stakes location decisions.</p>
             <div class="cover-cta">
-                <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Car%20Count%20Projection" class="btn btn-primary">Get a Free Car Count Projection</a>
-                <a href="#pricing" class="btn btn-secondary">See Pricing</a>
+                <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Car%20Count%20Projection" class="btn btn-primary">Get Your Free Car Count Projection</a>
+                <a href="#pricing" class="btn btn-secondary">Explore Pricing</a>
             </div>
             <div class="cover-meta">
-                <span>Coverage <strong>U.S. nationwide</strong></span>
-                <span>Turnaround <strong>Days, not weeks</strong></span>
-                <span>Pricing <strong>Fixed fee, from $4,500</strong></span>
-                <span>Tested <strong>on real locations</strong></span>
+                <span>Coverage <strong>U.S. Nationwide</strong></span>
+                <span>Turnaround <strong>Fast</strong></span>
+                <span>Pricing <strong>Fixed-Fee from $4,500</strong></span>
+                <span>Validated <strong>Against Real Locations</strong></span>
             </div>
         </header>
 
