@@ -311,11 +311,6 @@
         .service.in .demo-open::after { animation: nudge 1.6s ease 1s 2; }
         @keyframes nudge { 0%, 100% { transform: none; } 50% { transform: translateX(5px); } }
 
-        /* Data sources */
-        .sources { padding: 56px 0; }
-        .sources .section-head { margin-bottom: 0; }
-        .sources .section-head p { max-width: 760px; margin-left: auto; margin-right: auto; color: var(--text-dark); }
-
         /* Proof cards */
         .proof-grid {
             display: grid;
@@ -1000,19 +995,10 @@
             <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
 
-        <!-- Data sources -->
-        <section class="sources" id="data">
-            <div class="container">
-                <div class="section-head reveal">
-                    <h2>Built on Authoritative Data</h2>
-                    <p>Traffic counts, demographics, local economy, competition, site conditions and zoning, from official federal, state and local government data and current listings.</p>
-                </div>
-            </div>
-        </section>
 
 
         <!-- Proof -->
-        <section class="band" id="proof">
+        <section id="proof">
             <div class="container">
                 <div class="section-head reveal">
                     <h2>Why Our Numbers Hold Up</h2>
@@ -1030,15 +1016,15 @@
                     </div>
                     <div class="proof reveal">
                         <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-data"/></svg>
-                        <h3>Grounded in Real Data</h3>
-                        <p>Every input comes from trusted public data, like federal traffic counts and Census figures, so each recommendation rests on evidence, not guesswork or gut feel.</p>
+                        <h3>Built on Authoritative Data</h3>
+                        <p>Traffic counts, demographics, local economy, competition, site conditions and zoning, from official federal, state and local government data and current listings.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- What's at stake -->
-        <section id="stakes">
+        <section class="band" id="stakes">
             <div class="container split">
                 <div class="metric-panel reveal">
                     <div class="metric">
@@ -1077,7 +1063,7 @@
         </section>
 
         <!-- Pricing -->
-        <section class="band" id="pricing">
+        <section id="pricing">
             <div class="container">
                 <div class="section-head reveal">
                     <h2>Clear Data. Smart Site Selection.</h2>
@@ -1151,7 +1137,7 @@
         </section>
 
         <!-- Process -->
-        <section id="process">
+        <section class="band" id="process">
             <div class="container">
                 <div class="section-head reveal">
                     <h2>From Brief to Verdict in Days</h2>
@@ -1182,7 +1168,7 @@
         </section>
 
         <!-- Founder -->
-        <section class="band" id="about">
+        <section id="about">
             <div class="container founder">
                 <!-- Placeholder until a headshot is supplied: swap for <img src="images/founder.jpg" alt="..."> -->
                 <div class="portrait reveal" aria-hidden="true">RB</div>
