@@ -755,6 +755,47 @@
         .slider-prev, .slider-next { transition: background 0.2s ease, color 0.2s ease; }
         .slider-prev:hover, .slider-next:hover { background: var(--primary); color: var(--white); }
 
+
+        /* Rich sample popups: fixed height so nothing below the fold; the
+           scorecard column scrolls on its own when it runs long. */
+        .demo-dialog.demo-rich { width: min(1120px, 96vw); height: min(92vh, 780px); }
+        .demo-rich > .demo-body { margin-left: 32px; margin-right: 32px; flex: 1 1 auto; min-height: 0; }
+        .demo-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; }
+        .demo-map { margin: 0; min-height: 0; display: flex; flex-direction: column; border: 1px solid var(--border); background: var(--white); }
+        .demo-map img { display: block; width: 100%; flex: 1 1 auto; min-height: 0; object-fit: cover; }
+        .demo-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 14px; border-top: 1px solid var(--border-light); font-size: 0.78rem; color: var(--text-medium); }
+        .demo-legend span { display: inline-flex; align-items: center; gap: 6px; }
+        .demo-legend i { width: 12px; height: 12px; display: inline-block; }
+        .demo-legend i.ring { background: transparent; border: 2px solid #d4a017; }
+        .demo-card { min-height: 0; overflow-y: auto; overscroll-behavior: contain; background: var(--bg-band); border-top: 3px solid var(--primary); padding: 16px 18px; scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
+        .demo-card::after { content: ""; position: sticky; bottom: -16px; display: block; height: 36px; margin: -36px -18px -16px; background: linear-gradient(rgba(238,244,247,0), var(--bg-band)); pointer-events: none; }
+        .demo-card-kicker { font: 700 0.68rem var(--body); text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); }
+        .demo-card-sub { margin: 18px 0 6px; }
+        .demo-score { display: flex; align-items: center; gap: 12px; margin: 8px 0 10px; }
+        .demo-score strong { font: 800 2.6rem/1 var(--head); color: var(--primary); font-variant-numeric: tabular-nums; }
+        .demo-score span { font-size: 0.8rem; line-height: 1.3; color: var(--text-medium); }
+        .demo-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; font-variant-numeric: tabular-nums; }
+        .demo-table td { padding: 4px 0; border-bottom: 1px solid var(--border-light); color: var(--text-medium); }
+        .demo-table td:last-child { text-align: right; font-weight: 700; color: var(--text-dark); white-space: nowrap; }
+        .demo-table td small { font-weight: 400; color: var(--text-light); }
+        .demo-table .grp th { text-align: left; padding: 10px 0 3px; font: 700 0.7rem var(--head); text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
+        .demo-table .grp:first-child th { padding-top: 0; }
+        .demo-rich > .demo-stats { grid-template-columns: repeat(5, 1fr); margin-top: 16px; }
+        .demo-rich > .demo-stats div { padding: 10px 14px; }
+        .demo-rich > .demo-stats strong { font-size: 1.2rem; }
+        .demo-rich > .demo-dialog-note { margin-top: 12px; }
+        .demo-rank { width: 100%; border-collapse: collapse; font-size: 0.78rem; font-variant-numeric: tabular-nums; }
+        .demo-rank th { text-align: left; padding: 6px 6px; background: var(--primary); color: var(--white); font: 600 0.66rem var(--head); text-transform: uppercase; letter-spacing: 0.6px; }
+        .demo-rank td { padding: 5px 6px; border-bottom: 1px solid var(--border-light); color: var(--text-medium); white-space: nowrap; }
+        .demo-rank tbody tr:nth-child(odd) td { background: var(--white); }
+        .demo-rank td:first-child { font-weight: 700; color: var(--primary); }
+        @media (max-width: 760px) {
+            .demo-dialog.demo-rich { height: auto; overflow-y: auto; }
+            .demo-body { grid-template-columns: 1fr; }
+            .demo-map img { aspect-ratio: 16 / 10; flex: none; }
+            .demo-card { overflow: visible; }
+            .demo-rich > .demo-stats { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (prefers-reduced-motion: reduce) {
             .demo-dialog[open], .demo-dialog[open]::backdrop, .demo-stats div, .service.in .demo-open::after { animation: none !important; opacity: 1 !important; }
             html { scroll-behavior: auto; }
@@ -866,7 +907,7 @@
                 <div class="section-head reveal">
                     <h2>What Our Analysis Delivers</h2>
                     <p>Eight ways we evaluate every site.</p>
-                    <p class="sample-note">Samples come from a car wash expansion analysis in Adams County, Pennsylvania.</p>
+                    <p class="sample-note">Samples come from car wash expansion analyses in Hamilton County, Ohio and Adams County, Pennsylvania.</p>
                 </div>
                 <div class="service-grid">
                     <div class="service reveal">
@@ -922,14 +963,59 @@
             </div>
         </section>
 
-        <dialog class="demo-dialog" id="demo-01" aria-labelledby="demo-01-title">
+        <dialog class="demo-dialog demo-rich" id="demo-01" aria-labelledby="demo-01-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-01-title">Location Ranking</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <img src="demo/01-location-ranking.jpg" alt="Map of Adams County, PA block groups shaded by opportunity zone, from recommended to high competition" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>68</strong><span>block groups ranked</span></div><div><strong>79</strong><span>top site score (0-100)</span></div><div><strong>36</strong><span>block groups more than 3 km from a competitor</span></div><div><strong>6</strong><span>factors in every score: traffic, income, density, vehicles, growth, competition</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <img src="demo/01-location-ranking-hamilton.jpg" alt="Map of northwest Hamilton County, OH block groups shaded by opportunity, with the top-ranked block group marked 1" loading="lazy" width="1280" height="800">
+                    <figcaption class="demo-legend">
+                        <span><i style="background:#1e3a5f"></i>Recommended</span>
+                        <span><i style="background:#4a7c9b"></i>3+ km from a competitor</span>
+                        <span><i style="background:#8fb3cc"></i>2-3 km</span>
+                        <span><i style="background:#c9d9e4"></i>1-2 km</span>
+                        <span><i style="background:#d28b73"></i>Heavy competition</span>
+                        <span><i class="ring"></i>High score</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Top-ranked site &middot; Tract 205.02, BG 2</p>
+                    <div class="demo-score"><strong>78</strong><span>site score<br>out of 100</span></div>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">Trade area</th></tr>
+                        <tr><td>Population</td><td>3,134</td></tr>
+                        <tr><td>Households</td><td>1,214</td></tr>
+                        <tr><td>Median household income</td><td>$83,421</td></tr>
+                        <tr><td>Vehicles per household</td><td>1.92</td></tr>
+                        <tr><td>Commute by car</td><td>89.7%</td></tr>
+                        <tr><td>Owner-occupied homes</td><td>89.7%</td></tr>
+                        <tr class="grp"><th colspan="2">Access &amp; competition</th></tr>
+                        <tr><td>Busiest adjacent road (AADT)</td><td>39,885</td></tr>
+                        <tr><td>Trade-area traffic (AADT)</td><td>22,426</td></tr>
+                        <tr><td>Nearest competitor</td><td>4.1 km</td></tr>
+                        <tr class="grp"><th colspan="2">Financials</th></tr>
+                        <tr><td>Projected cars per day <small>(25th-75th pct)</small></td><td>251 <small>(147-409)</small></td></tr>
+                        <tr><td>Expected annual revenue</td><td>$987K</td></tr>
+                        <tr><td>Expected margin</td><td>38.0%</td></tr>
+                        <tr><td>Chance of a loss</td><td>26.8%</td></tr>
+                    </table>
+                    <p class="demo-card-kicker demo-card-sub">Top 5 of 678 block groups</p>
+                    <table class="demo-rank">
+                        <thead><tr><th>#</th><th>Block group</th><th>Score</th><th>Loss</th><th>Nearest</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>205.02 BG 2</td><td>78</td><td>26.8%</td><td>4.1 km</td></tr>
+                            <tr><td>2</td><td>207.01 BG 1</td><td>72</td><td>26.6%</td><td>2.5 km</td></tr>
+                            <tr><td>3</td><td>215.01 BG 2</td><td>70</td><td>26.3%</td><td>1.4 km</td></tr>
+                            <tr><td>4</td><td>205.04 BG 3</td><td>70</td><td>27.0%</td><td>2.2 km</td></tr>
+                            <tr><td>5</td><td>223.01 BG 1</td><td>70</td><td>25.9%</td><td>1.7 km</td></tr>
+                        </tbody>
+                    </table>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>678</strong><span>block groups ranked</span></div><div><strong>21</strong><span>recommended locations</span></div><div><strong>87.9%</strong><span>of locations above break-even</span></div><div><strong>48,125</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>6</strong><span>factors in every score</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
         <dialog class="demo-dialog" id="demo-02" aria-labelledby="demo-02-title">
             <div class="demo-dialog-head">
