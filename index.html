@@ -756,46 +756,65 @@
         .slider-prev:hover, .slider-next:hover { background: var(--primary); color: var(--white); }
 
 
-        /* Rich sample popups: fixed height so nothing below the fold; the
-           scorecard column scrolls on its own when it runs long. */
+        /* Rich sample popups: fixed height so nothing sits below the fold; the
+           scorecard column scrolls on its own and says so until you reach the end. */
         .demo-dialog.demo-rich { width: min(1120px, 96vw); height: min(92vh, 780px); }
         .demo-rich > .demo-body { margin-left: 32px; margin-right: 32px; flex: 1 1 auto; min-height: 0; }
         .demo-body { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; }
         .demo-map { margin: 0; min-height: 0; display: flex; flex-direction: column; border: 1px solid var(--border); background: var(--white); }
-        .demo-map img { display: block; width: 100%; flex: 1 1 auto; min-height: 0; object-fit: cover; }
+        .demo-map > img { display: block; width: 100%; flex: 1 1 auto; min-height: 0; object-fit: cover; }
+        .demo-map > .slider { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+        .demo-map .slider-track { flex: 1 1 auto; min-height: 0; border: 0; border-radius: 0; }
+        .demo-map .slider-track > img { height: 100%; min-height: 0; object-fit: contain; background: var(--white); }
+        .demo-map .slider-track > img:first-child { object-fit: cover; }
+        .demo-map .slider-nav { margin: 0; padding: 8px 0; border-top: 1px solid var(--border-light); }
         .demo-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; padding: 10px 14px; border-top: 1px solid var(--border-light); font-size: 0.78rem; color: var(--text-medium); }
         .demo-legend span { display: inline-flex; align-items: center; gap: 6px; }
         .demo-legend i { width: 12px; height: 12px; display: inline-block; }
         .demo-legend i.ring { background: transparent; border: 2px solid #d4a017; }
-        .demo-card { min-height: 0; overflow-y: auto; overscroll-behavior: contain; background: var(--bg-band); border-top: 3px solid var(--primary); padding: 16px 18px; scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
-        .demo-card::after { content: ""; position: sticky; bottom: -16px; display: block; height: 36px; margin: -36px -18px -16px; background: linear-gradient(rgba(238,244,247,0), var(--bg-band)); pointer-events: none; }
+        .demo-legend i.dot { border-radius: 50%; width: 10px; height: 10px; border: 1.5px solid var(--white); box-shadow: 0 0 0 1px var(--border); }
+        .demo-legend i.pin { border-radius: 50%; width: 14px; height: 14px; background: var(--primary-deep); border: 2px solid var(--white); box-shadow: 0 0 0 1px var(--primary-deep); }
+        .demo-legend i.line { width: 18px; height: 3px; }
+        .demo-legend i.line.dash { background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px); }
+        .demo-card { position: relative; min-height: 0; overflow-y: auto; overscroll-behavior: contain; background: var(--bg-band); border-top: 3px solid var(--primary); padding: 16px 18px 0; scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
+        .demo-more { position: sticky; bottom: 0; margin: 10px -18px 0; padding: 22px 0 9px; text-align: center; font: 700 0.68rem var(--body); text-transform: uppercase; letter-spacing: 1.2px; color: var(--primary); background: linear-gradient(rgba(238,244,247,0), var(--bg-band) 55%); pointer-events: none; transition: opacity 0.25s ease; animation: more-bob 1.6s ease-in-out 0.8s 3; }
+        .demo-card.at-end .demo-more { opacity: 0; }
+        @keyframes more-bob { 50% { transform: translateY(-3px); } }
         .demo-card-kicker { font: 700 0.68rem var(--body); text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); }
         .demo-card-sub { margin: 18px 0 6px; }
         .demo-score { display: flex; align-items: center; gap: 12px; margin: 8px 0 10px; }
-        .demo-score strong { font: 800 2.6rem/1 var(--head); color: var(--primary); font-variant-numeric: tabular-nums; }
+        .demo-score strong { font: 800 2.6rem/1 var(--head); color: var(--primary); font-variant-numeric: tabular-nums; white-space: nowrap; }
         .demo-score span { font-size: 0.8rem; line-height: 1.3; color: var(--text-medium); }
+        .demo-score + .demo-card-sub { margin-top: 4px; }
         .demo-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; font-variant-numeric: tabular-nums; }
         .demo-table td { padding: 4px 0; border-bottom: 1px solid var(--border-light); color: var(--text-medium); }
-        .demo-table td:last-child { text-align: right; font-weight: 700; color: var(--text-dark); white-space: nowrap; }
+        .demo-table td:last-child { text-align: right; font-weight: 700; color: var(--text-dark); white-space: nowrap; padding-left: 8px; }
         .demo-table td small { font-weight: 400; color: var(--text-light); }
-        .demo-table .grp th { text-align: left; padding: 10px 0 3px; font: 700 0.7rem var(--head); text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
-        .demo-table .grp:first-child th { padding-top: 0; }
+        .demo-table .grp th { text-align: left; padding: 12px 0 3px; font: 700 0.7rem var(--head); text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
+        .demo-score + .demo-table .grp:first-child th { padding-top: 0; }
         .demo-rich > .demo-stats { grid-template-columns: repeat(5, 1fr); margin-top: 16px; }
         .demo-rich > .demo-stats div { padding: 10px 14px; }
-        .demo-rich > .demo-stats strong { font-size: 1.2rem; }
+        .demo-rich > .demo-stats strong { font-size: 1.2rem; white-space: nowrap; }
         .demo-rich > .demo-dialog-note { margin-top: 12px; }
         .demo-rank { width: 100%; border-collapse: collapse; font-size: 0.78rem; font-variant-numeric: tabular-nums; }
         .demo-rank th { text-align: left; padding: 6px 6px; background: var(--primary); color: var(--white); font: 600 0.66rem var(--head); text-transform: uppercase; letter-spacing: 0.6px; }
         .demo-rank td { padding: 5px 6px; border-bottom: 1px solid var(--border-light); color: var(--text-medium); white-space: nowrap; }
         .demo-rank tbody tr:nth-child(odd) td { background: var(--white); }
         .demo-rank td:first-child { font-weight: 700; color: var(--primary); }
+        .demo-cmp td:not(:first-child), .demo-cmp th:not(:first-child) { text-align: right; }
+        .demo-cmp td:last-child { font-weight: 700; color: var(--text-dark); }
         @media (max-width: 760px) {
             .demo-dialog.demo-rich { height: auto; overflow-y: auto; }
+            .demo-rich > .demo-body { flex: none; }
             .demo-body { grid-template-columns: 1fr; }
-            .demo-map img { aspect-ratio: 16 / 10; flex: none; }
+            .demo-map > .slider { flex: none; }
+            .demo-map > img { aspect-ratio: 16 / 10; flex: none; }
+            .demo-map .slider-track { aspect-ratio: 16 / 10; flex: none; }
             .demo-card { overflow: visible; }
+            .demo-more { display: none; }
             .demo-rich > .demo-stats { grid-template-columns: repeat(2, 1fr); }
         }
+        @media (prefers-reduced-motion: reduce) { .demo-more { animation: none; } }
         @media (prefers-reduced-motion: reduce) {
             .demo-dialog[open], .demo-dialog[open]::backdrop, .demo-stats div, .service.in .demo-open::after { animation: none !important; opacity: 1 !important; }
             html { scroll-behavior: auto; }
@@ -907,7 +926,7 @@
                 <div class="section-head reveal">
                     <h2>What Our Analysis Delivers</h2>
                     <p>Eight ways we evaluate every site.</p>
-                    <p class="sample-note">Samples come from car wash expansion analyses in Hamilton County, Ohio and Adams County, Pennsylvania.</p>
+                    <p class="sample-note">Samples come from a car wash expansion analysis in Hamilton County, Ohio.</p>
                 </div>
                 <div class="service-grid">
                     <div class="service reveal">
@@ -1012,73 +1031,329 @@
                             <tr><td>5</td><td>223.01 BG 1</td><td>70</td><td>25.9%</td><td>1.7 km</td></tr>
                         </tbody>
                     </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
             <div class="demo-stats"><div><strong>678</strong><span>block groups ranked</span></div><div><strong>21</strong><span>recommended locations</span></div><div><strong>87.9%</strong><span>of locations above break-even</span></div><div><strong>48,125</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>6</strong><span>factors in every score</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
-        <dialog class="demo-dialog" id="demo-02" aria-labelledby="demo-02-title">
+        <dialog class="demo-dialog demo-rich" id="demo-02" aria-labelledby="demo-02-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-02-title">Customer Profile Analysis</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <img src="demo/02-customer-profile.jpg" alt="Map of Adams County, PA block groups shaded by share of residents with a 30+ minute commute" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>106,115</strong><span>people in the county</span></div><div><strong>$84,092</strong><span>median household income</span></div><div><strong>46</strong><span>median age</span></div><div><strong>2.14</strong><span>vehicles per household</span></div><div><strong>85%</strong><span>drive alone to work</span></div><div><strong>30%</strong><span>commute 30+ minutes</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <img src="demo/02-customer-profile-hamilton.jpg" alt="Map of north Hamilton County, OH block groups shaded by share of residents with a 30+ minute commute, with the top five sites marked" loading="lazy" width="1280" height="800">
+                    <figcaption class="demo-legend">
+                        <span><i style="background:#1e3a5f"></i>40%+ commute 30+ min</span>
+                        <span><i style="background:#4a7c9b"></i>25-40%</span>
+                        <span><i style="background:#8fb3cc"></i>15-25%</span>
+                        <span><i style="background:#c9d9e4"></i>Under 15%</span>
+                        <span><i class="pin"></i>Top-ranked sites 1-5</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Top-ranked site vs. county average</p>
+                    <div class="demo-score"><strong>149</strong><span>homeownership index<br>(county = 100)</span></div>
+                    <p class="demo-card-kicker demo-card-sub">Trade area profile</p>
+                    <table class="demo-rank demo-cmp">
+                        <thead><tr><th>Measure</th><th>Site</th><th>County</th><th>Index</th></tr></thead>
+                        <tbody>
+                            <tr><td>Median income</td><td>$83,421</td><td>$72,470</td><td>115</td></tr>
+                            <tr><td>Vehicles / household</td><td>1.92</td><td>1.70</td><td>113</td></tr>
+                            <tr><td>Commute by car</td><td>89.7%</td><td>78.9%</td><td>114</td></tr>
+                            <tr><td>30+ min commute</td><td>33.6%</td><td>26.3%</td><td>128</td></tr>
+                            <tr><td>Owner-occupied</td><td>89.7%</td><td>60.4%</td><td>149</td></tr>
+                        </tbody>
+                    </table>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">County demand drivers</th></tr>
+                        <tr><td>Population</td><td>830,774</td></tr>
+                        <tr><td>Income growth, 2009-2024</td><td>+3.0% a year</td></tr>
+                        <tr><td>Population trend</td><td>-0.2% a year</td></tr>
+                        <tr><td>Areas with 1.8+ vehicles per household</td><td>40%</td></tr>
+                        <tr><td>Block groups with 40%+ long commutes</td><td>113</td></tr>
+                        <tr class="grp"><th colspan="2">Top-site trade area</th></tr>
+                        <tr><td>Population</td><td>3,134</td></tr>
+                        <tr><td>Households</td><td>1,214</td></tr>
+                    </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>830,774</strong><span>people in the county</span></div><div><strong>$72,470</strong><span>median household income</span></div><div><strong>1.70</strong><span>vehicles per household</span></div><div><strong>78.9%</strong><span>commute by car</span></div><div><strong>26.3%</strong><span>commute 30+ minutes</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
-        <dialog class="demo-dialog" id="demo-03" aria-labelledby="demo-03-title">
+        <dialog class="demo-dialog demo-rich" id="demo-03" aria-labelledby="demo-03-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-03-title">Traffic &amp; Demand Analysis</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <img src="demo/03-traffic-demand.jpg" alt="Map of Adams County, PA block groups shaded by traffic on roads a customer can turn in from" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>10,954</strong><span>road segments with federal counts</span></div><div><strong>391</strong><span>freeway segments excluded</span></div><div><strong>27,566</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>48 of 68</strong><span>block groups meet the 8,500 a day minimum</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <img src="demo/03-traffic-demand-hamilton.jpg" alt="Map of north Hamilton County, OH block groups shaded by traffic viability, with daily traffic on roads and freeways excluded" loading="lazy" width="1280" height="800">
+                    <figcaption class="demo-legend">
+                        <span><i style="background:#1e3a5f"></i>Excellent</span>
+                        <span><i style="background:#4a7c9b"></i>Good</span>
+                        <span><i style="background:#8fb3cc"></i>Moderate</span>
+                        <span><i style="background:#d28b73"></i>Below threshold</span>
+                        <span><i class="line" style="background:#142a47"></i>30,395+ vehicles a day</span>
+                        <span><i class="line dash" style="color:#aab2bc"></i>Freeway, excluded</span>
+                        <span><i class="pin"></i>Top-ranked sites 1-5</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Top-ranked site access</p>
+                    <div class="demo-score"><strong>39,885</strong><span>vehicles a day on the<br>busiest adjacent road</span></div>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">Site access</th></tr>
+                        <tr><td>Trade-area traffic (AADT)</td><td>22,426</td></tr>
+                        <tr><td>Local viability threshold</td><td>13,464</td></tr>
+                        <tr><td>Traffic vs. threshold</td><td>2.96x</td></tr>
+                        <tr><td>Traffic rating</td><td>Excellent</td></tr>
+                        <tr class="grp"><th colspan="2">County roads</th></tr>
+                        <tr><td>Road segments with federal counts</td><td>7,522</td></tr>
+                        <tr><td>Freeway segments excluded</td><td>2,351</td></tr>
+                        <tr><td>Median block-group traffic</td><td>18,355</td></tr>
+                        <tr><td>Block groups on 10K+ roads</td><td>87%</td></tr>
+                    </table>
+                    <p class="demo-card-kicker demo-card-sub">Viability by block group</p>
+                    <table class="demo-rank">
+                        <thead><tr><th>Rating</th><th>Block groups</th><th>Share</th></tr></thead>
+                        <tbody>
+                            <tr><td>Excellent</td><td>122</td><td>18%</td></tr>
+                            <tr><td>Good</td><td>232</td><td>34%</td></tr>
+                            <tr><td>Moderate</td><td>136</td><td>20%</td></tr>
+                            <tr><td>Below threshold</td><td>179</td><td>26%</td></tr>
+                            <tr><td>No federal count</td><td>9</td><td>1%</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>48,125</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>13,464</strong><span>a day local minimum</span></div><div><strong>490 of 678</strong><span>block groups meet the minimum</span></div><div><strong>122</strong><span>block groups rated excellent</span></div><div><strong>2,351</strong><span>freeway segments excluded</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
-        <dialog class="demo-dialog" id="demo-04" aria-labelledby="demo-04-title">
+        <dialog class="demo-dialog demo-rich" id="demo-04" aria-labelledby="demo-04-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-04-title">Revenue Projections</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <div class="slider" role="region" aria-roledescription="carousel" aria-label="Revenue projection charts" tabindex="0"><div class="slider-track"><img src="demo/04-revenue-0-map.jpg" alt="Map of Adams County, PA block groups shaded by base-case annual revenue against break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-1.jpg" alt="Annual revenue distribution across block groups, with median and break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-2.jpg" alt="Annual revenue against site score, colored by capacity utilization" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-3.jpg" alt="Average daily customers by scenario against break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-4.jpg" alt="Profit margin distribution, profitable and unprofitable block groups" loading="lazy" width="1200" height="750"></div><div class="slider-nav"><button type="button" class="slider-prev" aria-label="Previous chart">&#8249;</button><div class="slider-dots"><button type="button" class="slider-dot" aria-label="Chart 1"></button><button type="button" class="slider-dot" aria-label="Chart 2"></button><button type="button" class="slider-dot" aria-label="Chart 3"></button><button type="button" class="slider-dot" aria-label="Chart 4"></button><button type="button" class="slider-dot" aria-label="Chart 5"></button></div><span class="slider-count"></span><button type="button" class="slider-next" aria-label="Next chart">&#8250;</button></div></div>
-            <div class="demo-stats"><div><strong>$215K</strong><span>worst case, strongest block group</span></div><div><strong>$1.07M</strong><span>expected, strongest block group</span></div><div><strong>$2.85M</strong><span>best case, strongest block group</span></div><div><strong>30 of 68</strong><span>block groups above break-even</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <div class="slider" role="region" aria-roledescription="carousel" aria-label="Revenue projection charts" tabindex="0"><div class="slider-track"><img src="demo/04-revenue-0-map-hamilton.jpg" alt="Map of north Hamilton County, OH block groups shaded by base-case annual revenue against break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-1-hamilton.jpg" alt="Annual revenue distribution across block groups, with median and break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-2-hamilton.jpg" alt="Annual revenue against site score, colored by capacity utilization" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-3-hamilton.jpg" alt="Average daily customers by scenario against break-even" loading="lazy" width="1200" height="750"><img src="demo/04-revenue-4-hamilton.jpg" alt="Profit margin distribution, profitable and unprofitable block groups" loading="lazy" width="1200" height="750"></div><div class="slider-nav"><button type="button" class="slider-prev" aria-label="Previous chart">&#8249;</button><div class="slider-dots"><button type="button" class="slider-dot" aria-label="Chart 1"></button><button type="button" class="slider-dot" aria-label="Chart 2"></button><button type="button" class="slider-dot" aria-label="Chart 3"></button><button type="button" class="slider-dot" aria-label="Chart 4"></button><button type="button" class="slider-dot" aria-label="Chart 5"></button></div><span class="slider-count"></span><button type="button" class="slider-next" aria-label="Next chart">&#8250;</button></div></div>
+                    <figcaption class="demo-legend">
+                        <span><i style="background:#1e3a5f"></i>50%+ above break-even</span>
+                        <span><i style="background:#4a7c9b"></i>Above break-even</span>
+                        <span><i style="background:#c9d9e4"></i>Up to 25% below</span>
+                        <span><i style="background:#d28b73"></i>25%+ below</span>
+                        <span><i class="pin"></i>Top-ranked sites 1-5</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Top-ranked site, typical year</p>
+                    <div class="demo-score"><strong>$987K</strong><span>expected annual<br>revenue</span></div>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">Scenarios</th></tr>
+                        <tr><td>Pessimistic</td><td>$219K</td></tr>
+                        <tr><td>Base case</td><td>$987K</td></tr>
+                        <tr><td>Optimistic</td><td>$2.47M</td></tr>
+                        <tr class="grp"><th colspan="2">Unit economics</th></tr>
+                        <tr><td>Projected cars per day <small>(25th-75th pct)</small></td><td>251 <small>(147-409)</small></td></tr>
+                        <tr><td>Expected gross profit</td><td>$375K</td></tr>
+                        <tr><td>Expected margin</td><td>38.0%</td></tr>
+                        <tr><td>Capacity used</td><td>38.4%</td></tr>
+                        <tr><td>Break-even revenue</td><td>$558K</td></tr>
+                        <tr><td>Cushion above break-even</td><td>+77%</td></tr>
+                    </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>596 of 678</strong><span>block groups above break-even</span></div><div><strong>$717K</strong><span>median base-case revenue</span></div><div><strong>$558K</strong><span>break-even revenue a year</span></div><div><strong>133</strong><span>block groups 50%+ above break-even</span></div><div><strong>190</strong><span>average daily customers</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
-        <dialog class="demo-dialog" id="demo-05" aria-labelledby="demo-05-title">
+        <dialog class="demo-dialog demo-rich" id="demo-05" aria-labelledby="demo-05-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-05-title">Risk Assessment</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <img src="demo/05-risk-assessment.jpg" alt="Map of Adams County, PA block groups ranked by simulated probability of loss" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>5,000</strong><span>simulations per block group</span></div><div><strong>32%</strong><span>lowest chance of a loss</span></div><div><strong>55%</strong><span>median chance of a loss</span></div><div><strong>17 of 68</strong><span>block groups in the lowest-risk quarter, under a 48% chance of a loss</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <img src="demo/05-risk-assessment-hamilton.jpg" alt="Map of north Hamilton County, OH block groups ranked by simulated chance of a loss, with the top five sites marked" loading="lazy" width="1280" height="800">
+                    <figcaption class="demo-legend">
+                        <span><i style="background:#1e3a5f"></i>Top 5% (lowest risk)</span>
+                        <span><i style="background:#4a7c9b"></i>5-10%</span>
+                        <span><i style="background:#8fb3cc"></i>10-25%</span>
+                        <span><i style="background:#c9d9e4"></i>25-50%</span>
+                        <span><i style="background:#dfe4e8"></i>Bottom 50%</span>
+                        <span><i class="pin"></i>Top-ranked sites 1-5</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Top-ranked site, 5,000 simulated years</p>
+                    <div class="demo-score"><strong>26.8%</strong><span>chance of<br>a loss</span></div>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">Simulated revenue</th></tr>
+                        <tr><td>Median</td><td>$928K</td></tr>
+                        <tr><td>Average</td><td>$1.20M</td></tr>
+                        <tr><td>Bad year (1 in 20)</td><td>$251K</td></tr>
+                        <tr><td>Average of the worst 5%</td><td>$182K</td></tr>
+                    </table>
+                    <p class="demo-card-kicker demo-card-sub">Block groups by chance of a loss</p>
+                    <table class="demo-rank">
+                        <thead><tr><th>Band</th><th>Block groups</th><th>Chance of a loss</th></tr></thead>
+                        <tbody>
+                            <tr><td>Top 5%</td><td>33</td><td>23.7-29.7%</td></tr>
+                            <tr><td>5-10%</td><td>34</td><td>29.7-32.2%</td></tr>
+                            <tr><td>10-25%</td><td>102</td><td>32.3-37.9%</td></tr>
+                            <tr><td>25-50%</td><td>170</td><td>38.0-43.4%</td></tr>
+                            <tr><td>Bottom 50%</td><td>339</td><td>43.4-98.0%</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>5,000</strong><span>simulations per block group</span></div><div><strong>23.7%</strong><span>lowest chance of a loss</span></div><div><strong>43.4%</strong><span>median chance of a loss</span></div><div><strong>67</strong><span>block groups in the top 10%, under 32.3%</span></div><div><strong>$261K</strong><span>best bad-year revenue (1 in 20)</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
-        <dialog class="demo-dialog" id="demo-06" aria-labelledby="demo-06-title">
+        <dialog class="demo-dialog demo-rich" id="demo-06" aria-labelledby="demo-06-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-06-title">Competitive Mapping</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <img src="demo/06-competitive-mapping.jpg" alt="Map of existing car washes and candidate areas in Adams County, PA, with road traffic" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>26</strong><span>car washes in the county</span></div><div><strong>3.2 km</strong><span>median distance to the nearest</span></div><div><strong>19</strong><span>block groups with little competitor overlap</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <img src="demo/06-competitive-mapping-hamilton.jpg" alt="Map of existing car washes and recommended areas in north Hamilton County, OH, with high-traffic roads" loading="lazy" width="1280" height="800">
+                    <figcaption class="demo-legend">
+                        <span><i class="dot" style="background:#b5523b"></i>Existing car wash</span>
+                        <span><i style="background:#1e3a5f"></i>Tier 1 area</span>
+                        <span><i style="background:#4a7c9b"></i>Tier 2</span>
+                        <span><i style="background:#8fb3cc"></i>Tier 3</span>
+                        <span><i class="line" style="background:#142a47"></i>High-traffic road</span>
+                        <span><i class="pin"></i>Top-ranked sites 1-5</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Top-ranked site competition</p>
+                    <div class="demo-score"><strong>4.1 km</strong><span>to the nearest<br>car wash</span></div>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">Near the top site</th></tr>
+                        <tr><td>Car washes within 5 km</td><td>2</td></tr>
+                        <tr><td>Car washes within 8 km</td><td>18</td></tr>
+                        <tr class="grp"><th colspan="2">County market</th></tr>
+                        <tr><td>Car washes</td><td>137</td></tr>
+                        <tr><td>Per 10,000 residents</td><td>0.58</td></tr>
+                        <tr><td>Ohio county median</td><td>0.46</td></tr>
+                        <tr><td>Density rank, 88 Ohio counties</td><td>60th pct</td></tr>
+                        <tr><td>Establishments, 2012-2023</td><td>+26.3%</td></tr>
+                        <tr><td>Industry jobs, 2012-2023</td><td>+25.6%</td></tr>
+                    </table>
+                    <p class="demo-card-kicker demo-card-sub">Competition at the top 5</p>
+                    <table class="demo-rank">
+                        <thead><tr><th>#</th><th>Nearest</th><th>Within 5 km</th><th>Within 8 km</th></tr></thead>
+                        <tbody>
+                            <tr><td>1</td><td>4.1 km</td><td>2</td><td>18</td></tr>
+                            <tr><td>2</td><td>2.5 km</td><td>8</td><td>24</td></tr>
+                            <tr><td>3</td><td>1.4 km</td><td>7</td><td>18</td></tr>
+                            <tr><td>4</td><td>2.2 km</td><td>7</td><td>16</td></tr>
+                            <tr><td>5</td><td>1.7 km</td><td>7</td><td>16</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>137</strong><span>car washes in the county</span></div><div><strong>1.5 km</strong><span>median distance to the nearest</span></div><div><strong>76</strong><span>block groups 3+ km from a competitor</span></div><div><strong>0.58</strong><span>washes per 10,000 residents</span></div><div><strong>+26.3%</strong><span>more establishments since 2012</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
-        <dialog class="demo-dialog" id="demo-07" aria-labelledby="demo-07-title">
+        <dialog class="demo-dialog demo-rich" id="demo-07" aria-labelledby="demo-07-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-07-title">Causal Impact Analysis</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <img src="demo/07-causal-impact.jpg" alt="Map of Adams County, PA block groups shaded by estimated incremental revenue opportunity" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>205</strong><span>comparison counties</span></div><div><strong>12</strong><span>years of history, 2012-2023</span></div><div><strong>95%</strong><span>likely range reported per site</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <img src="demo/07-causal-impact-hamilton.jpg" alt="Map of north Hamilton County, OH block groups shaded by estimated incremental revenue opportunity, with the top five sites marked" loading="lazy" width="1280" height="800">
+                    <figcaption class="demo-legend">
+                        <span><i style="background:#1e3a5f"></i>High opportunity</span>
+                        <span><i style="background:#4a7c9b"></i>Moderate</span>
+                        <span><i style="background:#8fb3cc"></i>Low</span>
+                        <span><i style="background:#b9cddb"></i>Minimal</span>
+                        <span><i class="pin"></i>Top-ranked sites 1-5</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Effect of one more wash on the market</p>
+                    <div class="demo-score"><strong>+$533K</strong><span>new market revenue<br>a year</span></div>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">Market revenue</th></tr>
+                        <tr><td>95% likely range</td><td>$390K-$676K</td></tr>
+                        <tr><td>Today</td><td>$37.1M</td></tr>
+                        <tr><td>With your site</td><td>$37.6M</td></tr>
+                        <tr><td>Market growth from one site</td><td>+1.4%</td></tr>
+                        <tr class="grp"><th colspan="2">Top-ranked site</th></tr>
+                        <tr><td>Opportunity score</td><td>100 of 100</td></tr>
+                        <tr><td>Rank among 678 block groups</td><td>1st</td></tr>
+                    </table>
+                    <p class="demo-card-kicker demo-card-sub">Block groups by opportunity</p>
+                    <table class="demo-rank">
+                        <thead><tr><th>Opportunity</th><th>Score</th><th>Block groups</th></tr></thead>
+                        <tbody>
+                            <tr><td>High</td><td>75-100</td><td>12</td></tr>
+                            <tr><td>Moderate</td><td>50-75</td><td>94</td></tr>
+                            <tr><td>Low</td><td>25-50</td><td>273</td></tr>
+                            <tr><td>Minimal</td><td>Under 25</td><td>299</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>228</strong><span>comparison counties</span></div><div><strong>12</strong><span>years of history, 2012-2023</span></div><div><strong>+$533K</strong><span>new market revenue per added wash</span></div><div><strong>95%</strong><span>likely range reported</span></div><div><strong>12</strong><span>block groups with high opportunity</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
-        <dialog class="demo-dialog" id="demo-08" aria-labelledby="demo-08-title">
+        <dialog class="demo-dialog demo-rich" id="demo-08" aria-labelledby="demo-08-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-08-title">Zoning &amp; Feasibility Screening</h3>
                 <button type="button" class="demo-close" aria-label="Close">&times;</button>
             </div>
-            <img src="demo/08-zoning-feasibility.jpg" alt="Map of candidate sites in Adams County, PA colored by number of feasibility red flags" loading="lazy" width="960" height="600">
-            <div class="demo-stats"><div><strong>13</strong><span>candidate sites screened</span></div><div><strong>5</strong><span>weak main-road access</span></div><div><strong>2</strong><span>steep land</span></div><div><strong>1</strong><span>flood zone</span></div><div><strong>1</strong><span>wetlands</span></div><div><strong>0</strong><span>fuel-tank releases</span></div></div>
-            <p class="demo-dialog-note">Sample analysis of Adams County, Pennsylvania. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
+            <div class="demo-body">
+                <figure class="demo-map">
+                    <img src="demo/08-zoning-feasibility-hamilton.jpg" alt="Map of candidate sites in north Hamilton County, OH colored by number of feasibility red flags" loading="lazy" width="1280" height="800">
+                    <figcaption class="demo-legend">
+                        <span><i class="dot" style="background:#1e3a5f"></i>No red flags</span>
+                        <span><i class="dot" style="background:#d4a017"></i>1 red flag</span>
+                        <span><i class="dot" style="background:#b5523b"></i>2+ red flags</span>
+                        <span><i style="background:#4a7c9b"></i>30%+ zoned compatible</span>
+                        <span><i style="background:#8fb3cc"></i>10-30%</span>
+                        <span><i class="pin"></i>Top-ranked sites 1-5</span>
+                    </figcaption>
+                </figure>
+                <aside class="demo-card">
+                    <p class="demo-card-kicker">Screening of 87 candidate sites</p>
+                    <div class="demo-score"><strong>22</strong><span>sites with no<br>red flags</span></div>
+                    <p class="demo-card-kicker demo-card-sub">Results by check</p>
+                    <table class="demo-rank">
+                        <thead><tr><th>Check</th><th>Pass</th><th>Flag</th><th>No data</th></tr></thead>
+                        <tbody>
+                            <tr><td>Main-road access</td><td>36</td><td>51</td><td>0</td></tr>
+                            <tr><td>Slope</td><td>68</td><td>19</td><td>0</td></tr>
+                            <tr><td>Fuel tanks</td><td>73</td><td>14</td><td>0</td></tr>
+                            <tr><td>Flood zone</td><td>81</td><td>6</td><td>0</td></tr>
+                            <tr><td>Wetlands</td><td>86</td><td>1</td><td>0</td></tr>
+                            <tr><td>Zoning</td><td>3</td><td>1</td><td>83</td></tr>
+                        </tbody>
+                    </table>
+                    <table class="demo-table">
+                        <tr class="grp"><th colspan="2">Sites by red flags</th></tr>
+                        <tr><td>No red flags</td><td>22</td></tr>
+                        <tr><td>1 red flag</td><td>43</td></tr>
+                        <tr><td>2 or more</td><td>22</td></tr>
+                        <tr><td>Passed every check, no gaps</td><td>1</td></tr>
+                    </table>
+                    <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
+                </aside>
+            </div>
+            <div class="demo-stats"><div><strong>87</strong><span>candidate sites screened</span></div><div><strong>22</strong><span>with no red flags</span></div><div><strong>51</strong><span>weak main-road access</span></div><div><strong>19</strong><span>steep land</span></div><div><strong>6</strong><span>in a flood zone</span></div></div>
+            <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
 
 
@@ -1421,6 +1696,16 @@
                 sync();
             });
         }
+        // Scorecards scroll inside the popup; hide the "Scroll for more" hint
+        // once the end is reached, or straight away if nothing overflows.
+        function initScrollHints(dialog) {
+            dialog.querySelectorAll('.demo-card').forEach(function (card) {
+                function check() { card.classList.toggle('at-end', card.scrollTop + card.clientHeight >= card.scrollHeight - 4); }
+                if (!card.dataset.ready) { card.addEventListener('scroll', check); card.dataset.ready = 'true'; }
+                card.scrollTop = 0;
+                check();
+            });
+        }
         // Count each stat's leading number up from zero, keeping its prefix,
         // suffix, commas and decimals ("$1.07M", "30 of 68", "3.2 km").
         function countStats(dialog) {
@@ -1451,6 +1736,7 @@
                 var dialog = document.getElementById(button.dataset.demo);
                 dialog.showModal();
                 initSliders(dialog);
+                initScrollHints(dialog);
                 countStats(dialog);
             });
         });
