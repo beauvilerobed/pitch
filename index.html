@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AniPoint Site Research | Data-Driven Site Selection</title>
-    <meta name="description" content="Projected daily car counts, traffic, competition and revenue for sites, delivered in days, before you sign a lease.">
+    <title>AniPoint Site Research | Find the Demand. Find the Opportunity.</title>
+    <meta name="description" content="Projected car counts, competition and revenue that show where the untapped demand is, with a clear answer and the reasons behind it.">
     <link rel="canonical" href="https://anipointresearch.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://anipointresearch.com/">
     <meta property="og:title" content="AniPoint Site Research">
-    <meta property="og:description" content="Projected daily car counts, traffic, competition and revenue for sites, delivered in days, before you sign a lease.">
+    <meta property="og:description" content="Projected car counts, competition and revenue that show where the untapped demand is, with a clear answer and the reasons behind it.">
     <meta property="og:image" content="https://anipointresearch.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="AniPoint Site Research - strategic site selection &amp; market intelligence for operators">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AniPoint Site Research">
-    <meta name="twitter:description" content="Projected daily car counts, traffic, competition and revenue for sites, delivered in days, before you sign a lease.">
+    <meta name="twitter:description" content="Projected car counts, competition and revenue that show where the untapped demand is, with a clear answer and the reasons behind it.">
     <meta name="twitter:image" content="https://anipointresearch.com/og-image.png">
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="20" fill="%231e3a5f"/><text x="128" y="186" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="170" letter-spacing="-4" text-anchor="middle" fill="%23ffffff">A</text></svg>'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -450,6 +450,10 @@
         .step p { font-size: 0.94rem; color: var(--text-medium); }
 
         /* Founder */
+        .about-dialog { width: min(820px, 94vw); }
+        .about-dialog .demo-dialog-head h3::before { content: "About"; }
+        .about-body { overflow-y: auto; min-height: 0; padding: 0 32px; }
+        .founder h4 { font: 700 0.72rem var(--body); text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin: 22px 0 6px; }
         .founder { display: grid; grid-template-columns: 150px 1fr; gap: 44px; align-items: start; }
         .portrait {
             width: 150px;
@@ -463,13 +467,9 @@
             font: 700 2.4rem var(--head);
             letter-spacing: 2px;
         }
-        .founder h2 { font-size: 2.3rem; margin-bottom: 18px; }
         .founder-name { font: 700 1.3rem var(--head); color: var(--primary); }
         .founder-title { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-light); margin: 4px 0 18px; }
         .founder p { color: var(--text-medium); margin-bottom: 16px; }
-        .credentials { display: grid; gap: 10px; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--border-light); }
-        .credential { font-size: 0.93rem; color: var(--text-medium); }
-        .credential strong { color: var(--primary); }
 
         /* CTA band */
         .cta-band {
@@ -825,6 +825,8 @@
             .split, .founder { grid-template-columns: 1fr; }
             .metric-panel { padding: 10px 30px; }
             .portrait { width: 120px; height: 120px; font-size: 1.9rem; }
+            .about-body.founder { gap: 20px; }
+            .about-dialog .portrait { width: 80px; height: 80px; font-size: 1.4rem; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
@@ -861,7 +863,7 @@
             .brand .divider, .brand .brand-sub { display: none; }
             .service-grid, .process-grid, .footer-grid { grid-template-columns: 1fr; }
             .cta-band { padding: 80px 16px; }
-            .split h2, .founder h2 { font-size: 1.8rem; }
+            .split h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -891,7 +893,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#reports">Reports</a></li>
                     <li><a href="#process">Process</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#about" data-about>About</a></li>
                     <li><a href="#contact" class="nav-cta">Request a Report</a></li>
                 </ul>
             </nav>
@@ -900,8 +902,8 @@
 
     <!-- Hero -->
     <div class="hero" id="hero">
-        <h1>The Right Location Changes Everything.</h1>
-        <p class="subtitle">Evaluate locations with confidence using projected car counts, traffic data, competitive analysis, revenue forecasts, and financial risk assessments &mdash; delivered in days, not weeks.</p>
+        <h1>Find the Demand. Find the Opportunity.</h1>
+        <p class="subtitle">We show where your customers are, how much demand a site can capture, and where the competition leaves room, with a clear go/no-go answer in days, not weeks.</p>
         <p class="audience">For owners, operators, developers, brokers, investors, and lenders making high-stakes location decisions.</p>
         <div class="hero-cta">
             <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Car%20Count%20Projection" class="btn btn-white">Get Your Free Car Count Projection</a>
@@ -921,7 +923,7 @@
             <div class="container">
                 <div class="section-head reveal">
                     <h2>What Our Analysis Delivers</h2>
-                    <p>Eight ways we evaluate every site.</p>
+                    <p>Eight ways we explain the demand around every site.</p>
                     <p class="sample-note">Samples come from a car wash expansion analysis in Hamilton County, Ohio.</p>
                 </div>
                 <div class="service-grid">
@@ -946,13 +948,13 @@
                     <div class="service reveal">
                         <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-dollar"/></svg>
                         <h3>Revenue Projections</h3>
-                        <p>Expected, best-case, and worst-case revenue for the site, built from your operating costs and local demand, so you see the realistic range before committing.</p>
+                        <p>Expected, best-case, and worst-case revenue for the site, built from your operating costs and local demand, so you see the realistic range.</p>
                         <button type="button" class="demo-open" data-demo="demo-04">View sample</button>
                     </div>
                     <div class="service reveal">
                         <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-shield"/></svg>
                         <h3>Risk Assessment</h3>
-                        <p>Simulates thousands of possible outcomes to estimate the chance the site loses money, so you know the downside before you sign.</p>
+                        <p>Simulates thousands of possible outcomes to estimate the chance the site loses money, so you know the downside.</p>
                         <button type="button" class="demo-open" data-demo="demo-05">View sample</button>
                     </div>
                     <div class="service reveal">
@@ -978,6 +980,26 @@
             </div>
         </section>
 
+        <dialog class="demo-dialog about-dialog" id="about-dialog" aria-labelledby="about-title">
+            <div class="demo-dialog-head">
+                <h3 id="about-title">Who's Behind AniPoint</h3>
+                <button type="button" class="demo-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="about-body founder">
+                <!-- Placeholder until a headshot is supplied: swap for <img src="images/founder.jpg" alt="..."> -->
+                <div class="portrait" aria-hidden="true">RB</div>
+                <div>
+                    <div class="founder-name">Robed Beauvile-Owen</div>
+                    <div class="founder-title">Founder &middot; PhD, Mathematics</div>
+                    <h4>Why AniPoint</h4>
+                    <p>Opening a new location is one of the biggest decisions a business owner makes, and a single traffic count rarely tells the whole story. I started AniPoint to give owners a clear go/no-go answer and a clear direction, as the first step toward finding the best site for their business.</p>
+                    <h4>Background</h4>
+                    <p>Choosing a site comes down to predicting how customers will behave before the doors open, and I spent more than four years as a data scientist building exactly those kinds of predictions. In healthcare marketing, I built tools that showed teams which campaigns would work two months before the results came in, found the people most likely to sign up, and pinpointed where to focus twice as accurately as before.</p>
+                    <p>I'm a simple person, and I like simple answers. You get a clear answer, the reasons behind it, and an honest account of the risks, with nothing hidden in the fine print. My PhD in mathematics is there for the hard questions, and I bring it out only when a decision calls for it.</p>
+                    <p><a href="https://www.linkedin.com/in/robedbeauvile/" target="_blank" rel="noopener">Connect on LinkedIn &rarr;</a></p>
+                </div>
+            </div>
+        </dialog>
         <dialog class="demo-dialog demo-rich" id="demo-01" aria-labelledby="demo-01-title">
             <div class="demo-dialog-head">
                 <h3 id="demo-01-title">Location Ranking</h3>
@@ -1402,16 +1424,16 @@
                 </div>
                 <div class="reveal">
                     <h2>What's at Stake in a Site Selection Decision</h2>
-                    <p class="lede">A relatively small research investment helps inform a capital decision that may involve hundreds of thousands of dollars in deployment risk.</p>
+                    <p class="lede">A clear read on demand costs a fraction of what the wrong location can lose.</p>
                     <div class="example">
                         <span class="label">Illustrative Example A - Site Comparison</span>
-                        <h3>Similar Surface Characteristics Can Conceal Materially Different Market Fundamentals</h3>
+                        <h3>Two Sites Can Look the Same and Perform Very Differently</h3>
                         <p>Two trade areas appear comparable at first glance: both located on active commercial corridors and both presenting apparent demand. <strong>The analysis would show:</strong> Area A records approximately 18,000 vehicles per day, exhibits positive population growth, and faces lower competitive density. Area B records roughly 6,000 vehicles per day, has declining population trends, and contains heavy competition within a two-mile radius.</p>
-                        <p><strong>Projected outcome:</strong> Area A supports an estimated annual revenue potential exceeding $400K, while Area B does not meet break-even thresholds under comparable operating assumptions. A Site Feasibility Report helps identify this distinction before capital is committed.</p>
+                        <p><strong>Projected outcome:</strong> Area A supports an estimated annual revenue potential exceeding $400K, while Area B does not meet break-even thresholds under comparable operating assumptions. A Site Feasibility Report shows which area can support the business.</p>
                     </div>
                     <div class="example">
                         <span class="label">Illustrative Example B - Multi-Market Evaluation</span>
-                        <h3>Comparative Market Analysis Prior to Development</h3>
+                        <h3>Finding Where the Opportunity Is Strongest</h3>
                         <p>An operator is evaluating three prospective markets representing approximately $1.8M in planned capital deployment. On preliminary review, all three markets appear similar. <strong>A Multi-Market Expansion Study would surface meaningful differences:</strong> Markets A and B show strong indicators of first-year viability, while Market C shows weaker traffic fundamentals and more existing competition.</p>
                         <p><strong>Outcome:</strong> Capital is allocated to the stronger opportunities while the weaker market is deferred for further review. The analysis reduces uncertainty, improves resource allocation, and provides additional support for lender and investor discussions.</p>
                     </div>
@@ -1423,14 +1445,14 @@
         <section id="reports">
             <div class="container">
                 <div class="section-head reveal">
-                    <h2>Clear Data. Smart Site Selection.</h2>
+                    <h2>Clear Answers. Clear Direction.</h2>
                     <p>Pick the level of analysis that fits your project. Not sure yet? Ask for a free car count projection on any address.</p>
                 </div>
                 <div class="pricing-grid">
                     <div class="pricing-card reveal">
                         <div class="tier-label">One site</div>
                         <h3>Site Feasibility Report</h3>
-                        <div class="tier-desc">Know how a specific property stacks up before you commit to the land.</div>
+                        <div class="tier-desc">Find out whether a specific property can support your business.</div>
                         <ul>
                             <li>Projected daily car count for the site</li>
                             <li>Expected, best-case and worst-case revenue</li>
@@ -1485,7 +1507,7 @@
                         <li>Annual refresh or quarterly monitoring</li>
                     </ul>
                 </div>
-                <p class="pricing-fineprint">Our reports screen markets and sites before you commit capital. They don't confirm that a property is for sale, guarantee results, or replace zoning, utility and site-access checks with the municipality and your engineer.</p>
+                <p class="pricing-fineprint">Our reports measure demand and opportunity across markets and sites. They don't confirm that a property is for sale, guarantee results, or replace zoning, utility and site-access checks with the municipality and your engineer.</p>
             </div>
         </section>
 
@@ -1514,27 +1536,7 @@
                     <div class="step reveal">
                         <div class="step-num">04</div>
                         <h3>Deliver</h3>
-                        <p>Annotated maps, written report, and a clear go / no-go recommendation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Founder -->
-        <section id="about">
-            <div class="container founder">
-                <!-- Placeholder until a headshot is supplied: swap for <img src="images/founder.jpg" alt="..."> -->
-                <div class="portrait reveal" aria-hidden="true">RB</div>
-                <div class="reveal">
-                    <h2>Who's Behind AniPoint</h2>
-                    <div class="founder-name">Robed Beauvile-Owen</div>
-                    <div class="founder-title">Founder &amp; Principal &middot; PhD, Mathematics</div>
-                    <p>I founded AniPoint to bring a more structured, data-driven approach to site selection. Our research combines demographic analysis, traffic data, competitive intelligence, and geospatial methods to help operators evaluate locations before capital is committed.</p>
-                    <p><a href="https://www.linkedin.com/in/robedbeauvile/" target="_blank" rel="noopener">Connect on LinkedIn &rarr;</a></p>
-                    <div class="credentials">
-                        <div class="credential"><strong>PhD</strong> &middot; Mathematics, University of Pittsburgh</div>
-                        <div class="credential"><strong>4+ yrs</strong> &middot; Senior Data Scientist and ML/AI Engineer</div>
-                        <div class="credential"><strong>GIS</strong> &middot; Geospatial Analysis and Production Mapping Systems</div>
+                        <p>Annotated maps, written report, and a clear go/no-go recommendation.</p>
                     </div>
                 </div>
             </div>
@@ -1543,7 +1545,7 @@
         <!-- CTA band -->
         <div class="cta-band" id="contact">
             <h2>Have a Site in Mind?</h2>
-            <p>Send us the address and we'll project its daily car count, free. Operation already running? We'll show you how it compares, in confidence.</p>
+            <p>Send us an address and we'll project its demand, free. Operation already running? We'll show you how it compares, in confidence.</p>
             <div class="hero-cta">
                 <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Car%20Count%20Projection" class="btn btn-white">Get a Free Car Count Projection</a>
                 <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-ghost" target="_blank" rel="noopener">Book a 15-Minute Call</a>
@@ -1557,7 +1559,7 @@
         <div class="container">
             <div class="footer-top">
                 <a href="#" class="brand">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
-                <p>Data-driven site selection.</p>
+                <p>Find the demand. Find the opportunity.</p>
             </div>
             <div class="footer-grid">
                 <div>
@@ -1569,7 +1571,7 @@
                 </div>
                 <div>
                     <h4>Company</h4>
-                    <a href="#about">About</a>
+                    <a href="#about" data-about>About</a>
                     <a href="#process">Process</a>
                     <a href="#reports">Reports</a>
                 </div>
@@ -1732,6 +1734,13 @@
                 countStats(dialog);
             });
         });
+        document.querySelectorAll('[data-about]').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('about-dialog').showModal();
+            });
+        });
+        if (location.hash === '#about') { document.getElementById('about-dialog').showModal(); }
         document.querySelectorAll('.demo-dialog').forEach(function (dialog) {
             dialog.querySelector('.demo-close').addEventListener('click', function () { dialog.close(); });
             dialog.addEventListener('click', function (e) {
