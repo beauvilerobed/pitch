@@ -422,33 +422,6 @@
         .pricing-contact-cta .btn { text-align: center; }
         .pricing-fineprint { margin-top: 26px; font-size: 0.84rem; color: var(--text-light); text-align: center; max-width: 820px; margin-left: auto; margin-right: auto; }
 
-        /* Process */
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 36px;
-            position: relative;
-        }
-        .process-grid::before {
-            content: "";
-            position: absolute;
-            top: 31px;
-            left: 12.5%;
-            right: 12.5%;
-            border-top: 2px solid var(--border-light);
-        }
-        .step { text-align: center; position: relative; }
-        .step-num {
-            width: 64px; height: 64px;
-            margin: 0 auto 22px;
-            border-radius: 50%;
-            background: var(--primary);
-            color: var(--white);
-            font: 700 1.2rem/64px var(--head);
-        }
-        .step h3 { font-size: 1.2rem; margin-bottom: 8px; }
-        .step p { font-size: 0.94rem; color: var(--text-medium); }
-
         /* Founder */
         .about-dialog { width: min(820px, 94vw); }
         .about-dialog .demo-dialog-head h3::before { content: "About"; }
@@ -845,8 +818,6 @@
             .site-header .nav-cta, .site-header:not(.scrolled) .nav-cta { background: var(--primary); color: var(--white) !important; text-align: center; margin-top: 8px; }
             .card-grid, .pricing-grid, .proof-grid { grid-template-columns: 1fr; }
             .pricing-card.featured { transform: none; }
-            .process-grid { grid-template-columns: 1fr 1fr; }
-            .process-grid::before { display: none; }
             .custom-band { grid-template-columns: 1fr; }
             .hero h1 { font-size: 2.6rem; }
             .section-head h2, .cta-band h2 { font-size: 2.1rem; }
@@ -861,7 +832,7 @@
             .hero-cta .btn, .cta-band .btn { width: 100%; text-align: center; }
             .brand { font-size: 0.95rem; letter-spacing: 1.5px; }
             .brand .divider, .brand .brand-sub { display: none; }
-            .service-grid, .process-grid, .footer-grid { grid-template-columns: 1fr; }
+            .service-grid, .footer-grid { grid-template-columns: 1fr; }
             .cta-band { padding: 80px 16px; }
             .split h2 { font-size: 1.8rem; }
         }
@@ -892,7 +863,6 @@
                 <ul>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#reports">Reports</a></li>
-                    <li><a href="#process">Process</a></li>
                     <li><a href="#about" data-about>About</a></li>
                     <li><a href="#contact" class="nav-cta">Request a Report</a></li>
                 </ul>
@@ -903,7 +873,7 @@
     <!-- Hero -->
     <div class="hero" id="hero">
         <h1>Find the Demand. Find the Opportunity.</h1>
-        <p class="subtitle">We show where your customers are, how much demand a site can capture, and where the competition leaves room, with a clear go/no-go answer in days, not weeks.</p>
+        <p class="subtitle">We show where your customers are, how much demand a site can capture, and where the competition leaves room, with a clear go/no-go answer.</p>
         <p class="audience">For owners, operators, developers, brokers, investors, and lenders making high-stakes location decisions.</p>
         <div class="hero-cta">
             <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Car%20Count%20Projection" class="btn btn-white">Get Your Free Car Count Projection</a>
@@ -911,7 +881,6 @@
         </div>
         <div class="hero-meta">
             <span>Coverage <strong>U.S. Nationwide</strong></span>
-            <span>Turnaround <strong>Fast</strong></span>
             <span>Pricing <strong>Fixed-Fee, Quoted Upfront</strong></span>
             <span>Validated <strong>Against Real Locations</strong></span>
         </div>
@@ -972,7 +941,7 @@
                     <div class="service reveal">
                         <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-layers"/></svg>
                         <h3>Zoning &amp; Feasibility Screening</h3>
-                        <p>A quick check of each site for flood risk, wetlands, steep land, access from a main road, old underground fuel tanks, and zoning where the county publishes a zoning map. Flags problem sites before you pay for inspections; it doesn't replace a call to the planning office.</p>
+                        <p>A check of each site for flood risk, wetlands, steep land, access from a main road, old underground fuel tanks, and zoning where the county publishes a zoning map. Flags problem sites before you pay for inspections; it doesn't replace a call to the planning office.</p>
                         <button type="button" class="demo-open" data-demo="demo-08">View sample</button>
                     </div>
                 </div>
@@ -1511,37 +1480,6 @@
             </div>
         </section>
 
-        <!-- Process -->
-        <section class="band" id="process">
-            <div class="container">
-                <div class="section-head reveal">
-                    <h2>From Brief to Verdict in Days</h2>
-                </div>
-                <div class="process-grid">
-                    <div class="step reveal">
-                        <div class="step-num">01</div>
-                        <h3>Scope</h3>
-                        <p>Target geography, capital available, decision criteria, and what matters most.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">02</div>
-                        <h3>Assemble</h3>
-                        <p>Traffic, population, competitor, and site-condition data from trusted sources.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">03</div>
-                        <h3>Score</h3>
-                        <p>Rank neighborhoods, estimate revenue, and measure the chance of a downside.</p>
-                    </div>
-                    <div class="step reveal">
-                        <div class="step-num">04</div>
-                        <h3>Deliver</h3>
-                        <p>Annotated maps, written report, and a clear go/no-go recommendation.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- CTA band -->
         <div class="cta-band" id="contact">
             <h2>Have a Site in Mind?</h2>
@@ -1572,7 +1510,6 @@
                 <div>
                     <h4>Company</h4>
                     <a href="#about" data-about>About</a>
-                    <a href="#process">Process</a>
                     <a href="#reports">Reports</a>
                 </div>
                 <div>
