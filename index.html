@@ -375,6 +375,10 @@
         .about-dialog { width: min(820px, 94vw); }
         .about-dialog .demo-dialog-head h3::before { content: "About"; }
         .about-body { overflow-y: auto; min-height: 0; padding: 0 32px; }
+        .demo-dialog.email-dialog { width: min(520px, 94vw); }
+        .email-dialog .demo-dialog-head h3::before { content: "Email"; }
+        .email-body { padding: 0 32px; }
+        .email-body p { color: var(--text-medium); overflow-wrap: anywhere; }
         .founder h4 { font: 700 0.72rem var(--body); text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin: 22px 0 6px; }
         .founder { display: grid; grid-template-columns: 150px 1fr; gap: 44px; align-items: start; }
         .portrait {
@@ -895,6 +899,19 @@
             </div>
         </section>
 
+        <dialog class="demo-dialog email-dialog" id="email-dialog" aria-labelledby="email-title">
+            <div class="demo-dialog-head">
+                <h3 id="email-title">Open Your Email App?</h3>
+                <button type="button" class="demo-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="email-body">
+                <p>This opens a new message to <strong>rbeauvile@anipointresearch.com</strong> in your email app. Nothing is sent until you press send there.</p>
+                <div class="pricing-contact-cta">
+                    <a href="#" class="btn btn-solid" id="email-yes">Yes, Open Email</a>
+                    <button type="button" class="btn btn-outline" data-email-cancel>Cancel</button>
+                </div>
+            </div>
+        </dialog>
         <dialog class="demo-dialog about-dialog" id="about-dialog" aria-labelledby="about-title">
             <div class="demo-dialog-head">
                 <h3 id="about-title">Who's Behind AniPoint</h3>
@@ -1572,6 +1589,17 @@
                 document.getElementById('about-dialog').showModal();
             });
         });
+        var emailDialog = document.getElementById('email-dialog');
+        var emailYes = document.getElementById('email-yes');
+        document.querySelectorAll('a[href^="mailto:"]').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                emailYes.href = link.href;
+                emailDialog.showModal();
+            });
+        });
+        emailYes.addEventListener('click', function () { emailDialog.close(); });
+        emailDialog.querySelector('[data-email-cancel]').addEventListener('click', function () { emailDialog.close(); });
         if (location.hash === '#about') { document.getElementById('about-dialog').showModal(); }
         document.querySelectorAll('.demo-dialog').forEach(function (dialog) {
             dialog.querySelector('.demo-close').addEventListener('click', function () { dialog.close(); });
