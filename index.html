@@ -317,32 +317,6 @@
         .proof h3 { font-size: 1.3rem; margin-bottom: 12px; }
         .proof p { color: var(--text-medium); font-size: 0.97rem; }
 
-        /* Feature split: panel left, text right */
-        .split {
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 56px;
-            align-items: stretch;
-        }
-        .metric-panel {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            background: var(--primary);
-            color: var(--white);
-            padding: 36px 34px;
-        }
-        .metric { padding: 26px 0; }
-        .metric + .metric { border-top: 1px solid rgba(255,255,255,0.18); }
-        .metric-label { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.7); }
-        .metric-value { font: 700 2.6rem var(--head); margin: 4px 0; font-variant-numeric: tabular-nums; }
-        .metric-sub { font-size: 0.88rem; color: rgba(255,255,255,0.8); }
-        .metric.highlight .metric-value { color: #9cc4e4; font-size: 2.05rem; white-space: nowrap; }
-
-        .split h2 { font-size: 2.3rem; margin-bottom: 18px; }
-        .split .lede { font-size: 1.05rem; color: var(--text-medium); }
-        #stakes .split { align-items: center; }
-
         /* Pricing */
         .pricing-grid {
             display: grid;
@@ -390,12 +364,14 @@
             margin-top: 50px;
             background: var(--white);
             box-shadow: 0 2px 10px rgba(15, 23, 42, 0.1);
-            padding: 34px 36px;
+            padding: 34px 0;
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 36px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
             align-items: center;
         }
+        .custom-band > * { padding: 0 32px; }
+        .custom-band > div { grid-column: span 2; }
         .custom-band h3 { font-size: 1.35rem; margin-bottom: 10px; }
         .custom-band p { font-size: 0.95rem; color: var(--text-medium); }
         .custom-band ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
@@ -783,8 +759,7 @@
         /* Responsive */
         @media (max-width: 1080px) {
             .service-grid { grid-template-columns: repeat(2, 1fr); }
-            .split, .founder { grid-template-columns: 1fr; }
-            .metric-panel { padding: 10px 30px; }
+            .founder { grid-template-columns: 1fr; }
             .portrait { width: 120px; height: 120px; font-size: 1.9rem; }
             .about-body.founder { gap: 20px; }
             .about-dialog .portrait { width: 80px; height: 80px; font-size: 1.4rem; }
@@ -807,6 +782,7 @@
             .card-grid, .pricing-grid, .proof-grid { grid-template-columns: 1fr; }
             .pricing-card.featured { transform: none; }
             .custom-band { grid-template-columns: 1fr; }
+            .custom-band > div { grid-column: auto; }
             .hero h1 { font-size: 2.6rem; }
             .section-head h2, .cta-band h2 { font-size: 2.1rem; }
             section { padding: 72px 0; }
@@ -822,7 +798,6 @@
             .brand .divider, .brand .brand-sub { display: none; }
             .service-grid, .footer-grid { grid-template-columns: 1fr; }
             .cta-band { padding: 80px 16px; }
-            .split h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -1359,35 +1334,8 @@
             </div>
         </section>
 
-        <!-- What's at stake -->
-        <section class="band" id="stakes">
-            <div class="container split">
-                <div class="metric-panel reveal">
-                    <div class="metric">
-                        <div class="metric-label">Capital Investment</div>
-                        <div class="metric-value">$<span data-count="1" data-suffix="M+">0</span></div>
-                        <div class="metric-sub">Typical, including land and equipment</div>
-                    </div>
-                    <div class="metric highlight">
-                        <div class="metric-label">Research Investment</div>
-                        <div class="metric-value">Fixed Fee</div>
-                        <div class="metric-sub">Quoted in writing to your scope</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-label">Potential Loss Avoidance</div>
-                        <div class="metric-value">$<span data-count="300" data-suffix="K+">0</span></div>
-                        <div class="metric-sub">If a non-viable site is screened out</div>
-                    </div>
-                </div>
-                <div class="reveal">
-                    <h2>What's at Stake in a Site Selection Decision</h2>
-                    <p class="lede">A clear read on demand costs a fraction of what the wrong location can lose.</p>
-                </div>
-            </div>
-        </section>
-
         <!-- Pricing -->
-        <section id="reports">
+        <section class="band" id="reports">
             <div class="container">
                 <div class="section-head reveal">
                     <h2>Clear Answers. Clear Direction.</h2>
