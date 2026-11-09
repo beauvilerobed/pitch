@@ -408,15 +408,15 @@
         .cta-band .hero-cta { margin-top: 0; }
 
         /* Footer */
-        footer { background: var(--primary-deep); color: rgba(255,255,255,0.85); padding: 64px 0 34px; }
-        .footer-top { padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.18); margin-bottom: 36px; }
-        .footer-top .brand { font-size: 1.4rem; }
-        .footer-top p { margin-top: 6px; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
-        .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 36px; }
-        footer h4 { color: var(--white); font-size: 1.15rem; margin-bottom: 16px; }
-        footer a, footer .footer-item { display: block; color: rgba(255,255,255,0.85); font-size: 0.95rem; margin-bottom: 10px; }
+        footer { background: var(--primary-deep); color: rgba(255,255,255,0.85); padding: 48px 0 30px; }
+        .footer-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+        .footer-brand .brand { font-size: 1.4rem; }
+        .footer-brand p { margin-top: 6px; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
+        .footer-links { text-align: right; }
+        .footer-links div { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px 28px; margin-bottom: 10px; }
+        footer a { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
         footer a:hover { color: var(--white); }
-        .footer-meta { margin-top: 40px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.18); font-size: 0.84rem; color: rgba(255,255,255,0.6); }
+        .footer-meta { margin-top: 32px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); font-size: 0.84rem; color: rgba(255,255,255,0.6); }
 
         /* Reveal on scroll */
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -751,7 +751,7 @@
             .portrait { width: 120px; height: 120px; font-size: 1.9rem; }
             .about-body.founder { gap: 20px; }
             .about-dialog .portrait { width: 80px; height: 80px; font-size: 1.4rem; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-links, .footer-links div { text-align: left; justify-content: flex-start; }
         }
 
         @media (max-width: 900px) {
@@ -782,7 +782,7 @@
             .hero-cta .btn, .cta-band .btn { width: 100%; text-align: center; }
             .brand { font-size: 0.95rem; letter-spacing: 1.5px; }
             .brand .divider, .brand .brand-sub { display: none; }
-            .service-grid, .footer-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
             .cta-band { padding: 80px 16px; }
         }
     </style>
@@ -1405,27 +1405,19 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-top">
-                <a href="#" class="brand">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
-                <p>Find the demand. Find the opportunity.</p>
-            </div>
-            <div class="footer-grid">
-                <div>
-                    <h4>Company</h4>
-                    <a href="#about" data-about>About</a>
-                    <a href="#reports">Reports</a>
+            <div class="footer-row">
+                <div class="footer-brand">
+                    <a href="#" class="brand">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
+                    <p>Find the demand. Find the opportunity.</p>
                 </div>
-                <div>
-                    <h4>Who We Serve</h4>
-                    <span class="footer-item">Owners &middot; Operators</span>
-                    <span class="footer-item">Developers &middot; Brokers</span>
-                    <span class="footer-item">Investors &middot; Lenders</span>
-                </div>
-                <div>
-                    <h4>Contact</h4>
+                <div class="footer-links">
+                    <div>
+                        <a href="#about" data-about>About</a>
+                        <a href="#reports">Reports</a>
+                        <a href="https://calendly.com/rbeauvile-anipointresearch" target="_blank" rel="noopener">Book a call</a>
+                        <a href="https://www.linkedin.com/company/anipoint-site-research/" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
                     <a href="mailto:rbeauvile@anipointresearch.com">rbeauvile@anipointresearch.com</a>
-                    <a href="https://calendly.com/rbeauvile-anipointresearch" target="_blank" rel="noopener">Book a call</a>
-                    <a href="https://www.linkedin.com/company/anipoint-site-research/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
             <div class="footer-meta">&copy; 2026 AniPoint Site Research. All rights reserved.</div>
