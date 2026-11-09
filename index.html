@@ -337,8 +337,7 @@
         .featured .tier-label { color: #9cc4e4; }
         .pricing-card h3 { font-size: 1.3rem; margin: 8px 0 18px; }
         .price { font: 800 2.3rem var(--head); color: var(--primary); font-variant-numeric: tabular-nums; }
-        .price-modifier { font-size: 0.85rem; color: var(--text-light); margin-bottom: 16px; }
-        .featured .price-modifier, .featured .tier-desc, .pricing-card.featured li { color: rgba(255,255,255,0.88); }
+        .featured .tier-desc, .pricing-card.featured li { color: rgba(255,255,255,0.88); }
         .tier-desc { font-size: 0.95rem; color: var(--text-medium); margin-bottom: 20px; }
         .pricing-card ul { list-style: none; flex: 1; }
         .pricing-card li {
@@ -873,7 +872,7 @@
                     <div class="service reveal">
                         <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-shield"/></svg>
                         <h3>Risk Assessment</h3>
-                        <p>Simulates thousands of possible outcomes to estimate the chance the site loses money, so you know the downside.</p>
+                        <p>Estimates the chance the site loses money and how low revenue could fall in a bad year, so you know the downside.</p>
                         <button type="button" class="demo-open" data-demo="demo-05">View sample</button>
                     </div>
                     <div class="service reveal">
@@ -924,10 +923,10 @@
                     <div class="founder-name">Robed Beauvile-Owen</div>
                     <div class="founder-title">Founder &middot; PhD, Mathematics</div>
                     <h4>Why AniPoint</h4>
-                    <p>Opening a new location is one of the biggest decisions a business owner makes, and a single traffic count rarely tells the whole story. I started AniPoint to give owners a clear go/no-go answer and a clear direction, as the first step toward finding the best site for their business.</p>
+                    <p>Opening a new location is one of the biggest decisions a business owner makes, and a single traffic count rarely tells the whole story. I started AniPoint to give owners a go/no-go answer they can act on, as the first step toward finding the best site for their business.</p>
                     <h4>Background</h4>
                     <p>Choosing a site comes down to predicting how customers will behave before the doors open, and I spent more than four years as a data scientist building exactly those kinds of predictions. In healthcare marketing, I built tools that showed teams which campaigns would work two months before the results came in, found the people most likely to sign up, and pinpointed where to focus twice as accurately as before.</p>
-                    <p>I'm a simple person, and I like simple answers. You get a clear answer, the reasons behind it, and an honest account of the risks, with nothing hidden in the fine print. My PhD in mathematics is there for the hard questions, and I bring it out only when a decision calls for it.</p>
+                    <p>I'm a simple person, and I like simple answers. You get a clear answer, the reasons behind it, and an honest account of the risks. My PhD in mathematics is there for the harder parts: assumptions stated plainly, rigorous analysis backed by data, and an honest measure of uncertainty. I bring it out only when a decision calls for it.</p>
                     <p><a href="https://www.linkedin.com/in/robedbeauvile/" target="_blank" rel="noopener">Connect on LinkedIn &rarr;</a></p>
                 </div>
             </div>
@@ -1130,7 +1129,7 @@
             </div>
             <div class="demo-body">
                 <figure class="demo-map">
-                    <img src="demo/05-risk-assessment-hamilton.jpg" alt="Map of north Hamilton County, OH block groups ranked by simulated chance of a loss, with the top five sites marked" loading="lazy" width="1280" height="800">
+                    <img src="demo/05-risk-assessment-hamilton.jpg" alt="Map of north Hamilton County, OH block groups ranked by chance of a loss, with the top five sites marked" loading="lazy" width="1280" height="800">
                     <figcaption class="demo-legend">
                         <span><i style="background:#1e3a5f"></i>Top 5% (lowest risk)</span>
                         <span><i style="background:#4a7c9b"></i>5-10%</span>
@@ -1141,10 +1140,10 @@
                     </figcaption>
                 </figure>
                 <aside class="demo-card">
-                    <p class="demo-card-kicker">Top-ranked site, 5,000 simulated years</p>
+                    <p class="demo-card-kicker">Top-ranked site, good years and bad</p>
                     <div class="demo-score"><strong>6.0%</strong><span>chance of<br>a loss</span></div>
                     <table class="demo-table">
-                        <tr class="grp"><th colspan="2">Simulated revenue</th></tr>
+                        <tr class="grp"><th colspan="2">Revenue across likely years</th></tr>
                         <tr><td>Median</td><td>$1.94M</td></tr>
                         <tr><td>Average</td><td>$2.53M</td></tr>
                         <tr><td>Bad year (1 in 20)</td><td>$520K</td></tr>
@@ -1164,7 +1163,7 @@
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
-            <div class="demo-stats"><div><strong>5,000</strong><span>simulations per block group</span></div><div><strong>5.6%</strong><span>lowest chance of a loss</span></div><div><strong>20.4%</strong><span>median chance of a loss</span></div><div><strong>68</strong><span>block groups in the top 10%, under 11.8%</span></div><div><strong>$535K</strong><span>best bad-year revenue (1 in 20)</span></div></div>
+            <div class="demo-stats"><div><strong>339</strong><span>block groups above a 20% chance of a loss</span></div><div><strong>5.6%</strong><span>lowest chance of a loss</span></div><div><strong>20.4%</strong><span>median chance of a loss</span></div><div><strong>68</strong><span>block groups in the top 10%, under 11.8%</span></div><div><strong>$535K</strong><span>best bad-year revenue (1 in 20)</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
         <dialog class="demo-dialog demo-rich" id="demo-06" aria-labelledby="demo-06-title">
@@ -1367,9 +1366,8 @@
                         </ul>
                     </div>
                     <div class="pricing-card reveal">
-                        <div class="tier-label">Several markets</div>
+                        <div class="tier-label">Up to three markets</div>
                         <h3>Multi-Market Expansion Study</h3>
-                        <div class="price-modifier">Up to three markets</div>
                         <div class="tier-desc">Compare markets side by side and plan where to expand next.</div>
                         <ul>
                             <li>Every site scored across all markets</li>
@@ -1415,8 +1413,12 @@
                 <div>
                     <h4>Services</h4>
                     <a href="#services">Location Ranking</a>
+                    <a href="#services">Customer Profile Analysis</a>
+                    <a href="#services">Traffic &amp; Demand Analysis</a>
                     <a href="#services">Revenue Projections</a>
                     <a href="#services">Risk Assessment</a>
+                    <a href="#services">Competitive Mapping</a>
+                    <a href="#services">Market Opportunity</a>
                     <a href="#services">Zoning &amp; Feasibility Screening</a>
                 </div>
                 <div>
