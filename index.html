@@ -239,13 +239,19 @@
         #reports .section-head { max-width: 1100px; margin-bottom: 40px; }
         #reports .section-head h2 { font-size: 2.6rem; }
         #reports .section-head h2 .line { display: block; }
-        #reports .pricing-card { padding: 46px 44px 40px; }
+        #reports .pricing-card { padding: 40px 32px 36px; }
         #reports .pricing-card h3 { font-size: 1.65rem; }
-        #reports .tier-desc { font-size: 1.05rem; }
+        #reports .tier-desc { font-size: 1.05rem; min-height: 5.1em; }
         #reports .pricing-card li { font-size: 1rem; margin-bottom: 13px; }
         #reports .custom-band h3 { font-size: 1.5rem; }
+        #reports .quote-box { max-width: 560px; padding: 28px 28px 30px; }
+        #reports .quote-box .pricing-contact-cta { margin-top: 14px; }
+        #reports .pricing-card { cursor: pointer; border-top: 4px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
+        #reports .pricing-card:hover, #reports .pricing-card:focus-visible { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18); border-top-color: var(--primary); outline: none; }
+        #reports .pricing-card:hover .card-sample::before { transform: scaleX(1); }
+        #reports .pricing-card:hover .card-sample::after { transform: translateX(5px); }
         #reports .custom-band p { font-size: 1.02rem; }
-        @media (max-width: 700px) { #reports .pricing-card { padding: 32px 24px 28px; } }
+        @media (max-width: 700px) { #reports .pricing-card { padding: 32px 24px 28px; } #reports .tier-desc { min-height: 0; } }
         @media (max-width: 1080px) { #reports .section-head h2 { font-size: 2.1rem; } }
         @media (max-width: 700px) { #reports .section-head h2 { font-size: 1.55rem; } }
         .section-head.left h2::after { margin-left: 0; }
@@ -340,8 +346,8 @@
         /* Pricing */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            max-width: 1060px;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1180px;
             margin-left: auto;
             margin-right: auto;
             gap: 30px;
@@ -382,7 +388,7 @@
         .featured li::before { border-color: #9cc4e4; }
 
         .custom-band {
-            max-width: 1060px;
+            max-width: 1180px;
             margin: 30px auto 0;
             text-align: center;
             background: var(--white);
@@ -843,7 +849,7 @@
                     <li><a href="#reports">Reports</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about" data-about>About</a></li>
-                    <li><a href="#contact-dialog" class="nav-cta" data-contact data-goatcounter-click="nav-request-report">Request a Report</a></li>
+                    <li><a href="#request-dialog" class="nav-cta" data-request data-goatcounter-click="nav-request-report">Request a Report</a></li>
                 </ul>
             </nav>
         </div>
@@ -852,7 +858,7 @@
     <!-- Hero -->
     <div class="hero" id="hero">
         <h1>Find the Demand. Find the Opportunity.</h1>
-        <p class="subtitle">Car washes, gas stations, and any traffic-dependent business mainly depend on three things... location, location, location. We show where your customers are, how much demand a site can capture, and where the competition leaves room, with a clear go/no-go answer.</p>
+        <p class="subtitle">Car washes and other traffic-dependent businesses depend on three things: location, location, location. We rank every site in a county, tell you whether the one site you want is worth signing for, and prove it to your lender, using federal traffic counts and our proprietary model tested across the U.S.</p>
         <div class="hero-cta">
             <a href="#contact-dialog" class="btn btn-white" data-contact data-goatcounter-click="hero-get-in-touch">Get in Touch</a>
         </div>
@@ -860,6 +866,7 @@
             <span>Coverage <strong>U.S. Nationwide</strong></span>
             <span>Pricing <strong>Quoted Upfront</strong></span>
             <span>Validated <strong>Through Real Locations</strong></span>
+            <span>Independent <strong>No Referral Fees</strong></span>
         </div>
     </div>
 
@@ -870,9 +877,23 @@
             <div class="container">
                 <div class="section-head reveal">
                     <h2><span class="line">Know Before You Sign.</span> <span class="line">Prove It Before You Borrow.</span></h2>
-                    <p>Screen the site. Then prove it.</p>
+                    <p>Our products, built for every step from investigating a site to loan approval.</p>
                 </div>
                 <div class="pricing-grid">
+                    <div class="pricing-card reveal">
+                        <div class="tier-label">Before you pick a site</div>
+                        <h3>County Dashboard</h3>
+                        <div class="tier-desc">Find the best sites in a county before you commit to one.</div>
+                        <ul>
+                            <li>Every block group ranked by site score</li>
+                            <li>Traffic, competition and revenue maps</li>
+                            <li>Candidate sites screened for red flags</li>
+                            <li>Customer profile and risk by area</li>
+                            <li>A finding for every map, plus the data</li>
+                            <li>Downloadable, yours to keep</li>
+                        </ul>
+                        <a href="#services" class="demo-open card-sample" style="text-decoration: none;" data-goatcounter-click="home-sample-county-dashboard">View samples</a>
+                    </div>
                     <div class="pricing-card reveal">
                         <div class="tier-label">Before you sign</div>
                         <h3>Site Screen</h3>
@@ -882,15 +903,15 @@
                             <li>Break-even check</li>
                             <li>Competitors within 3 miles</li>
                             <li>Flood, wetland, slope and zoning flags</li>
-                            <li>Interactive county dashboard</li>
+                            <li>Everything in the County Dashboard</li>
                             <li>30-minute walkthrough</li>
                         </ul>
                         <button type="button" class="demo-open card-sample" data-demo="sample-screen" data-goatcounter-click="home-sample-site-screen">View sample</button>
                     </div>
-                    <div class="pricing-card featured reveal">
+                    <div class="pricing-card reveal">
                         <div class="tier-label">For your loan</div>
                         <h3>Feasibility Report</h3>
-                        <div class="tier-desc">Independent study for SBA, USDA or bank loans. No stake in your project, no referral fees.</div>
+                        <div class="tier-desc">An independent study for your SBA, USDA or bank loan.</div>
                         <ul>
                             <li>Everything in the Site Screen</li>
                             <li>Washes in permitting nearby</li>
@@ -903,10 +924,9 @@
                     </div>
                 </div>
 
-                <div class="custom-band reveal">
+                <div class="custom-band quote-box reveal">
                     <div>
-                        <h3>Add-Ons</h3>
-                        <p>More sites, risk-of-loss analysis, or up to three markets. Fixed-fee quote before work starts.</p>
+                        <h3>Ready to start?</h3>
                         <div class="pricing-contact-cta">
                             <a href="mailto:rbeauvile@anipointresearch.com?subject=Site%20Selection%20Inquiry" class="btn btn-solid" data-goatcounter-click="home-request-quote">Request a Quote</a>
                             <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-outline" target="_blank" rel="noopener" data-goatcounter-click="home-book-call">Book a 15-Minute Call</a>
@@ -949,9 +969,31 @@
         <section class="band" id="services">
             <div class="container">
                 <div class="section-head reveal">
-                    <h2>Your Site, Plus Every Option Nearby</h2>
-                    <p>Every report includes a county dashboard that ranks every other viable location.</p>
-                    <p class="sample-note">Report samples use an anonymized express wash in suburban Maryland. Dashboard samples come from a Hamilton County, Ohio analysis.</p>
+                    <h2>What Our Analysis Provides</h2>
+                    <p class="sample-note">Report samples use an anonymized express wash in suburban Maryland.<br>Dashboard samples come from a Hamilton County, Ohio analysis.</p>
+                </div>
+                <div class="service-group">
+                    <div class="group-label reveal">Before you pick a site</div>
+                    <div class="service-grid">
+                    <div class="service reveal">
+                        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-rank"/></svg>
+                        <h3>Location Ranking</h3>
+                        <p>Ranks the neighborhoods in your target area by traffic, how well residents match your customers, and how crowded the competition is, so the strongest options rise to the top.</p>
+                        <div class="card-links"><button type="button" class="demo-open" data-demo="demo-01">Sample dashboard</button></div>
+                    </div>
+                    <div class="service reveal">
+                        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-shield"/></svg>
+                        <h3>Risk Assessment</h3>
+                        <p>Estimates the chance the site loses money and how low revenue could fall in a bad year, so you know the downside.</p>
+                        <div class="card-links"><button type="button" class="demo-open" data-demo="demo-05">Sample dashboard</button></div>
+                    </div>
+                    <div class="service reveal">
+                        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-trend"/></svg>
+                        <h3>Market Opportunity</h3>
+                        <p>Estimates how much new revenue one more location would add to the local market, with a likely range instead of a single guess.</p>
+                        <div class="card-links"><button type="button" class="demo-open" data-demo="demo-07">Sample dashboard</button></div>
+                    </div>
+                    </div>
                 </div>
                 <div class="service-group">
                     <div class="group-label reveal">In every Site Screen</div>
@@ -993,29 +1035,6 @@
                     </div>
                     </div>
                 </div>
-                <div class="service-group">
-                    <div class="group-label reveal">Add-ons</div>
-                    <div class="service-grid">
-                    <div class="service reveal">
-                        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-rank"/></svg>
-                        <h3>Location Ranking</h3>
-                        <p>Ranks the neighborhoods in your target area by traffic, how well residents match your customers, and how crowded the competition is, so the strongest options rise to the top.</p>
-                        <div class="card-links"><button type="button" class="demo-open" data-demo="demo-01">Sample dashboard</button></div>
-                    </div>
-                    <div class="service reveal">
-                        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-shield"/></svg>
-                        <h3>Risk Assessment</h3>
-                        <p>Estimates the chance the site loses money and how low revenue could fall in a bad year, so you know the downside.</p>
-                        <div class="card-links"><button type="button" class="demo-open" data-demo="demo-05">Sample dashboard</button></div>
-                    </div>
-                    <div class="service reveal">
-                        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-trend"/></svg>
-                        <h3>Market Opportunity</h3>
-                        <p>Estimates how much new revenue one more location would add to the local market, with a likely range instead of a single guess.</p>
-                        <div class="card-links"><button type="button" class="demo-open" data-demo="demo-07">Sample dashboard</button></div>
-                    </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -1029,6 +1048,19 @@
                 <div class="pricing-contact-cta">
                     <a href="#" class="btn btn-solid" id="email-yes" data-goatcounter-click="email-confirmed">Yes, Open Email</a>
                     <button type="button" class="btn btn-outline" data-email-cancel>Cancel</button>
+                </div>
+            </div>
+        </dialog>
+        <dialog class="demo-dialog email-dialog contact-dialog" id="request-dialog" aria-labelledby="request-title">
+            <div class="demo-dialog-head">
+                <h3 id="request-title">Request a Report</h3>
+                <button type="button" class="demo-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="email-body">
+                <p>Tell us about your county or site. Email for a fixed-fee quote, or book a 15-minute call.</p>
+                <div class="pricing-contact-cta">
+                    <a href="mailto:rbeauvile@anipointresearch.com?subject=Report%20Request" class="btn btn-solid" data-direct-email data-goatcounter-click="request-email">Email for a Quote</a>
+                    <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-outline" target="_blank" rel="noopener" data-goatcounter-click="request-book-call">Book a 15-Minute Call</a>
                 </div>
             </div>
         </dialog>
@@ -1631,6 +1663,19 @@
                 requestAnimationFrame(tick);
             });
         }
+        document.querySelectorAll('#reports .pricing-card').forEach(function (card) {
+            var target = card.querySelector('.card-sample');
+            if (!target) return;
+            card.setAttribute('tabindex', '0');
+            card.addEventListener('click', function (e) { if (!e.target.closest('.card-sample')) target.click(); });
+            card.addEventListener('keydown', function (e) { if (e.key === 'Enter') target.click(); });
+        });
+        document.querySelectorAll('[data-request]').forEach(function (link) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('request-dialog').showModal();
+            });
+        });
         document.querySelectorAll('[data-frame]').forEach(function (button) {
             button.addEventListener('click', function () {
                 var dialog = document.getElementById('frame-dialog');
