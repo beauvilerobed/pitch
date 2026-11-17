@@ -21,23 +21,24 @@
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="20" fill="%231e3a5f"/><text x="128" y="186" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="170" letter-spacing="-4" text-anchor="middle" fill="%23ffffff">A</text></svg>'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e3a5f;
-            --primary-deep: #142a47;
-            --secondary: #2d5a87;
-            --accent: #4a7c9b;
-            --text-dark: #1f2a3a;
-            --text-medium: #4a5568;
-            --text-light: #6b7280;
-            --bg-band: #eef4f7;
-            --bg-light: #f8f9fa;
+            --primary: #0f1a2b;
+            --primary-deep: #0a121f;
+            --secondary: #23324a;
+            --accent: #0388c5;
+            --text-dark: #0f1a2b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --bg-band: #eff3f7;
+            --bg-light: #f8fafc;
             --white: #ffffff;
-            --border: #d1d5db;
+            --border: #ccd5df;
             --border-light: #e2e8f0;
-            --head: 'Montserrat', Helvetica, Arial, sans-serif;
-            --body: 'Roboto', Helvetica, Arial, sans-serif;
+            --radius: 8px;
+            --head: 'Lora', Georgia, serif;
+            --body: 'Inter', Helvetica, Arial, sans-serif;
             /* Photos (Unsplash License) sit under the navy overlay; the road-grid
                pattern with its diagonal stays on top of them. */
             --pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.07' stroke-width='1.5'%3E%3Cpath d='M0 62H240M0 176H240M74 0V240M188 0V240'/%3E%3Cpath d='M0 240L240 0' stroke-width='3'/%3E%3Cpath d='M0 120H74M188 120H240M131 0V62M131 176V240' stroke-opacity='0.04'/%3E%3C/g%3E%3Cg fill='%23ffffff' fill-opacity='0.12'%3E%3Ccircle cx='74' cy='62' r='3'/%3E%3Ccircle cx='188' cy='176' r='3'/%3E%3Ccircle cx='131' cy='109' r='4'/%3E%3C/g%3E%3C/svg%3E");
@@ -62,7 +63,7 @@
 
         .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
 
-        a { color: var(--secondary); text-decoration: none; }
+        a { color: var(--accent); text-decoration: none; }
         a:hover { color: var(--primary); text-decoration: underline; }
 
         /* Header: transparent over the hero, white once scrolled */
@@ -82,12 +83,12 @@
         }
         .site-header.scrolled {
             background: var(--white);
-            box-shadow: 0 2px 14px rgba(15, 23, 42, 0.1);
+            border-bottom: 1px solid var(--border);
         }
         .site-header.scrolled .container { padding-top: 14px; padding-bottom: 14px; }
 
         .brand {
-            font-family: var(--head);
+            font-family: var(--body);
             font-size: 1.15rem;
             font-weight: 700;
             letter-spacing: 2.5px;
@@ -118,12 +119,12 @@
         .scrolled nav a { color: var(--text-dark); }
 
         .site-header .nav-cta {
-            background: var(--primary);
+            background: var(--accent);
             color: var(--white) !important;
             padding: 11px 26px;
+            border-radius: var(--radius);
             opacity: 1 !important;
         }
-        .site-header:not(.scrolled) .nav-cta { background: var(--white); color: var(--primary) !important; }
         .site-header .nav-cta:hover { background: var(--secondary); color: var(--white) !important; }
 
         .nav-toggle {
@@ -147,11 +148,12 @@
             letter-spacing: 0.4px;
             padding: 15px 26px;
             border: 2px solid transparent;
+            border-radius: var(--radius);
             cursor: pointer;
             transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
         }
         .btn:hover { text-decoration: none; transform: translateY(-1px); }
-        .btn-solid { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        .btn-solid { background: var(--accent); color: var(--white); border-color: var(--accent); }
         .btn-solid:hover { background: var(--secondary); border-color: var(--secondary); color: var(--white); }
         .btn-white { background: var(--white); color: var(--primary); border-color: var(--white); }
         .btn-white:hover { background: var(--bg-band); color: var(--primary); }
@@ -163,7 +165,7 @@
         /* Hero */
         .hero {
             position: relative;
-            background: var(--pattern) 0 0 / 240px 240px repeat, linear-gradient(rgba(20, 42, 71, 0.8), rgba(20, 42, 71, 0.86)), var(--hero-photo), var(--primary);
+            background: var(--pattern) 0 0 / 240px 240px repeat, linear-gradient(rgba(15, 26, 43, 0.8), rgba(15, 26, 43, 0.88)), var(--hero-photo), var(--primary);
             color: var(--white);
             text-align: center;
             padding: 180px 40px 70px;
@@ -198,11 +200,11 @@
             margin: 64px auto 0;
             padding-top: 22px;
             border-top: 1px solid rgba(255,255,255,0.2);
-            max-width: 1100px;
+            max-width: 1180px;
             width: 100%;
             display: flex;
             justify-content: center;
-            gap: 36px;
+            gap: 32px;
             flex-wrap: wrap;
             font-size: 0.76rem;
             text-transform: uppercase;
@@ -230,7 +232,7 @@
             display: block;
             width: 60px;
             height: 3px;
-            background: var(--primary);
+            background: var(--accent);
             margin: 26px auto 0;
         }
         .section-head p { margin-top: 24px; font-size: 1.05rem; color: var(--text-medium); }
@@ -246,8 +248,8 @@
         #reports .custom-band h3 { font-size: 1.5rem; }
         #reports .quote-box { max-width: 560px; padding: 28px 28px 30px; }
         #reports .quote-box .pricing-contact-cta { margin-top: 14px; }
-        #reports .pricing-card { cursor: pointer; border-top: 4px solid transparent; transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-        #reports .pricing-card:hover, #reports .pricing-card:focus-visible { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(15, 23, 42, 0.18); border-top-color: var(--primary); outline: none; }
+        #reports .pricing-card { cursor: pointer; border-top: 4px solid var(--border); transition: transform 0.3s ease, border-color 0.3s ease; }
+        #reports .pricing-card:hover, #reports .pricing-card:focus-visible { transform: translateY(-4px); border-color: var(--accent); outline: none; }
         #reports .pricing-card:hover .card-sample::before { transform: scaleX(1); }
         #reports .pricing-card:hover .card-sample::after { transform: translateX(5px); }
         #reports .custom-band p { font-size: 1.02rem; }
@@ -286,10 +288,11 @@
         .service p { font-size: 0.95rem; color: var(--text-medium); flex: 1; }
         .service {
             padding: 30px 22px 26px;
-            border-radius: 6px;
-            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            border: 1px solid transparent;
+            border-radius: var(--radius);
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
         }
-        .service:hover { background: var(--white); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1); transform: translateY(-4px); }
+        .service:hover { background: var(--white); border-color: var(--border); transform: translateY(-4px); }
         .service .icon { transition: transform 0.4s cubic-bezier(.34,1.56,.64,1); }
         .service:hover .icon { transform: scale(1.12) rotate(-4deg); }
         .demo-open {
@@ -355,7 +358,8 @@
         }
         .pricing-card {
             background: var(--white);
-            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.1);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             padding: 38px 32px 34px;
             display: flex;
             flex-direction: column;
@@ -381,8 +385,8 @@
             position: absolute;
             left: 2px; top: 7px;
             width: 10px; height: 6px;
-            border-left: 2px solid var(--secondary);
-            border-bottom: 2px solid var(--secondary);
+            border-left: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
             transform: rotate(-45deg);
         }
         .featured li::before { border-color: #9cc4e4; }
@@ -392,7 +396,8 @@
             margin: 30px auto 0;
             text-align: center;
             background: var(--white);
-            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.1);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             padding: 34px 32px;
         }
         .custom-band h3 { font-size: 1.35rem; margin-bottom: 10px; }
@@ -407,8 +412,6 @@
         .about-body { overflow-y: auto; min-height: 0; padding: 0 32px; }
         .demo-dialog.email-dialog { width: min(520px, 94vw); }
         .email-dialog .demo-dialog-head h3::before { content: "Email"; }
-        .demo-dialog.contact-dialog { width: min(520px, 94vw); }
-        .contact-dialog .demo-dialog-head h3::before { content: "Contact"; }
         .email-body { padding: 0 32px; }
         .email-body p { color: var(--text-medium); overflow-wrap: anywhere; }
         .founder h4 { font: 700 0.72rem var(--body); text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); margin: 22px 0 6px; }
@@ -429,9 +432,17 @@
         .founder-title { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-light); margin: 4px 0 18px; }
         .founder p { color: var(--text-medium); margin-bottom: 16px; }
 
+        /* How we work */
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--border); }
+        .step { padding: 28px 26px 8px 0; }
+        .step + .step { padding-left: 26px; border-left: 1px solid var(--border); }
+        .step-num { font: 700 2rem/1 var(--head); color: var(--accent); }
+        .step h3 { font-size: 1.2rem; margin: 14px 0 8px; }
+        .step p { font-size: 0.95rem; color: var(--text-medium); }
+
         /* CTA band */
         .cta-band {
-            background: var(--pattern) 0 0 / 240px 240px repeat, linear-gradient(rgba(20, 42, 71, 0.78), rgba(20, 42, 71, 0.84)), var(--cta-photo), var(--primary);
+            background: var(--pattern) 0 0 / 240px 240px repeat, linear-gradient(rgba(15, 26, 43, 0.78), rgba(15, 26, 43, 0.86)), var(--cta-photo), var(--primary);
             color: var(--white);
             text-align: center;
             padding: 120px 40px;
@@ -454,8 +465,8 @@
         /* Reveal on scroll */
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
         .reveal.in { opacity: 1; transform: none; }
-        .service.reveal { transition: opacity 0.7s ease, transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; }
-        .service.reveal.in:hover { background: var(--white); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1); transform: translateY(-4px); }
+        .service.reveal { transition: opacity 0.7s ease, transform 0.3s ease, background 0.3s ease, border-color 0.3s ease; }
+        .service.reveal.in:hover { background: var(--white); border-color: var(--border); transform: translateY(-4px); }
 
         .demo-dialog {
             margin: auto;  /* the global reset zeroes the dialog's default centering */
@@ -733,7 +744,7 @@
         .demo-legend i.line { width: 18px; height: 3px; }
         .demo-legend i.line.dash { background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px); }
         .demo-card { position: relative; min-height: 0; overflow-y: auto; overscroll-behavior: contain; background: var(--bg-band); border-top: 3px solid var(--primary); padding: 16px 18px 0; scrollbar-width: thin; scrollbar-color: var(--accent) transparent; }
-        .demo-more { position: sticky; bottom: 0; margin: 10px -18px 0; padding: 22px 0 9px; text-align: center; font: 700 0.68rem var(--body); text-transform: uppercase; letter-spacing: 1.2px; color: var(--primary); background: linear-gradient(rgba(238,244,247,0), var(--bg-band) 55%); pointer-events: none; transition: opacity 0.25s ease; animation: more-bob 1.6s ease-in-out 0.8s 3; }
+        .demo-more { position: sticky; bottom: 0; margin: 10px -18px 0; padding: 22px 0 9px; text-align: center; font: 700 0.68rem var(--body); text-transform: uppercase; letter-spacing: 1.2px; color: var(--primary); background: linear-gradient(rgba(239,243,247,0), var(--bg-band) 55%); pointer-events: none; transition: opacity 0.25s ease; animation: more-bob 1.6s ease-in-out 0.8s 3; }
         .demo-card.at-end .demo-more { opacity: 0; }
         @keyframes more-bob { 50% { transform: translateY(-3px); } }
         .demo-card-kicker { font: 700 0.68rem var(--body); text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); }
@@ -746,14 +757,14 @@
         .demo-table td { padding: 4px 0; border-bottom: 1px solid var(--border-light); color: var(--text-medium); }
         .demo-table td:last-child { text-align: right; font-weight: 700; color: var(--text-dark); white-space: nowrap; padding-left: 8px; }
         .demo-table td small { font-weight: 400; color: var(--text-light); }
-        .demo-table .grp th { text-align: left; padding: 12px 0 3px; font: 700 0.7rem var(--head); text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
+        .demo-table .grp th { text-align: left; padding: 12px 0 3px; font: 700 0.7rem var(--body); text-transform: uppercase; letter-spacing: 1px; color: var(--primary); }
         .demo-score + .demo-table .grp:first-child th { padding-top: 0; }
         .demo-rich > .demo-stats { grid-template-columns: repeat(5, 1fr); margin-top: 16px; }
         .demo-rich > .demo-stats div { padding: 10px 14px; }
         .demo-rich > .demo-stats strong { font-size: 1.2rem; white-space: nowrap; }
         .demo-rich > .demo-dialog-note { margin-top: 12px; }
         .demo-rank { width: 100%; border-collapse: collapse; font-size: 0.78rem; font-variant-numeric: tabular-nums; }
-        .demo-rank th { text-align: left; padding: 6px 6px; background: var(--primary); color: var(--white); font: 600 0.66rem var(--head); text-transform: uppercase; letter-spacing: 0.6px; }
+        .demo-rank th { text-align: left; padding: 6px 6px; background: var(--primary); color: var(--white); font: 600 0.66rem var(--body); text-transform: uppercase; letter-spacing: 0.6px; }
         .demo-rank td { padding: 5px 6px; border-bottom: 1px solid var(--border-light); color: var(--text-medium); white-space: nowrap; }
         .demo-rank tbody tr:nth-child(odd) td { background: var(--white); }
         .demo-rank td:first-child { font-weight: 700; color: var(--primary); }
@@ -781,6 +792,8 @@
         @media (max-width: 1080px) {
             .service-grid > .service { flex-basis: calc((100% - 18px) / 2); }
             .proof-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps { grid-template-columns: repeat(2, 1fr); }
+            .step:nth-child(3) { padding-left: 0; border-left: 0; }
             .founder { grid-template-columns: 1fr; }
             .portrait { width: 120px; height: 120px; font-size: 1.9rem; }
             .about-body.founder { gap: 20px; }
@@ -795,12 +808,12 @@
                 position: absolute;
                 top: 100%; left: 0; right: 0;
                 background: var(--white);
-                box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+                border-bottom: 1px solid var(--border);
             }
             .site-header nav.open { display: block; }
             .site-header nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 10px 20px 20px; }
             .site-header nav a { display: block; color: var(--text-dark); padding: 12px 0; }
-            .site-header .nav-cta, .site-header:not(.scrolled) .nav-cta { background: var(--primary); color: var(--white) !important; text-align: center; margin-top: 8px; }
+            .site-header .nav-cta { color: var(--white) !important; text-align: center; margin-top: 8px; }
             .card-grid, .pricing-grid, .proof-grid { grid-template-columns: 1fr; }
             .proof h3 { min-height: 0; }
             .pricing-card.featured { transform: none; }
@@ -818,6 +831,9 @@
             .brand { font-size: 0.95rem; letter-spacing: 1.5px; }
             .brand .divider, .brand .brand-sub { display: none; }
             .service-grid > .service { flex-basis: 100%; }
+            .steps { grid-template-columns: 1fr; }
+            .step, .step + .step { padding: 22px 0 6px; border-left: 0; }
+            .step + .step { border-top: 1px solid var(--border); }
             .cta-band { padding: 80px 16px; }
         }
     </style>
@@ -849,7 +865,7 @@
                     <li><a href="#reports">Reports</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about" data-about>About</a></li>
-                    <li><a href="#request-dialog" class="nav-cta" data-request data-goatcounter-click="nav-request-report">Request a Report</a></li>
+                    <li><a href="contact.html" class="nav-cta" data-goatcounter-click="nav-request-quote">Request a Quote</a></li>
                 </ul>
             </nav>
         </div>
@@ -858,13 +874,14 @@
     <!-- Hero -->
     <div class="hero" id="hero">
         <h1>Find the Demand. Find the Opportunity.</h1>
-        <p class="subtitle">AniPoint Site Research cuts the guesswork from site selection. We tell you whether a site is worth signing for and prove it to your lender. Built on federal traffic counts and our proprietary model, tested across the U.S., we offer site screens, feasibility studies, and county dashboards. Tell us about your site, and we'll help you plan with confidence.</p>
+        <p class="subtitle">We give owners and developers a clear, independent read on whether a site will draw the customers it needs, documented for your lender. Tell us about your site, and we'll help you plan with confidence.</p>
         <div class="hero-cta">
-            <a href="#contact-dialog" class="btn btn-white" data-contact data-goatcounter-click="hero-get-in-touch">Get in Touch</a>
+            <a href="contact.html" class="btn btn-solid" data-goatcounter-click="hero-request-quote">Request a Quote</a>
+            <a href="#reports" class="btn btn-ghost" data-goatcounter-click="hero-view-reports">View Reports</a>
         </div>
         <div class="hero-meta">
             <span>Coverage <strong>U.S. Nationwide</strong></span>
-            <span>Pricing <strong>Quoted Upfront</strong></span>
+            <span>Studies <strong>USDA 7 CFR 5001 Outline</strong></span>
             <span>Validated <strong>Through Real Locations</strong></span>
             <span>Independent <strong>No Referral Fees</strong></span>
         </div>
@@ -883,7 +900,7 @@
                     <div class="pricing-card reveal">
                         <div class="tier-label">Before you pick a site</div>
                         <h3>County Dashboard</h3>
-                        <div class="tier-desc">Find the best sites in a county and choose with confidence.</div>
+                        <div class="tier-desc">Where in this county should you build?</div>
                         <ul>
                             <li>Every block group ranked by site score</li>
                             <li>Traffic, competition and revenue maps</li>
@@ -897,7 +914,7 @@
                     <div class="pricing-card reveal">
                         <div class="tier-label">Before you sign</div>
                         <h3>Site Screen</h3>
-                        <div class="tier-desc">Know if a site is worth pursuing before you sign.</div>
+                        <div class="tier-desc">Is this site worth pursuing?</div>
                         <ul>
                             <li>Daily car count with a likely range</li>
                             <li>Break-even check</li>
@@ -911,7 +928,7 @@
                     <div class="pricing-card reveal">
                         <div class="tier-label">For your loan</div>
                         <h3>Feasibility Study</h3>
-                        <div class="tier-desc">An independent study for your SBA, USDA or bank loan, in 5 to 7 days.</div>
+                        <div class="tier-desc">Will the numbers hold up for your SBA, USDA or bank loan? Delivered in 5 to 7 days.</div>
                         <ul>
                             <li>Market, site and financial analysis</li>
                             <li>Washes in permitting nearby</li>
@@ -928,7 +945,7 @@
                     <div>
                         <h3>Ready to start?</h3>
                         <div class="pricing-contact-cta">
-                            <a href="mailto:rbeauvile@anipointresearch.com?subject=Site%20Selection%20Inquiry" class="btn btn-solid" data-goatcounter-click="home-request-quote">Request a Quote</a>
+                            <a href="contact.html" class="btn btn-solid" data-goatcounter-click="home-request-quote">Request a Quote</a>
                             <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-outline" target="_blank" rel="noopener" data-goatcounter-click="home-book-call">Book a 15-Minute Call</a>
                         </div>
                         <p style="margin-top: 12px; opacity: 0.8;">You'll hear back within one business day.</p>
@@ -961,7 +978,7 @@
                     <div class="proof reveal">
                         <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#i-scale"/></svg>
                         <h3>Independent</h3>
-                        <p>No stake in your project, no referral fees, and a fee fixed before we start. Studies follow USDA's outline and can be addressed to your lender.</p>
+                        <p>No stake in your project and no referral fees. Our job is to tell you whether the numbers hold up, in a study addressed to your lender.</p>
                     </div>
                 </div>
             </div>
@@ -1052,32 +1069,6 @@
                 </div>
             </div>
         </dialog>
-        <dialog class="demo-dialog email-dialog contact-dialog" id="request-dialog" aria-labelledby="request-title">
-            <div class="demo-dialog-head">
-                <h3 id="request-title">Request a Report</h3>
-                <button type="button" class="demo-close" aria-label="Close">&times;</button>
-            </div>
-            <div class="email-body">
-                <p>Tell us about your county or site. Email for a fixed-fee quote, or book a 15-minute call. You'll hear back within one business day.</p>
-                <div class="pricing-contact-cta">
-                    <a href="mailto:rbeauvile@anipointresearch.com?subject=Report%20Request" class="btn btn-solid" data-direct-email data-goatcounter-click="request-email">Email for a Quote</a>
-                    <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-outline" target="_blank" rel="noopener" data-goatcounter-click="request-book-call">Book a 15-Minute Call</a>
-                </div>
-            </div>
-        </dialog>
-        <dialog class="demo-dialog email-dialog contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
-            <div class="demo-dialog-head">
-                <h3 id="contact-title">Get in Touch</h3>
-                <button type="button" class="demo-close" aria-label="Close">&times;</button>
-            </div>
-            <div class="email-body">
-                <p>Have a site in mind or a question about a report? Send an email or book a 15-minute call, whichever is easier.</p>
-                <div class="pricing-contact-cta">
-                    <a href="mailto:rbeauvile@anipointresearch.com?subject=Site%20Selection%20Inquiry" class="btn btn-solid" data-direct-email data-goatcounter-click="contact-email">Send an Email</a>
-                    <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-outline" target="_blank" rel="noopener" data-goatcounter-click="contact-book-call">Book a 15-Minute Call</a>
-                </div>
-            </div>
-        </dialog>
         <dialog class="demo-dialog about-dialog" id="about-dialog" aria-labelledby="about-title">
             <div class="demo-dialog-head">
                 <h3 id="about-title">Who's Behind AniPoint</h3>
@@ -1090,10 +1081,10 @@
                     <div class="founder-name">Robed Beauvile-Owen</div>
                     <div class="founder-title">Founder &middot; PhD, Mathematics &middot; Data Scientist</div>
                     <h4>Why AniPoint</h4>
-                    <p>Opening a new location is one of the biggest decisions a business owner makes, and a single traffic count rarely tells the whole story. I started AniPoint to give owners a go/no-go answer they can act on, as the first step toward finding the best site for their business.</p>
+                    <p>Opening a new location is one of the biggest decisions a business owner makes, and a single traffic count rarely tells the whole story. I started AniPoint to give owners and their lenders a clear, independent go or no-go answer, documented so it holds up to review.</p>
                     <h4>Background</h4>
-                    <p>Choosing a site comes down to predicting how customers will behave before the doors open, and I spent more than four years as a data scientist building exactly those kinds of predictions. In healthcare marketing, I built tools that showed teams which campaigns would work two months before the results came in, found the people most likely to sign up, and pinpointed where to focus twice as accurately as before.</p>
-                    <p>I'm a simple person, and I like simple answers. You get a clear answer, the reasons behind it, and an honest account of the risks. My PhD in mathematics is there for the harder parts: assumptions stated plainly, rigorous analysis backed by data, and an honest measure of uncertainty. I bring it out only when a decision calls for it.</p>
+                    <p>Choosing a site comes down to predicting how customers will behave before the doors open. I spent more than four years as a data scientist building those predictions. In healthcare marketing, my models showed teams which campaigns would work two months before the results came in, found the people most likely to sign up, and pinpointed where to focus twice as accurately as before.</p>
+                    <p>Every study ends in a clear answer: go or no-go, the reasons behind it, and an honest account of the risks. Behind that answer is a PhD in mathematics: assumptions stated plainly, rigorous analysis backed by data, and an honest measure of uncertainty.</p>
                     <p><a href="https://www.linkedin.com/in/robedbeauvile/" target="_blank" rel="noopener">Connect on LinkedIn &rarr;</a></p>
                 </div>
             </div>
@@ -1498,12 +1489,43 @@
         <!-- Proof -->
 
 
+        <!-- How we work -->
+        <section id="process">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2>How We Work</h2>
+                </div>
+                <div class="steps reveal">
+                    <div class="step">
+                        <div class="step-num">01</div>
+                        <h3>Tell Us About Your Site</h3>
+                        <p>The address, the concept and what you need it for.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">02</div>
+                        <h3>Fixed-Fee Proposal</h3>
+                        <p>Scope, timeline and fee, agreed before any work starts.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">03</div>
+                        <h3>Analysis</h3>
+                        <p>Demand, competition, site conditions and the financials.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">04</div>
+                        <h3>A Clear Answer</h3>
+                        <p>Go or no-go, with the reasons and the risks, ready for your lender.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA band -->
         <div class="cta-band" id="contact">
             <h2>Have a Site in Mind?</h2>
             <p>Send us an address and we'll project its demand, free. Operation already running? We'll show you how it compares, in confidence.</p>
             <div class="hero-cta">
-                <a href="mailto:rbeauvile@anipointresearch.com?subject=Free%20Customer%20Traffic%20Projection" class="btn btn-white" data-goatcounter-click="home-free-projection">Get a Free Customer Traffic Projection</a>
+                <a href="contact.html?need=projection" class="btn btn-solid" data-goatcounter-click="home-free-projection">Get a Free Customer Traffic Projection</a>
             </div>
         </div>
     </main>
@@ -1671,12 +1693,6 @@
             card.addEventListener('click', function (e) { if (!e.target.closest('.card-sample')) target.click(); });
             card.addEventListener('keydown', function (e) { if (e.key === 'Enter') target.click(); });
         });
-        document.querySelectorAll('[data-request]').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.getElementById('request-dialog').showModal();
-            });
-        });
         document.querySelectorAll('[data-frame]').forEach(function (button) {
             button.addEventListener('click', function () {
                 var dialog = document.getElementById('frame-dialog');
@@ -1701,16 +1717,6 @@
                 e.preventDefault();
                 document.getElementById('about-dialog').showModal();
             });
-        });
-        var contactDialog = document.getElementById('contact-dialog');
-        document.querySelectorAll('[data-contact]').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                contactDialog.showModal();
-            });
-        });
-        contactDialog.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () { contactDialog.close(); });
         });
         var emailDialog = document.getElementById('email-dialog');
         var emailYes = document.getElementById('email-yes');

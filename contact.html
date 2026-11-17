@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | AniPoint Site Research</title>
+    <meta name="description" content="Request a quote for a County Dashboard, Site Screen or Feasibility Study. Fixed fee, agreed before work starts. You'll hear back within one business day.">
+    <link rel="canonical" href="https://anipointresearch.com/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anipointresearch.com/contact.html">
+    <meta property="og:title" content="Request a Quote | AniPoint Site Research">
+    <meta property="og:description" content="Request a quote for a County Dashboard, Site Screen or Feasibility Study. You'll hear back within one business day.">
+    <meta property="og:image" content="https://anipointresearch.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="20" fill="%231e3a5f"/><text x="128" y="186" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="170" letter-spacing="-4" text-anchor="middle" fill="%23ffffff">A</text></svg>'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Tokens, header, buttons and footer match homepage.html */
+        :root {
+            --primary: #0f1a2b;
+            --primary-deep: #0a121f;
+            --secondary: #23324a;
+            --accent: #0388c5;
+            --text-dark: #0f1a2b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --bg-band: #eff3f7;
+            --white: #ffffff;
+            --border: #ccd5df;
+            --error: #b42318;
+            --radius: 8px;
+            --head: 'Lora', Georgia, serif;
+            --body: 'Inter', Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-band);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 { font-family: var(--head); color: var(--text-dark); line-height: 1.2; }
+
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--primary); text-decoration: underline; }
+
+        /* Header */
+        .site-header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; padding-bottom: 14px; }
+        .brand {
+            font-family: var(--body);
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        .brand .divider { font-weight: 400; letter-spacing: 0; margin: 0 12px; opacity: 0.45; }
+        .brand .brand-sub { font-weight: 500; letter-spacing: 2.5px; opacity: 0.8; }
+        .brand:hover { text-decoration: none; color: var(--primary); }
+        .site-header nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
+        .site-header nav a {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dark);
+        }
+        .site-header nav a:hover { text-decoration: none; opacity: 0.8; }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font: 700 0.75rem var(--body);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font: 700 0.85rem var(--body);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            padding: 15px 26px;
+            border: 2px solid transparent;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .btn:hover { text-decoration: none; }
+        .btn-solid { background: var(--accent); color: var(--white); border-color: var(--accent); }
+        .btn-solid:hover { background: var(--secondary); border-color: var(--secondary); color: var(--white); }
+        .btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+        .btn[disabled] { opacity: 0.6; cursor: wait; }
+
+        /* Page head */
+        .page-head { background: var(--primary); color: var(--white); padding: 72px 0 64px; }
+        .eyebrow { font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7cc6ea; }
+        .page-head h1 { color: var(--white); font-size: 3rem; margin: 10px 0 14px; }
+        .page-head p { max-width: 640px; font-size: 1.08rem; color: rgba(255,255,255,0.88); }
+
+        /* Two columns */
+        .contact-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 40px; padding: 64px 0 96px; align-items: start; }
+        .panel { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 36px 32px; }
+        .panel h2 { font-size: 1.6rem; margin-bottom: 20px; }
+        .info-item { padding: 14px 0; border-top: 1px solid var(--border); }
+        .info-item:first-of-type { border-top: 0; padding-top: 0; }
+        .info-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); }
+        .info-item p { color: var(--text-dark); overflow-wrap: anywhere; }
+        .expect { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+        .expect h3 { font-size: 1.15rem; margin-bottom: 12px; }
+        .expect ul { list-style: none; }
+        .expect li { position: relative; padding-left: 26px; margin-bottom: 10px; color: var(--text-medium); }
+        .expect li::before {
+            content: "";
+            position: absolute;
+            left: 3px; top: 8px;
+            width: 10px; height: 6px;
+            border-left: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
+            transform: rotate(-45deg);
+        }
+
+        /* Form */
+        form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+        .field { display: flex; flex-direction: column; gap: 6px; }
+        .field.full { grid-column: 1 / -1; }
+        label { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); }
+        label .req { color: var(--accent); }
+        label .opt { font-weight: 400; color: var(--text-light); }
+        input, select, textarea {
+            font: 400 1rem var(--body);
+            color: var(--text-dark);
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 11px 13px;
+            width: 100%;
+        }
+        textarea { min-height: 140px; resize: vertical; }
+        input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+        .form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 4px; }
+        .form-note { font-size: 0.85rem; color: var(--text-light); }
+        .form-status { grid-column: 1 / -1; font-size: 0.95rem; }
+        .form-status.ok { color: var(--primary); }
+        .form-status.err { color: var(--error); }
+        .hp { position: absolute; left: -9999px; }
+
+        /* Footer */
+        footer { background: var(--primary-deep); color: rgba(255,255,255,0.85); padding: 48px 0 30px; }
+        .footer-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+        footer .brand { font-size: 1.4rem; color: var(--white); }
+        footer .brand:hover { color: var(--white); }
+        .footer-brand p { margin-top: 6px; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
+        .footer-links { text-align: right; }
+        .footer-links div { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px 28px; margin-bottom: 10px; }
+        footer a { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+        footer a:hover { color: var(--white); }
+        .footer-meta { margin-top: 32px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); font-size: 0.84rem; color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 900px) {
+            .contact-grid { grid-template-columns: 1fr; padding: 40px 0 72px; }
+            .contact-grid > section { order: -1; }
+            .nav-toggle { display: block; }
+            .site-header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); }
+            .site-header nav.open { display: block; }
+            .site-header nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 10px 20px 20px; }
+            .site-header nav a { display: block; padding: 12px 0; }
+            .footer-links, .footer-links div { text-align: left; justify-content: flex-start; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 0 16px; }
+            .brand { font-size: 0.95rem; letter-spacing: 1.5px; }
+            .brand .divider, .brand .brand-sub { display: none; }
+            .page-head { padding: 48px 0 40px; }
+            .page-head h1 { font-size: 2.1rem; }
+            .panel { padding: 26px 20px 24px; }
+            form { grid-template-columns: 1fr; }
+            .form-actions .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="./" class="brand" aria-label="AniPoint Site Research home">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+            <nav id="primaryNav">
+                <ul>
+                    <li><a href="./#reports">Reports</a></li>
+                    <li><a href="./#services">Services</a></li>
+                    <li><a href="./#about">About</a></li>
+                    <li><a href="https://calendly.com/rbeauvile-anipointresearch" target="_blank" rel="noopener" data-goatcounter-click="contact-page-book-call-nav">Book a Call</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-head">
+        <div class="container">
+            <div class="eyebrow">Contact Us</div>
+            <h1>Request a Quote</h1>
+            <p>Tell us about your site or county, and we'll send a clear proposal: scope, timeline and a fixed fee.</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="contact-grid">
+            <aside class="panel">
+                <h2>Get in Touch</h2>
+                <div class="info-item">
+                    <div class="info-label">Email</div>
+                    <p><a href="mailto:rbeauvile@anipointresearch.com" data-goatcounter-click="contact-page-email">rbeauvile@anipointresearch.com</a></p>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Prefer to talk?</div>
+                    <p><a href="https://calendly.com/rbeauvile-anipointresearch" target="_blank" rel="noopener" data-goatcounter-click="contact-page-book-call">Book a 15-minute call</a></p>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Coverage</div>
+                    <p>U.S. nationwide</p>
+                </div>
+                <div class="expect">
+                    <h3>What to Expect</h3>
+                    <ul>
+                        <li>A reply within one business day</li>
+                        <li>A fixed-fee quote with scope and timeline</li>
+                        <li>A complimentary demand projection for any address</li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="panel" aria-labelledby="form-title">
+                <h2 id="form-title">Tell Us About Your Site</h2>
+                <form id="quoteForm" novalidate>
+                    <div class="field">
+                        <label for="name">Full name <span class="req">*</span></label>
+                        <input id="name" name="name" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email <span class="req">*</span></label>
+                        <input id="email" name="email" type="email" autocomplete="email" required>
+                    </div>
+                    <div class="field">
+                        <label for="company">Company <span class="opt">(optional)</span></label>
+                        <input id="company" name="company" type="text" autocomplete="organization">
+                    </div>
+                    <div class="field">
+                        <label for="phone">Phone <span class="opt">(optional)</span></label>
+                        <input id="phone" name="phone" type="tel" autocomplete="tel">
+                    </div>
+                    <div class="field full">
+                        <label for="need">What do you need? <span class="req">*</span></label>
+                        <select id="need" name="need" required>
+                            <option value="">Select one</option>
+                            <option value="projection">Complimentary demand projection</option>
+                            <option value="County Dashboard">County Dashboard</option>
+                            <option value="Site Screen">Site Screen</option>
+                            <option value="Feasibility Study">Feasibility Study</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                    </div>
+                    <div class="field full">
+                        <label for="site">Site address or county <span class="opt">(optional)</span></label>
+                        <input id="site" name="site" type="text">
+                    </div>
+                    <div class="field full">
+                        <label for="message">Project details <span class="req">*</span></label>
+                        <textarea id="message" name="message" required placeholder="Business type, timeline, and whether a lender is involved."></textarea>
+                    </div>
+                    <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-solid" id="submitBtn">Send Request</button>
+                        <span class="form-note" id="formNote">You'll hear back within one business day.</span>
+                    </div>
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-brand">
+                    <a href="./" class="brand">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
+                    <p>Find the demand. Find the opportunity.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <a href="./#about">About</a>
+                        <a href="./#reports">Reports</a>
+                        <a href="calculator.html">Site Risk Calculator</a>
+                        <a href="https://www.linkedin.com/company/anipoint-site-research/" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                    <a href="mailto:rbeauvile@anipointresearch.com">rbeauvile@anipointresearch.com</a>
+                </div>
+            </div>
+            <div class="footer-meta">&copy; 2026 AniPoint Site Research. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        // Live, the homepage is index.html at "./"; opened from disk it is homepage.html.
+        if (location.protocol === 'file:') {
+            document.querySelectorAll('a[href^="./"]').forEach(function (a) {
+                a.setAttribute('href', a.getAttribute('href').replace('./', 'homepage.html'));
+            });
+        }
+
+        var navToggle = document.getElementById('navToggle');
+        var primaryNav = document.getElementById('primaryNav');
+        navToggle.addEventListener('click', function () {
+            var open = primaryNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    })();
+
+    (function () {
+        // Paste the form service's endpoint here (e.g. a Formspree form URL)
+        // to send submissions directly. Left empty, the form opens the
+        // visitor's email app with everything filled in instead.
+        var FORM_ENDPOINT = 'https://formspree.io/f/mppddzel';
+        var TO = 'rbeauvile@anipointresearch.com';
+
+        var form = document.getElementById('quoteForm');
+        var status = document.getElementById('formStatus');
+        var button = document.getElementById('submitBtn');
+        var need = document.getElementById('need');
+
+        var preset = new URLSearchParams(location.search).get('need');
+        if (preset && need.querySelector('option[value="' + preset + '"]')) need.value = preset;
+        if (!FORM_ENDPOINT) {
+            document.getElementById('formNote').textContent = 'Opens your email app with this filled in. Nothing is sent until you press send.';
+        }
+
+        function count(name) {
+            if (window.goatcounter && window.goatcounter.count) {
+                window.goatcounter.count({ path: name, title: name, event: true });
+            }
+        }
+
+        function setStatus(text, kind) {
+            status.textContent = text;
+            status.className = 'form-status ' + kind;
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                var bad = form.querySelector(':invalid');
+                setStatus(bad.type === 'email' && bad.value ? 'Please enter a valid email address.'
+                    : 'Please fill in the fields marked *.', 'err');
+                bad.focus();
+                return;
+            }
+            var data = new FormData(form);
+            if (data.get('_gotcha')) return;
+            var needText = need.options[need.selectedIndex].text;
+
+            if (!FORM_ENDPOINT) {
+                var body = [
+                    'Name: ' + data.get('name'),
+                    'Email: ' + data.get('email'),
+                    data.get('company') ? 'Company: ' + data.get('company') : '',
+                    data.get('phone') ? 'Phone: ' + data.get('phone') : '',
+                    'Need: ' + needText,
+                    data.get('site') ? 'Site: ' + data.get('site') : '',
+                    '',
+                    data.get('message')
+                ].filter(function (line, i) { return line || i === 6; }).join('\n');
+                count('contact-form-email');
+                location.href = 'mailto:' + TO + '?subject=' + encodeURIComponent('Quote request: ' + needText) +
+                    '&body=' + encodeURIComponent(body);
+                return;
+            }
+
+            button.disabled = true;
+            setStatus('Sending...', 'ok');
+            fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+                .then(function (r) {
+                    if (!r.ok) throw new Error(r.status);
+                    count('contact-form-sent');
+                    form.reset();
+                    setStatus("Thanks. Your request is in, and you'll hear back within one business day.", 'ok');
+                })
+                .catch(function () {
+                    setStatus('That did not go through. Please email ' + TO + ' directly.', 'err');
+                })
+                .then(function () { button.disabled = false; });
+        });
+    })();
+    </script>
+    <script data-goatcounter="https://robedbeauvileowen.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
