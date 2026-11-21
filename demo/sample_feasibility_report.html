@@ -6,91 +6,86 @@
 <title>Feasibility Study | AniPoint Site Research</title>
 <style>
         :root {
-            --primary: #1e3a5f;
-            --secondary: #2d5a87;
-            --accent: #4a7c9b;
-            --text-dark: #1a1a2e;
-            --text-medium: #4a4a68;
-            --text-light: #6b6b8a;
-            --bg-light: #f8f9fa;
-            --bg-subtle: #eef1f4;
-            --border: #d1d5db;
-            --positive: #2d6a4f;
-            --caution: #9a6700;
-            --negative: #9b2c2c;
+            --primary: #1a1a1a;
+            --secondary: #333333;
+            --accent: #555555;
+            --text-dark: #1a1a1a;
+            --text-medium: #3d3d3d;
+            --text-light: #666666;
+            --bg-light: #ffffff;
+            --bg-subtle: #f2f2f2;
+            --border: #c8c8c8;
+            --positive: #1a1a1a;
+            --caution: #1a1a1a;
+            --negative: #1a1a1a;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.7;
+            font-family: Charter, 'Bitstream Charter', 'Palatino Linotype', Palatino, 'Book Antiqua', Cambria, 'Times New Roman', serif;
+            font-variant-numeric: lining-nums;
+            line-height: 1.6;
             color: var(--text-dark);
-            background: var(--bg-light);
-            font-size: 16px;
+            background: #fff;
+            font-size: 15.5px;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 820px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 0 40px rgba(0,0,0,0.08);
         }
         
         /* Header */
         .header {
-            background: var(--primary);
-            color: white;
-            padding: 50px 60px 40px;
-            text-align: center;
+            color: var(--text-dark);
+            margin: 0 64px;
+            padding: 56px 0 16px;
+            border-bottom: 2px solid var(--text-dark);
         }
         
         .header .org-name {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-size: 0.85em;
-            letter-spacing: 3px;
+            font-size: 0.74em;
+            letter-spacing: 1.6px;
             text-transform: uppercase;
-            opacity: 0.85;
-            margin-bottom: 20px;
+            color: var(--text-light);
+            margin-bottom: 14px;
         }
         
         .header h1 {
-            font-size: 1.8em;
-            font-weight: 400;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
+            font-size: 2em;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 4px;
         }
         
         .header .subtitle {
-            font-size: 1.1em;
-            opacity: 0.9;
-            font-style: italic;
+            font-size: 1.05em;
+            color: var(--text-medium);
         }
         
         .header .report-meta {
-            margin-top: 25px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            margin-top: 14px;
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-size: 0.9em;
-            opacity: 0.8;
+            font-size: 0.8em;
+            color: var(--text-medium);
         }
         
         /* Main Content */
         .content {
-            padding: 50px 60px;
+            padding: 28px 64px 56px;
         }
         
         /* Section Styling */
         h2 {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: var(--primary);
-            font-size: 1.3em;
-            font-weight: 600;
-            margin: 45px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--border);
-            letter-spacing: 0.3px;
+            color: var(--text-dark);
+            font-size: 1.22em;
+            font-weight: 700;
+            margin: 40px 0 14px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--text-dark);
         }
         
         h2:first-of-type {
@@ -98,16 +93,14 @@
         }
         
         h3 {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: var(--secondary);
-            font-size: 1.1em;
-            font-weight: 600;
-            margin: 30px 0 15px;
+            color: var(--text-dark);
+            font-size: 1.02em;
+            font-weight: 700;
+            margin: 24px 0 10px;
         }
         
         p {
-            margin-bottom: 15px;
-            text-align: justify;
+            margin-bottom: 12px;
         }
         
         /* Value Proposition Box */
@@ -440,27 +433,6 @@
             box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
         }
 
-        h2 {
-            position: relative;
-            padding-left: 14px;
-        }
-        h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 4px;
-            bottom: 14px;
-            width: 4px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        .executive-summary h2 {
-            padding-left: 0;
-        }
-
-        .executive-summary h2::before {
-            content: none;
-        }
 
         /* =============================================================== */
 
@@ -541,53 +513,61 @@
             text-align: center;
         }
 
-        .content table { width: 100%; border-collapse: collapse; margin: 14px 0 26px; table-layout: fixed;
-            font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.88em; }
-        .content th { background: var(--primary); color: #fff; padding: 10px 12px; text-align: left; font-weight: 500;
-            font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.5px; }
-        .content td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-        .content tr:nth-child(even) td { background: var(--bg-light); }
+        .content { counter-reset: section; }
+        .content h2 { counter-increment: section; }
+        .content h2::before { content: counter(section) ".\00a0\00a0"; }
+        .content a { color: var(--text-dark); }
+        .content table { width: 100%; border-collapse: collapse; margin: 10px 0 24px; table-layout: fixed;
+            font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.84em; font-variant-numeric: lining-nums tabular-nums;
+            border-top: 1.5px solid var(--text-dark); border-bottom: 1.5px solid var(--text-dark); }
+        .content th { color: var(--text-dark); padding: 8px 10px; text-align: left; font-weight: 700;
+            border-bottom: 1px solid var(--text-dark); }
+        .content td { padding: 7px 10px; border-bottom: 1px solid #e3e3e3; vertical-align: top; }
+        .content tr:last-child td { border-bottom: none; }
         .content .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
         .content table.kv td:first-child { width: 62%; }
         .content table.kv td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
-        .content table.findings td:first-child, .content table.findings th:first-child { width: 22%; font-weight: 600; }
+        .content table.findings td:first-child, .content table.findings th:first-child { width: 22%; font-weight: 700; }
         .content table.checks th:nth-child(1) { width: 26%; } .content table.checks th:nth-child(2) { width: 14%; }
         .content table.cols-3 th:nth-child(2) { width: 24%; } .content table.cols-3 th:nth-child(3) { width: 18%; }
         .content table.cols-4 th:first-child { width: 31%; }
         .content table.sources td:first-child { width: 36%; }
         .content table.comp th:first-child { width: 34%; }
-        .content .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 6px 0 30px; }
-        .content .tile { border: 1px solid var(--border); border-top: 3px solid var(--primary); padding: 14px 14px 12px;
+        .content .tiles { display: grid; grid-template-columns: repeat(4, 1fr); margin: 6px 0 28px;
+            border-top: 1.5px solid var(--text-dark); border-bottom: 1.5px solid var(--text-dark); }
+        .content .tile { padding: 12px 14px 10px; border-left: 1px solid var(--border);
             font-family: 'Helvetica Neue', Arial, sans-serif; }
-        .content .tile .k { font-size: 0.72em; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-light); }
-        .content .tile .v { font-size: 1.45em; font-weight: 700; color: var(--primary); margin: 4px 0 2px; }
+        .content .tile:first-child { border-left: none; padding-left: 0; }
+        .content .tile .k { font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-light); }
+        .content .tile .v { font-size: 1.3em; font-weight: 700; color: var(--text-dark); margin: 3px 0 2px; }
         .content .tile .s { font-size: 0.8em; color: var(--text-medium); line-height: 1.4; }
-        .content .tile.flag { border-top-color: var(--caution); } .content .tile.good { border-top-color: var(--positive); }
-        @media (max-width: 640px) { .content .tiles { grid-template-columns: repeat(2, 1fr); } }
-        .content table.pro-forma { font-size: 0.82em; }
+        @media (max-width: 640px) { .content .tiles { grid-template-columns: repeat(2, 1fr); }
+            .content .tile:nth-child(3) { border-left: none; padding-left: 0; } }
+        .content table.pro-forma { font-size: 0.8em; }
         .content table.pro-forma th:first-child { width: 28%; }
-        .content table.pro-forma tr.total td { font-weight: 600; border-top: 1px solid var(--text-light); }
-        .content .status { font-weight: 600; }
-        .content .status-pass { color: var(--positive); } .content .status-flag { color: var(--caution); }
-        .content .status-unknown { color: var(--text-light); }
-        .content .sample-banner { border-left: 4px solid var(--caution); background: #fdf6e7; padding: 14px 18px;
-            margin: 0 0 24px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.88em; }
-        .content p.note { background: var(--bg-subtle); padding: 10px 14px; }
-        .content .stack { margin: 8px 0 22px; }
-        .content .stack p { margin: 0; padding: 9px 0 9px 14px; border-left: 3px solid var(--border);
-            border-bottom: 1px solid var(--bg-subtle); }
-        .content .map-wrap { margin: 18px 0 6px; border: 1px solid var(--border); }
-        .content .map-wrap.schematic { background: #f4f7fa; text-align: center; padding: 10px; }
+        .content table.pro-forma tr.total td { font-weight: 700; border-top: 1px solid var(--text-dark); }
+        .content .status-flag { font-weight: 700; }
+        .content .status-unknown { color: var(--text-light); font-style: italic; }
+        .content .sample-banner { border: 1px solid var(--text-dark); padding: 10px 14px; margin: 0 0 22px;
+            font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.84em; }
+        .content p.note { border-left: 2px solid var(--border); padding: 2px 0 2px 12px; color: var(--text-medium); }
+        .content .stack { margin: 6px 0 20px; }
+        .content .stack p { margin: 0; padding: 7px 0; border-bottom: 1px solid #e3e3e3; }
+        .content .map-wrap { margin: 16px 0 6px; border: 1px solid var(--border); }
+        .content .map-wrap svg, .content .map-legend { filter: grayscale(1); }
+        .content .map-wrap.schematic { background: #fff; text-align: center; padding: 10px; }
         .content .map-wrap.schematic svg { width: min(100%, 440px); height: auto; }
-        .content .map-legend { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8em; color: var(--text-light); }
+        .content .map-legend { font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 0.8em; color: var(--text-medium); }
         .content .lg { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin: 0 4px 0 10px;
             vertical-align: middle; }
-        .content .lg.site { background: #1e3a5f; } .content .lg.wash { background: #4a4a68; }
-        .content .lg.pipe { background: #9a6700; border-radius: 0; }
+        .content .lg.site { background: #1a1a1a; } .content .lg.wash { background: #666; }
+        .content .lg.pipe { background: #999; border-radius: 0; }
         .content .lg.road { width: 18px; border-radius: 2px; }
-        .content .map-wrap.schematic { background: #fff; }
-        @media (max-width: 640px) { .content { padding: 28px 18px; } .content table { table-layout: auto; font-size: 0.8em; }
-            .content th, .content td { padding: 7px 6px; } }
+        @media (max-width: 640px) { .header { margin: 0 18px; padding-top: 32px; } .content { padding: 22px 18px; }
+            .content table { table-layout: auto; font-size: 0.8em; } .content th, .content td { padding: 6px 5px; } }
+        @page { size: letter; margin: 0.7in 0.75in; }
+        @media print { body { font-size: 10.5pt; } .container { max-width: none; } .header { margin: 0; padding-top: 0; }
+            .content { padding: 16px 0 0; } h2, h3 { break-after: avoid; } tr, .tiles, .map-wrap { break-inside: avoid; } }
 </style>
 </head>
 <body>
@@ -596,10 +576,10 @@
         <div class="org-name">AniPoint Site Research</div>
         <h1>Feasibility Study</h1>
         <div class="subtitle">Suburban Maryland</div>
+        <div class="report-meta">Prepared for Sample &middot; November 20, 2026</div>
     </div>
     <div class="content">
         <div class="sample-banner"><strong>Sample report.</strong> Built on a real express wash in suburban Maryland that reported 355 cars a day in its first year. The projection below is for an established year. This wash is one of the 41 verified express washes in the model&#x27;s backtest, and its count is from its first year, so the comparison may understate the miss once it matures. Prices, costs (the $4 million project cost is the typical cost assumed by the model), loan terms and the contracts, equipment and management text are illustrative, not the owner&#x27;s.</div>
-        <p><strong>Prepared for:</strong> Sample &middot; <strong>Date:</strong> November 20, 2026</p>
 
         <h2>Executive summary</h2>
         <p>A new express car wash. Location: Suburban Maryland.
