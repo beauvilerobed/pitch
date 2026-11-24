@@ -503,7 +503,25 @@
             state.marker.setLatLng([lat, lon]);
             state.lat = lat; state.lon = lon;
             setTimeout(function () { state.map.invalidateSize(); }, 60);
-            if (LIVE && window.turnstile && state.turnstileId === null) { state.turnstileId = turnstile.render('#turnstile', { sitekey: SITE_KEY, appearance: 'interaction-only' }); }
+            startCheck();
+        }
+        // Turnstile runs quietly while the visitor checks the map; the button waits for it.
+        function startCheck() {
+            if (LIVE && window.turnstile && state.turnstileId === null) {
+                state.turnstileId = turnstile.render('#turnstile', { sitekey: SITE_KEY, appearance: 'interaction-only' });
+            }
+        }
+        function waitForCheck() {
+            if (!LIVE) { return Promise.resolve('preview'); }
+            return new Promise(function (resolve) {
+                var tries = 0;
+                (function poll() {
+                    startCheck();   // in case Cloudflare's script arrived after the map opened
+                    var token = state.turnstileId !== null ? turnstile.getResponse(state.turnstileId) : '';
+                    if (token || ++tries > 60) { return resolve(token || ''); }   // up to 15 seconds
+                    setTimeout(poll, 250);
+                })();
+            });
         }
         function checkAddress(b) {
             var errs = [];
@@ -570,15 +588,21 @@
             var body = { lat: state.lat, lon: state.lon, client_id: CLIENT_ID, address: state.address, company_website: $('company_website').value,
                          business: t ? t.key : 'car_wash', wash_type: $('wash').value, bays: Number($('bays').value) || 1,
                          building_sf: buildingSize(),
-                         located_by: state.located, matched_address: state.matched, ref_tag: REF, details: readDetails(),
-                         turnstile_token: LIVE && window.turnstile && state.turnstileId !== null ? turnstile.getResponse(state.turnstileId) : 'preview' };
+                         located_by: state.located, matched_address: state.matched, ref_tag: REF, details: readDetails() };
             $('map-errors').textContent = '';
-            var btn = $('confirm'), label = btn.textContent; btn.disabled = true; btn.textContent = 'Working...';
-            call('/api/project', body).then(function (r) {
+            var btn = $('confirm'), label = btn.textContent; btn.disabled = true; btn.textContent = 'Checking...';
+            waitForCheck().then(function (token) {
+                if (!token) {
+                    btn.disabled = false; btn.textContent = label;
+                    $('map-errors').textContent = 'The security check didn’t load. Please refresh the page and try again.';
+                    return;
+                }
+                body.turnstile_token = token; btn.textContent = 'Working...';
+                return call('/api/project', body).then(function (r) {
                 btn.disabled = false; btn.textContent = label;
                 if (LIVE && window.turnstile && state.turnstileId !== null) { turnstile.reset(state.turnstileId); }
                 var d = r.data || {};
-                if (d.error === 'bot') { $('map-errors').textContent = 'Please finish the quick check above, then try again.'; return; }
+                if (d.error === 'bot') { $('map-errors').textContent = 'The security check didn’t go through. Please wait a moment and try again.'; return; }
                 if (d.error === 'business') { $('map-errors').textContent = 'Please check your business choice in step 1.'; return; }
                 var kind = t ? (t.key === 'car_wash' ? $('wash').selectedOptions[0].textContent + ' car wash' : t.label) : 'Car wash';
                 var mail = 'From the car count calculator\nBusiness: ' + kind + '\n';
@@ -601,6 +625,7 @@
                 }
                 $('email-us').href = 'contact.html?site=' + encodeURIComponent(state.address) + '&msg=' + encodeURIComponent(mail);
                 go(3);
+                });
             });
         });
         $('again').addEventListener('click', function () { $('street').value = ''; go(1); $('street').focus(); });
