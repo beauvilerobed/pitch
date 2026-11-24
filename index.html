@@ -130,6 +130,15 @@
         .product li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
         .product .act { text-align: right; }
         .product.free { background: var(--accent-soft); }
+        /* Whole row is clickable; it follows the row's own link */
+        .product { position: relative; cursor: pointer; transition: background 0.15s ease, box-shadow 0.15s ease; }
+        .product::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); opacity: 0; transition: opacity 0.15s ease; }
+        .product:hover, .product:focus-visible { background: #f2f8fc; outline: none; }
+        .product.free:hover, .product.free:focus-visible { background: #d9eef9; }
+        .product:hover::before, .product:focus-visible::before { opacity: 1; }
+        .product:hover h3 { color: var(--accent-deep); }
+        .product:hover .arrow::after { margin-left: 4px; }
+        .arrow::after { transition: margin 0.15s ease; }
         .product.free .tag { color: var(--accent-deep); }
         .fine { margin-top: 18px; font-size: 0.85rem; color: var(--faint); max-width: 860px; }
 
@@ -1294,6 +1303,17 @@
         if (cards.length < 2) { cs.querySelector('.cs-nav').hidden = true; return; }
         if (!still) timer = setInterval(function() { go(index() + 1); }, 6000);
         sync();
+    })();
+    (function() {
+        document.querySelectorAll('#services .product').forEach(function(row) {
+            var link = row.querySelector('.act a');
+            if (!link) return;
+            row.setAttribute('tabindex', '0');
+            row.setAttribute('role', 'link');
+            row.setAttribute('aria-label', row.querySelector('h3').textContent + ': ' + link.textContent);
+            row.addEventListener('click', function(e) { if (!e.target.closest('a')) link.click(); });
+            row.addEventListener('keydown', function(e) { if (e.key === 'Enter') link.click(); });
+        });
     })();
     </script>
     <script data-goatcounter="https://robedbeauvileowen.goatcounter.com/count"
