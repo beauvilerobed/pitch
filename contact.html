@@ -346,6 +346,10 @@
 
         var preset = new URLSearchParams(location.search).get('need');
         if (preset && need.querySelector('option[value="' + preset + '"]')) need.value = preset;
+        // From the car count calculator: site and estimate filled in
+        var params = new URLSearchParams(location.search);
+        if (params.get('site')) document.getElementById('site').value = params.get('site').slice(0, 200);
+        if (params.get('msg')) document.getElementById('message').value = params.get('msg').slice(0, 600) + '\nWhat I’m planning: ';
         if (!FORM_ENDPOINT) {
             document.getElementById('formNote').textContent = 'Opens your email app with this filled in. Nothing is sent until you press send.';
         }
