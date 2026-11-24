@@ -232,6 +232,7 @@
                     <li id="s2"><b>2</b>Confirm</li>
                     <li id="s3"><b>3</b>Result</li>
                 </ol>
+                <div id="turnstile"></div>
 
                 <!-- 1. Site -->
                 <form class="panel" id="panel-site" autocomplete="on" novalidate>
@@ -269,7 +270,6 @@
                     <div id="map" role="application" aria-label="Aerial map. Drag the pin or click to place it on the site."></div>
                     <p class="hint">Drag the pin or tap the map to move it.</p>
                     <div class="hp" aria-hidden="true"><label for="company_website">Company website</label><input type="text" id="company_website" tabindex="-1" autocomplete="off"></div>
-                    <div id="turnstile"></div>
                     <p class="errors" id="map-errors" role="alert"></p>
                     <div class="actions">
                         <button type="button" class="btn btn-solid" id="confirm" data-goatcounter-click="calc-confirm-site">Show My Car Count</button>
@@ -522,6 +522,7 @@
             fillBusinesses();
         });
         $('business').addEventListener('change', refreshFields);
+        $('panel-site').addEventListener('focusin', function () { startCheck(); }, { once: true });
         $('wash').addEventListener('change', refreshFields);
 
         // ---- 2. map ----
@@ -583,12 +584,15 @@
                 $('find').disabled = false; $('find').textContent = 'Find Site';
                 if (r.status === 400 && r.data.errors) { $('site-errors').textContent = r.data.errors.join(' '); return; }
                 var d = r.data || {};
-                if (d.status === 'found') {
-                    state.matched = d.matched_address || '';
-                    state.located = d.same_street === false ? 'near_match' : 'address';
-                    showMap(d.lat, d.lon, 17, d.same_street === false
-                        ? 'Closest match: <strong>' + esc(d.matched_address) + '</strong>. Move the pin if needed.'
-                        : 'We found <strong>' + esc(d.matched_address) + '</strong>.');
+                if (d.status === 'found' && d.same_street !== false) {
+                    // Exact match: no need to confirm a pin, go straight to the count
+                    state.matched = d.matched_address || ''; state.located = 'address';
+                    state.lat = d.lat; state.lon = d.lon;
+                    track('calc-address-found');
+                    estimate($('site-errors'), $('find'));
+                } else if (d.status === 'found') {
+                    state.matched = d.matched_address || ''; state.located = 'near_match';
+                    showMap(d.lat, d.lon, 17, 'Closest match: <strong>' + esc(d.matched_address) + '</strong>. Move the pin if needed.');
                     track('calc-address-found');
                 } else if (d.zip_center) {
                     state.matched = ''; state.located = 'pin';
@@ -620,18 +624,19 @@
             building_size: 'Add the building size for this business in step 1.',
             network: 'Something went wrong. Please try again.'
         };
-        $('confirm').addEventListener('click', function () {
+        $('confirm').addEventListener('click', function () { estimate($('map-errors'), $('confirm')); });
+        function estimate(errBox, btn) {
             var t = currentType();
             var body = { lat: state.lat, lon: state.lon, client_id: CLIENT_ID, address: state.address, company_website: $('company_website').value,
                          business: t ? t.key : 'car_wash', wash_type: $('wash').value, bays: Number($('bays').value) || 1,
                          building_sf: buildingSize(),
                          located_by: state.located, matched_address: state.matched, ref_tag: REF, details: readDetails() };
-            $('map-errors').textContent = '';
-            var btn = $('confirm'), label = btn.textContent; btn.disabled = true; btn.textContent = 'Checking...';
+            errBox.textContent = '';
+            var label = btn === $('find') ? 'Find Site' : btn.textContent; btn.disabled = true; btn.textContent = 'Checking...';
             waitForCheck().then(function (token) {
                 if (!token) {
                     btn.disabled = false; btn.textContent = label;
-                    $('map-errors').textContent = 'The security check didn’t load. Please refresh the page and try again.';
+                    errBox.textContent = 'The security check didn’t load. Please refresh the page and try again.';
                     return;
                 }
                 body.turnstile_token = token; btn.textContent = 'Working...';
@@ -639,8 +644,8 @@
                 btn.disabled = false; btn.textContent = label;
                 if (LIVE && window.turnstile && state.turnstileId !== null) { turnstile.reset(state.turnstileId); }
                 var d = r.data || {};
-                if (d.error === 'bot') { $('map-errors').textContent = 'The security check didn’t go through. Please wait a moment and try again.'; return; }
-                if (d.error === 'business') { $('map-errors').textContent = 'Please check your business choice in step 1.'; return; }
+                if (d.error === 'bot') { errBox.textContent = 'The security check didn’t go through. Please wait a moment and try again.'; return; }
+                if (d.error === 'business') { errBox.textContent = 'Please check your business choice in step 1.'; return; }
                 var kind = t ? (t.key === 'car_wash' ? $('wash').selectedOptions[0].textContent + ' car wash' : t.label) : 'Car wash';
                 var mail = 'From the car count calculator\nBusiness: ' + kind + '\n';
                 if (r.ok && d.median != null) {
@@ -664,7 +669,7 @@
                 go(3);
                 });
             });
-        });
+        }
         $('again').addEventListener('click', function () { $('street').value = ''; go(1); $('street').focus(); });
 
         // ---- email dialog (as on the homepage) ----

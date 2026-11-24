@@ -530,6 +530,11 @@
         .content table.kv td:first-child { width: 62%; }
         .content table.kv td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
         .content table.findings td:first-child, .content table.findings th:first-child { width: 24%; font-weight: 700; }
+        /* Findings read as a plain list under the section rule: no header row, no rules between items */
+        .content table.findings { border-top: none; border-bottom: none; margin-top: 4px; table-layout: auto; }
+        .content table.findings td:first-child { width: 1%; white-space: nowrap; padding-right: 28px; }
+        .content table.findings tr:first-child th { display: none; }
+        .content table.findings td { border-bottom: none; padding: 4px 8px 4px 0; }
         .content table.checks th:nth-child(1) { width: 30%; } .content table.checks th:nth-child(2) { width: 14%; }
         .content table.cols-3 th:nth-child(2) { width: 24%; } .content table.cols-3 th:nth-child(3) { width: 18%; }
         .content table.cols-4 th:first-child { width: 31%; }
@@ -656,7 +661,7 @@
         <a id="zoning-screening"></a><h3>Zoning &amp; Feasibility Screening</h3>
         <p>A review of public records and maps; no site visit was made. "Flag" indicates an item requiring further
         investigation; "No data" indicates that no record was available.</p>
-        <table class="checks"><tr><th>Item</th><th>Result</th><th>Finding</th></tr><tr><td>Zoning</td><td class="status status-unknown">No data</td><td>No zoning layer found for this county</td></tr><tr><td>Flood</td><td class="status status-pass">Pass</td><td>Zone X: area of minimal flood hazard</td></tr><tr><td>Wetlands</td><td class="status status-pass">Pass</td><td>No NWI wetlands within ~40 m</td></tr><tr><td>Slope</td><td class="status status-flag">Flag</td><td>5.6% grade across ~60 m</td></tr><tr><td>Arterial road access</td><td class="status status-pass">Pass</td><td>~11 m to a main road (primary)</td></tr><tr><td>Underground storage tanks</td><td class="status status-pass">Pass</td><td>No tank records within 50 m</td></tr></table>
+        <table class="checks"><tr><th>Item</th><th>Result</th><th>Finding</th></tr><tr><td>Zoning</td><td class="status status-unknown">No data</td><td>No zoning layer found for this county</td></tr><tr><td>Flood</td><td class="status status-pass">Pass</td><td>Zone X: area of minimal flood hazard</td></tr><tr><td>Wetlands</td><td class="status status-pass">Pass</td><td>No NWI wetlands within ~40 m</td></tr><tr><td>Slope</td><td class="status status-flag">Flag</td><td>5.6% grade across ~60 m</td></tr><tr><td>Arterial road access</td><td class="status status-unknown">No data</td><td>OpenStreetMap unavailable (ScreeningSourceError)</td></tr><tr><td>Underground storage tanks</td><td class="status status-pass">Pass</td><td>No tank records within 50 m</td></tr></table>
         <h2>Financial</h2>
         <h3>Sources and Uses</h3>
         <table class="kv">

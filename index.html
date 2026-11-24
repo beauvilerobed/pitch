@@ -579,8 +579,9 @@
         *, *::before, *::after { border-radius: 0 !important; }
         .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
         /* Rounded only where it frames visuals: hero cards, the analytics viewer, dashboard popups and the case study card */
-        .hv-map, .hv-chart, .view, #about-dialog, .demo-dialog { border-radius: 10px !important; }
-        .demo-map, .demo-card { border-radius: 8px !important; overflow: hidden; }
+        .hv-map, .hv-chart, .view, .demo-dialog { border-radius: 10px !important; }
+        .demo-map { border-radius: 8px !important; overflow: hidden; }
+        .demo-card { border-radius: 8px !important; }
     </style>
 </head>
 <body>
@@ -891,7 +892,7 @@
                     <div class="demo-score"><strong>149</strong><span>homeownership index<br>(county = 100)</span></div>
                     <p class="demo-card-kicker demo-card-sub">Trade area profile</p>
                     <table class="demo-rank demo-cmp">
-                        <thead><tr><th>Measure</th><th>Site</th><th>County</th><th>Index</th></tr></thead>
+                        <thead><tr><th>Measure</th><th>Top site</th><th>County avg.</th><th>Index</th></tr></thead>
                         <tbody>
                             <tr><td>Median income</td><td>$83,421</td><td>$72,470</td><td>115</td></tr>
                             <tr><td>Vehicles / household</td><td>1.92</td><td>1.70</td><td>113</td></tr>
@@ -900,6 +901,7 @@
                             <tr><td>Owner-occupied</td><td>89.7%</td><td>60.4%</td><td>149</td></tr>
                         </tbody>
                     </table>
+                    <p style="font-size:0.74rem;color:var(--text-light);margin:6px 0 4px;line-height:1.4">Top site: its trade area. County avg.: all of Hamilton County. Index: top site as a share of the county, where 100 is the county average and 149 means 49% higher.</p>
                     <table class="demo-table">
                         <tr class="grp"><th colspan="2">County demand drivers</th></tr>
                         <tr><td>Population</td><td>830,774</td></tr>
