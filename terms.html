@@ -156,7 +156,7 @@
 
         /* Match the homepage (Nov 2026 redesign) */
         :root { --head: 'Inter', Helvetica, Arial, sans-serif; --bg-band: #e8f1f8; }
-        h1, h2, h3 { font-family: var(--head); font-weight: 800; letter-spacing: -0.02em; }
+        h1, h2, h3 { font-family: var(--head); font-weight: 700; letter-spacing: -0.01em; }
         .brand { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; text-transform: none; color: #0f1a2b; }
         .brand .divider { display: none; }
         .brand .brand-sub { font-weight: 500; letter-spacing: 0; opacity: 1; color: #64748b; margin-left: 6px; }
@@ -171,6 +171,19 @@
         footer .brand { color: #0f1a2b !important; font-size: 1.15rem; }
         footer p { color: #64748b !important; }
         .footer-meta { color: #64748b !important; border-top-color: #e2e8f0 !important; }
+            /* Tighter spacing, matching the homepage */
+        .page-head { padding: 48px 0 40px; }
+        .contact-grid { padding: 40px 0 64px; gap: 32px; }
+        .panel { padding: 28px 30px 26px; }
+        .policy .panel { padding: 32px 36px; }
+        .note { margin: 28px auto 56px; padding: 24px 28px; }
+        footer { padding: 28px 0 20px !important; }
+        .footer-meta { margin-top: 16px !important; padding-top: 14px !important; }
+        @media (max-width: 640px) { .page-head { padding: 36px 0 28px; } .contact-grid { padding: 28px 0 48px; }
+            .panel, .policy .panel { padding: 22px 18px; } }
+            /* Sharp edges everywhere; only meaningful circles stay round */
+        *, *::before, *::after { border-radius: 0 !important; }
+        .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
     </style>
 </head>
 <body>

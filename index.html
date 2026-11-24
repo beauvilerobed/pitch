@@ -49,18 +49,17 @@
         img { max-width: 100%; display: block; }
         .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
 
-        h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.15; }
-        h2 { font-size: 2.2rem; font-weight: 800; max-width: 780px; }
+        h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.2; }
+        h2 { font-size: 2rem; font-weight: 700; max-width: 780px; }
         .lede { color: var(--muted); font-size: 1.08rem; max-width: 700px; margin-top: 12px; }
-        section { padding: 88px 0; border-top: 1px solid var(--line); }
+        section { padding: 64px 0; border-top: 1px solid var(--line); }
         section.band { background: var(--band); border-top-color: #d6e4ef; }
         section.dark { background: var(--navy); color: var(--white); border-top: 0; }
         section.dark h2 { color: var(--white); }
         section.dark .lede { color: #b8c4d4; }
-        section.dark .tabs { border-left-color: rgba(255,255,255,0.15); }
         section.dark .tab strong { color: var(--white); }
         section.dark .tab span { color: rgba(255,255,255,0.7); }
-        section.dark .tab[aria-selected="true"] { background: rgba(255,255,255,0.07); border-left-color: #4fb3e3; }
+        section.dark .tab[aria-selected="true"] { background: rgba(255,255,255,0.09); }
         section.dark .tab:hover strong { color: #7cc8ec; }
         section.dark .view { border-color: rgba(255,255,255,0.15); }
         .head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
@@ -71,7 +70,7 @@
         .btn-line { border-color: var(--line-strong); color: var(--text); background: var(--white); }
         .btn-line:hover { border-color: var(--navy); }
         .arrow { font-weight: 600; text-decoration: none; background: none; border: 0; font: inherit; font-weight: 600; color: var(--accent); cursor: pointer; padding: 0; }
-        .arrow::after { content: " \2192"; }
+        .arrow::after { content: none; }
 
         /* Header */
         header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.97); border-bottom: 1px solid var(--line); }
@@ -84,9 +83,10 @@
         nav .btn { color: var(--white); padding: 8px 16px; }
 
         /* Hero */
-        .hero { overflow-x: clip; background: linear-gradient(100deg, rgba(10,18,31,0.94) 0%, rgba(15,26,43,0.86) 55%, rgba(15,26,43,0.72) 100%), url('images/hero.jpg') center / cover no-repeat, var(--navy); color: var(--white); min-height: calc(92vh - 64px); display: flex; flex-direction: column; justify-content: center; padding: 88px 0 0; }
-        .hero > .wrap { display: grid; grid-template-columns: 0.8fr 1.3fr; gap: 48px; align-items: center; width: 100%; max-width: 1360px; }
-        .hero h1 { font-size: 3.8rem; font-weight: 800; letter-spacing: -0.035em; color: var(--white); }
+        .hero { overflow-x: clip; background: linear-gradient(100deg, rgba(10,18,31,0.94) 0%, rgba(15,26,43,0.86) 55%, rgba(15,26,43,0.72) 100%), url('images/hero.jpg') center / cover no-repeat, var(--navy); color: var(--white); display: flex; flex-direction: column; justify-content: center; padding: 56px 0 0; }
+        .hero > .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 64px; align-items: center; width: 100%; }
+        .hero h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; color: var(--white); }
+        .hero h1 span { display: block; }
         .hero .lede { font-size: 1.18rem; color: rgba(255,255,255,0.85); margin-top: 18px; }
         .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
         .hero .btn-line { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.35); }
@@ -94,7 +94,7 @@
         .hero-note { margin-top: 14px; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
         /* Spiral: clockwise from the left, each card 1/phi (0.618x) the width of the one
            before; cards may hang past the edge of the map. */
-        .hero-visual { position: relative; aspect-ratio: 1000 / 618; margin: 40px 0 56px; }
+        .hero-visual { position: relative; aspect-ratio: 1000 / 618; margin: 32px 0 40px; }
         .hv-map { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 8px; border: 1px solid rgba(255,255,255,0.18); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6); }
         .hv-chart { position: absolute; transform: translate(-50%, -50%); border-radius: 6px; background: var(--white); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 20px 40px -12px rgba(0,0,0,0.6); }
         .hv-1 { left: 28%;   top: 47%; width: 66%;   z-index: 1; }
@@ -103,56 +103,55 @@
         .hv-4 { left: 70%;   top: 90%; width: 15.6%; z-index: 4; }
         .hv-5 { left: 65.8%; top: 67%; width: 9.6%;  z-index: 5; }
 
-        .facts { border-top: 1px solid rgba(255,255,255,0.16); margin-top: 72px; }
+        .facts { border-top: 1px solid rgba(255,255,255,0.16); margin-top: 32px; }
         .facts .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
-        .fact { padding: 24px 24px 28px; border-left: 1px solid rgba(255,255,255,0.16); }
+        .fact { padding: 18px 24px 20px; border-left: 1px solid rgba(255,255,255,0.16); }
         .fact:first-child { border-left: 0; padding-left: 0; }
         .fact strong { display: block; font-size: 1.02rem; color: var(--white); margin-bottom: 4px; }
         .fact span { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.5; display: block; }
 
         /* Audiences */
-        .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 8px; margin-top: 40px; background: var(--white); }
+        .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 8px; margin-top: 28px; background: var(--white); }
         .cell { padding: 26px 24px; border-left: 1px solid var(--line); }
         .cell:first-child { border-left: 0; }
         .cell h3 { font-size: 1.05rem; margin-bottom: 8px; }
         .cell p { color: var(--muted); font-size: 0.95rem; }
 
         /* Products */
-        .products { margin-top: 40px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--white); }
-        .product { display: grid; grid-template-columns: 270px 1fr 180px; gap: 40px; padding: 32px; border-top: 1px solid var(--line); align-items: start; }
+        .products { margin-top: 28px; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line-strong); }
+        .product { display: grid; grid-template-columns: 300px 1fr 170px; gap: 40px; padding: 18px 0; border-top: 1px solid var(--line); align-items: center; }
         .product:first-child { border-top: 0; }
         .product .tag { font-size: 0.8rem; font-weight: 600; color: var(--faint); }
-        .product h3 { font-size: 1.4rem; margin: 4px 0 6px; }
-        .product .q { color: var(--muted); }
-        .product .desc { color: var(--muted); font-size: 1.02rem; align-self: center; }
+        .product h3 { font-size: 1.25rem; margin: 0 0 2px; }
+        .product .q { color: var(--muted); font-size: 0.95rem; }
+        .product .desc { color: var(--muted); font-size: 1rem; margin: 0; }
         .product ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; }
         .product li { padding-left: 18px; position: relative; font-size: 0.96rem; }
         .product li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
         .product .act { text-align: right; }
         /* Whole row is clickable; it follows the row's own link */
-        .product { position: relative; cursor: pointer; transition: background 0.15s ease, box-shadow 0.15s ease; }
-        .product::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); opacity: 0; transition: opacity 0.15s ease; }
-        .product:hover, .product:focus-visible { background: #f2f8fc; outline: none; }
-        .product:hover::before, .product:focus-visible::before { opacity: 1; }
+        .product { position: relative; isolation: isolate; cursor: pointer; }
+        /* Hover fill sits behind the row and bleeds past the text, so the rules stay at content width */
+        .product::after { content: ""; position: absolute; top: 1px; bottom: 0; left: -20px; right: -20px; border-radius: 6px; background: transparent; z-index: -1; transition: background 0.15s ease; }
+        .product:hover::after, .product:focus-visible::after { background: #f2f8fc; }
+        .product:focus-visible { outline: none; }
         .product:hover h3 { color: var(--accent-deep); }
-        .product:hover .arrow::after { margin-left: 4px; }
         /* Small hover motion: the row's text eases right, the button lifts */
         .product > div { transition: transform 0.25s ease; }
         .product:hover > div:not(.act), .product:focus-visible > div:not(.act) { transform: translateX(6px); }
         .product .act .btn { transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.15s; }
         .product:hover .act .btn { transform: translateY(-2px); box-shadow: 0 8px 18px -8px rgba(3,136,197,0.6); }
         @media (prefers-reduced-motion: reduce) { .product > div, .product .act .btn { transition: none; } .product:hover > div, .product:hover .act .btn { transform: none; } }
-        .arrow::after { transition: margin 0.15s ease; }
         .product.free .tag { color: var(--accent-deep); }
         .fine { margin-top: 18px; font-size: 0.85rem; color: var(--faint); max-width: 860px; }
 
         /* Analytics gallery */
-        .gallery { display: grid; grid-template-columns: 300px 1fr; gap: 32px; margin-top: 40px; align-items: start; }
-        .tabs { display: flex; flex-direction: column; border-left: 2px solid var(--line); }
-        .tab { text-align: left; background: none; border: 0; border-left: 2px solid transparent; margin-left: -2px; padding: 12px 18px; font: inherit; cursor: pointer; color: var(--muted); }
+        .gallery { display: grid; grid-template-columns: 300px 1fr; gap: 32px; margin-top: 28px; align-items: start; }
+        .tabs { display: flex; flex-direction: column; gap: 2px; }
+        .tab { text-align: left; background: none; border: 0; border-radius: 6px; padding: 10px 16px; font: inherit; cursor: pointer; color: var(--muted); }
         .tab strong { display: block; color: var(--navy); font-size: 0.98rem; }
         .tab span { display: none; font-size: 0.9rem; margin-top: 4px; }
-        .tab[aria-selected="true"] { border-left-color: var(--accent); background: var(--white); }
+        .tab[aria-selected="true"] { background: var(--white); }
         .tab[aria-selected="true"] span { display: block; }
         .tab:hover strong { color: var(--accent-deep); }
         .view { border: 1px solid var(--line-strong); border-radius: 8px; background: var(--white); overflow: hidden; }
@@ -160,19 +159,19 @@
         .view-foot { display: flex; justify-content: space-between; gap: 16px; padding: 12px 16px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--faint); flex-wrap: wrap; }
 
         /* Case studies */
-        .proofs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
-        .proof { border: 1px solid var(--line); border-radius: 8px; padding: 32px; background: var(--white); }
-        .proof .tag { font-size: 0.8rem; font-weight: 600; color: var(--faint); margin-bottom: 18px; }
-        .stat { padding: 18px 0; border-top: 1px solid var(--line); }
+        .proofs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 28px; }
+        .proof { border: 1px solid var(--line); border-radius: 8px; padding: 26px 28px; background: var(--white); }
+        .proof .cs-title { font-size: 1.1rem; margin-bottom: 18px; }
+        .stat { padding: 14px 0; border-top: 1px solid var(--line); }
         .stat:first-of-type { border-top: 0; padding-top: 0; }
         .stat b { display: block; font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--navy); line-height: 1.1; }
         .stat span { color: var(--muted); font-size: 0.95rem; }
 
         /* Approach */
-        .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; margin-top: 40px; align-items: center; }
+        .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; margin-top: 28px; align-items: center; }
         .split > * { min-width: 0; }
         .points { border-top: 1px solid var(--line); }
-        .point { padding: 22px 0; border-bottom: 1px solid var(--line); }
+        .point { padding: 16px 0; border-bottom: 1px solid var(--line); }
         .point h3 { font-size: 1.05rem; margin-bottom: 4px; }
         .point p { color: var(--muted); font-size: 0.96rem; }
         .cs { min-width: 0; }
@@ -180,27 +179,28 @@
         .cs-track::-webkit-scrollbar { display: none; }
         .cs-track > .proof { flex: 0 0 100%; scroll-snap-align: start; }
         .cs-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
-        .cs-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--white); color: var(--navy); font-size: 1.05rem; cursor: pointer; }
+        .cs-btn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--white); color: var(--navy); font-size: 1.05rem; cursor: pointer; }
         .cs-btn:hover { border-color: var(--navy); }
         .cs-dots { display: flex; gap: 8px; }
         .cs-dots button { width: 9px; height: 9px; border-radius: 50%; border: 0; padding: 0; background: var(--line-strong); cursor: pointer; }
         .cs-dots button[aria-current="true"] { background: var(--accent); width: 24px; border-radius: 5px; }
 
         /* Steps */
-        .steps { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; gap: 32px; }
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 28px; gap: 32px; }
+        .step { border-top: 1px solid var(--line-strong); padding-top: 14px; }
         .step h3 { font-size: 1.02rem; margin-bottom: 4px; }
         .step h3 small { color: var(--accent-deep); font-weight: 700; margin-right: 8px; font-size: 1rem; }
         .step p { color: var(--muted); font-size: 0.95rem; }
 
         /* CTA */
-        .cta { background: var(--navy); color: var(--white); padding: 80px 0; }
+        .cta { background: var(--navy); color: var(--white); padding: 56px 0; }
         .cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
         .cta h2 { color: var(--white); }
         .cta p { color: #b8c4d4; margin-top: 10px; max-width: 560px; }
         .cta .btn-line { background: transparent; color: var(--white); border-color: #3b4c66; }
         .cta .btn-line:hover { border-color: var(--white); }
 
-        footer { padding: 40px 0; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--faint); }
+        footer { padding: 28px 0; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--faint); }
         footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
         footer nav a { font-size: 0.9rem; }
         footer ul { flex-wrap: wrap; gap: 20px; }
@@ -456,7 +456,6 @@
         .demo-stats div {
             background: var(--bg-band);
             border: none;
-            border-left: 3px solid var(--primary);
             border-radius: 0;
             padding: 14px 16px;
             opacity: 0;
@@ -555,24 +554,30 @@
         }
         @media (max-width: 640px) {
             .wrap { padding: 0 16px; }
-            section { padding: 64px 0; }
+            section { padding: 48px 0; }
             h2 { font-size: 1.75rem; }
             .hero { padding: 56px 0 0; min-height: 0; }
             .hero h1 { font-size: 2.5rem; }
             header nav li:not(:last-child) { display: none; }
-            .facts { margin-top: 48px; }
+            .facts { margin-top: 24px; }
             .facts .wrap, .grid4, .steps { grid-template-columns: 1fr; }
             .fact { border-left: 0; padding: 18px 0; }
             .fact + .fact { border-top: 1px solid rgba(255,255,255,0.16); }
             .cell { border-left: 0 !important; }
             .cell + .cell { border-top: 1px solid var(--line); }
-            .product { padding: 26px 20px; }
+            .product { padding: 16px 0; }
             .product ul { grid-template-columns: 1fr; }
             .about { grid-template-columns: 1fr; }
             .view .demo-stats { grid-template-columns: 1fr 1fr; }
             .view .demo-stats div { border-left: 0; border-top: 1px solid var(--line); }
             .hero-cta .btn, .cta .btn { width: 100%; text-align: center; }
         }
+            /* Sharp edges everywhere; only meaningful circles stay round */
+        *, *::before, *::after { border-radius: 0 !important; }
+        .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
+        /* Rounded only where it frames visuals: hero cards, the analytics viewer, dashboard popups and the case study card */
+        .hv-map, .hv-chart, .view, .proof, #about-dialog, .demo-dialog { border-radius: 10px !important; }
+        .demo-map, .demo-card { border-radius: 8px !important; overflow: hidden; }
     </style>
 </head>
 <body>
@@ -593,7 +598,7 @@
     <div class="hero">
         <div class="wrap">
             <div>
-                <h1>Find the Demand. Find the Opportunity.</h1>
+                <h1><span>Find the Demand.</span> <span>Find the Opportunity.</span></h1>
                 <p class="lede">Location analysis and feasibility studies that model market demand, financial returns and risk for the sites and markets you're weighing, built around your goals.</p>
                 <div class="hero-cta">
                     <a href="contact.html" class="btn btn-solid" data-goatcounter-click="hero-request-quote">Request a Quote</a>
@@ -612,8 +617,8 @@
         </div>
         <div class="facts">
             <div class="wrap">
-                <div class="fact"><strong>Grounded in real data</strong><span>Traffic, demographics, competition and site conditions for every study</span></div>
-                <div class="fact"><strong>Models tested on real sites</strong><span>Forecasts checked against the real results of operating locations</span></div>
+                <div class="fact"><strong>Built on measured data</strong><span>Traffic, demographics, competition and site conditions for every study</span></div>
+                <div class="fact"><strong>Models tested on operating sites</strong><span>Forecasts checked against the actual results of operating locations</span></div>
                 <div class="fact"><strong>SBA, USDA and bank ready</strong><span>Feasibility studies in the format underwriters expect</span></div>
                 <div class="fact"><strong>Independent</strong><span>No stake in the deal and no referral fees</span></div>
             </div>
@@ -623,21 +628,19 @@
     <main>
         <section id="services">
             <div class="wrap">
-                <h2>From first look to financing.</h2>
+                <h2>From first look to financing</h2>
                 <p class="lede">Start with a count, then go as deep as the decision needs.</p>
                 <div class="products">
                     <div class="product free">
                         <div>
-                            <div class="tag">Start here, free</div>
                             <h3>Car Count Calculator</h3>
                             <div class="q">How busy could this site be?</div>
                         </div>
-                        <p class="desc">Enter an address and get a daily customer estimate with a likely range, set for your type of business.</p>
+                        <p class="desc">Free. Enter an address and get a daily customer estimate with a likely range, set for your type of business.</p>
                         <div class="act"><a href="calculator.html" class="btn btn-solid" data-goatcounter-click="home-calculator">Open calculator</a></div>
                     </div>
                     <div class="product">
                         <div>
-                            <div class="tag">Market selection</div>
                             <h3>Market Study</h3>
                             <div class="q">Where in this market should we build?</div>
                         </div>
@@ -646,7 +649,6 @@
                     </div>
                     <div class="product">
                         <div>
-                            <div class="tag">Due diligence</div>
                             <h3>Site Evaluation</h3>
                             <div class="q">Is this site worth pursuing?</div>
                         </div>
@@ -655,16 +657,14 @@
                     </div>
                     <div class="product">
                         <div>
-                            <div class="tag">Financing, 5 to 7 days</div>
                             <h3>Feasibility Study</h3>
                             <div class="q">Will the numbers hold up for the loan?</div>
                         </div>
-                        <p class="desc">A five-year pro forma and loan coverage analysis with a clear go or no-go answer for your lender.</p>
+                        <p class="desc">A five-year pro forma and loan coverage analysis with a clear go or no-go answer for your lender, in 5 to 7 days.</p>
                         <div class="act"><a href="demo/sample_feasibility_report.html" class="arrow" target="_blank" rel="noopener" data-goatcounter-click="home-sample-feasibility-report">View sample</a></div>
                     </div>
                     <div class="product">
                         <div>
-                            <div class="tag">Custom</div>
                             <h3>Advisory &amp; Analytics</h3>
                             <div class="q">A question that doesn't fit a template?</div>
                         </div>
@@ -678,7 +678,7 @@
 
         <section class="dark" id="analytics">
             <div class="wrap">
-                <h2>The analytics behind every study.</h2>
+                <h2>The analytics behind every study</h2>
                 <p class="lede">Samples from a Hamilton County, Ohio market study. Pick an analysis to see its numbers, or open it for the full scorecard.</p>
                 <div class="gallery">
                     <div class="tabs" role="tablist">
@@ -702,7 +702,7 @@
 
         <section class="band" id="approach">
             <div class="wrap">
-                <h2>Why our numbers hold up.</h2>
+                <h2>Why our numbers hold up</h2>
                 <div class="split">
                     <div class="points">
                         <div class="point"><h3>Built for your question</h3><p>Every study starts from your goals, whether that's ranking a region, vetting one address or clearing underwriting.</p></div>
@@ -714,40 +714,40 @@
                         <div class="cs" aria-roledescription="carousel" aria-label="Case studies">
                             <div class="cs-track" tabindex="0">
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="car washes">
-                                <div class="tag">Case study: car washes</div>
+                                <h3 class="cs-title">Car washes</h3>
                                 <div class="stat"><b>8 in 10</b><span>When one site does twice the business of another, our model picks the busier one about 8 times in 10.</span></div>
-                                <div class="stat"><b>~25%</b><span>Projections are typically within about 25% of the real car count.</span></div>
+                                <div class="stat"><b>~25%</b><span>Projections are typically within about 25% of the actual car count.</span></div>
                             </div>
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="fuel and convenience">
-                                <div class="tag">Case study: fuel and convenience (early results)</div>
+                                <h3 class="cs-title">Fuel and convenience (early results)</h3>
                                 <div class="stat"><b>Nearly 9 in 10</b><span>When one station does twice the business of another, our model picks the busier one nearly 9 times in 10.</span></div>
-                                <div class="stat"><b>~21%</b><span>Projections are typically within about 21% of the real customer count.</span></div>
+                                <div class="stat"><b>~21%</b><span>Projections are typically within about 21% of the actual customer count.</span></div>
                             </div>
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="fast food drive-throughs">
-                                <div class="tag">Case study: fast food drive-throughs (early results)</div>
+                                <h3 class="cs-title">Fast food drive-throughs (early results)</h3>
                                 <div class="stat"><b>8 in 10</b><span>When one restaurant does twice the business of another, our model picks the busier one about 8 times in 10.</span></div>
-                                <div class="stat"><b>~17%</b><span>Projections are typically within about 17% of the real customer count.</span></div>
+                                <div class="stat"><b>~17%</b><span>Projections are typically within about 17% of the actual customer count.</span></div>
                             </div>
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="suburban Maryland study">
-                                <div class="tag">Case study: express wash, suburban Maryland</div>
+                                <h3 class="cs-title">Express wash, suburban Maryland</h3>
                                 <div class="stat"><b>386 / day</b><span>Projected for a stabilized year. The operating wash reported 355 a day in its first year.</span></div>
                                 <div class="stat"><b>2.14x</b><span>Year-5 debt service coverage against the 1.15x SBA 7(a) minimum. Recommendation: proceed, with conditions.</span></div>
                             </div>
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="rural Ohio study">
-                                <div class="tag">Case study: rural Ohio county seat, USDA financing</div>
+                                <h3 class="cs-title">Rural Ohio county seat, USDA financing</h3>
                                 <div class="stat"><b>291 / day</b><span>Projected for an illustrative main-street site, with a likely range of 216 to 376.</span></div>
                                 <div class="stat"><b>2.45x</b><span>Year-5 debt service coverage against a 1.25x lender minimum, and 1.47x in the downside case.</span></div>
                             </div>
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="Hamilton County market study">
-                                <div class="tag">Case study: market study, Hamilton County, Ohio</div>
+                                <h3 class="cs-title">Market study, Hamilton County, Ohio</h3>
                                 <div class="stat"><b>678</b><span>Neighborhoods ranked by traffic, customer fit, competition and projected revenue.</span></div>
                                 <div class="stat"><b>18</b><span>Recommended locations. The top site scored 82 out of 100 with a 6.0% chance of a loss.</span></div>
                             </div>
                             </div>
                             <div class="cs-nav">
-                                <button type="button" class="cs-btn" data-dir="-1" aria-label="Previous case study">&larr;</button>
+                                <button type="button" class="cs-btn" data-dir="-1" aria-label="Previous case study"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                                 <div class="cs-dots"></div>
-                                <button type="button" class="cs-btn" data-dir="1" aria-label="Next case study">&rarr;</button>
+                                <button type="button" class="cs-btn" data-dir="1" aria-label="Next case study"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                             </div>
                         </div>
                     </div>
@@ -757,12 +757,12 @@
 
         <section id="process">
             <div class="wrap">
-                <h2>How a study works.</h2>
+                <h2>How a study works</h2>
                 <div class="steps">
-                    <div class="step"><h3><small>1</small>Tell us the question</h3><p>The site or market, the concept and what the answer is for.</p></div>
-                    <div class="step"><h3><small>2</small>Fixed-fee proposal</h3><p>Scope, timeline and fee, agreed before work starts.</p></div>
-                    <div class="step"><h3><small>3</small>Analysis</h3><p>Demand, competition, site conditions and the financials.</p></div>
-                    <div class="step"><h3><small>4</small>A clear answer</h3><p>Go or no-go, with the reasons and the risks.</p></div>
+                    <div class="step"><h3>Tell us the question</h3><p>The site or market, the concept and what the answer is for.</p></div>
+                    <div class="step"><h3>Fixed-fee proposal</h3><p>Scope, timeline and fee, agreed before work starts.</p></div>
+                    <div class="step"><h3>Analysis</h3><p>Demand, competition, site conditions and the financials.</p></div>
+                    <div class="step"><h3>A clear answer</h3><p>Go or no-go, with the reasons and the risks.</p></div>
                 </div>
             </div>
         </section>
@@ -783,7 +783,7 @@
 
     <footer>
         <div class="wrap">
-            <div><strong style="color:var(--navy)">AniPoint</strong> &middot; Find the demand. Find the opportunity. &copy; 2026 AniPoint Site Research.</div>
+            <div>&copy; 2026 AniPoint Site Research. Find the demand. Find the opportunity.</div>
             <nav>
                 <ul>
                     <li><a href="#about" data-about>About</a></li>
@@ -807,7 +807,7 @@
             <div class="portrait" aria-hidden="true">RB</div>
             <div>
                 <div class="name">Robed Beauvile-Owen, PhD</div>
-                <div class="title">Founder &middot; PhD, Mathematics &middot; Analytics and Forecasting</div>
+                <div class="title">Founder, PhD in Mathematics, analytics and forecasting</div>
                 <p>Choosing a site comes down to predicting how customers will behave before the doors open. I spent more than four years building forecasting models for businesses, including models that showed teams which campaigns would work two months before the results came in.</p>
                 <h4>Why AniPoint</h4>
                 <p>Opening a new location is one of the biggest decisions a business makes, and a single traffic count rarely tells the whole story. I started AniPoint to give companies, owners and their lenders a clear, independent answer, documented so it holds up to review.</p>
@@ -834,7 +834,7 @@
                     </figcaption>
                 </figure>
                 <aside class="demo-card">
-                    <p class="demo-card-kicker">Top-ranked site &middot; Tract 205.02, BG 2</p>
+                    <p class="demo-card-kicker">Top-ranked site, Tract 205.02, BG 2</p>
                     <div class="demo-score"><strong>82</strong><span>site score<br>out of 100</span></div>
                     <table class="demo-table">
                         <tr class="grp"><th colspan="2">Trade area</th></tr>

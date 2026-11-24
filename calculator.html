@@ -59,7 +59,7 @@
         .preview-banner { background: #fff7e6; border-bottom: 1px solid #f3d9a4; color: #7a4a00; font-size: 0.86rem; padding: 8px 16px; text-align: center; }
 
         /* Hero */
-        .hero { background: var(--pattern) 0 0 / 240px 240px repeat, linear-gradient(rgba(15, 26, 43, 0.82), rgba(15, 26, 43, 0.9)), var(--hero-photo), var(--primary); color: var(--white); text-align: center; padding: 72px 40px 150px; }
+        .hero { background: var(--pattern) 0 0 / 240px 240px repeat, linear-gradient(rgba(15, 26, 43, 0.82), rgba(15, 26, 43, 0.9)), var(--hero-photo), var(--primary); color: var(--white); text-align: center; padding: 48px 40px 140px; }
         .eyebrow { display: inline-block; font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: rgba(255,255,255,0.8); margin-bottom: 14px; }
         .hero h1 { color: var(--white); font-size: 3.1rem; font-weight: 700; max-width: 820px; margin: 0 auto 14px; }
         .hero p { font-size: 1.12rem; color: rgba(255,255,255,0.9); max-width: 620px; margin: 0 auto; }
@@ -170,7 +170,7 @@
     
         /* Match the homepage (Nov 2026 redesign) */
         :root { --head: 'Inter', Helvetica, Arial, sans-serif; --bg-band: #e8f1f8; }
-        h1, h2, h3 { font-family: var(--head); font-weight: 800; letter-spacing: -0.02em; }
+        h1, h2, h3 { font-family: var(--head); font-weight: 700; letter-spacing: -0.01em; }
         .brand { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; text-transform: none; color: #0f1a2b; }
         .brand .divider { display: none; }
         .brand .brand-sub { font-weight: 500; letter-spacing: 0; opacity: 1; color: #64748b; margin-left: 6px; }
@@ -185,6 +185,20 @@
         footer .brand { color: #0f1a2b !important; font-size: 1.15rem; }
         footer p { color: #64748b !important; }
         .footer-meta { color: #64748b !important; border-top-color: #e2e8f0 !important; }
+        .info-label, .result .label { text-transform: none; letter-spacing: 0; font-size: 0.85rem; font-weight: 600; }
+            /* Tighter spacing, matching the homepage */
+        .page-head { padding: 48px 0 40px; }
+        .contact-grid { padding: 40px 0 64px; gap: 32px; }
+        .panel { padding: 28px 30px 26px; }
+        .policy .panel { padding: 32px 36px; }
+        .note { margin: 28px auto 56px; padding: 24px 28px; }
+        footer { padding: 28px 0 20px !important; }
+        .footer-meta { margin-top: 16px !important; padding-top: 14px !important; }
+        @media (max-width: 640px) { .page-head { padding: 36px 0 28px; } .contact-grid { padding: 28px 0 48px; }
+            .panel, .policy .panel { padding: 22px 18px; } }
+            /* Sharp edges everywhere; only meaningful circles stay round */
+        *, *::before, *::after { border-radius: 0 !important; }
+        .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
     </style>
 </head>
 <body>
@@ -287,7 +301,7 @@
                     <li><strong>It's a guide for planning, not a promise.</strong> Actual traffic and sales can be higher or lower.</li>
                     <li><strong>The number is a typical day once you're open and settled in.</strong> The first months are often slower while people find you.</li>
                     <li><strong>"Most days" is the likely range.</strong> Busy days, slow days and bad weather can fall outside it.</li>
-                    <li><strong>The label shows how solid the estimate is.</strong> "Based on real car counts" is the strongest; "Based on industry data" is the least detailed.</li>
+                    <li><strong>The label shows how solid the estimate is.</strong> "Based on measured car counts" is the strongest; "Based on industry data" is the least detailed.</li>
                     <li><strong>The site itself matters too.</strong> Things like the exact lot, how easy it is to get in and out, how visible it is from the road, nearby competitors, prices and how the business is run all change results. A full study looks at these.</li>
                     <li><strong>Don't rely on it alone</strong> to buy land, sign a lease or apply for a loan. Talk with us or your own advisor first.</li>
                     <li>Car washes are shown in cars a day. Other businesses are shown in customers on a weekday.</li>
@@ -395,9 +409,9 @@
                          { key: 'self_service', label: 'Self-serve', bays: true }, { key: 'hand_wash', label: 'Hand wash', bays: false }]
         };
         var SAMPLE_RESULTS = {
-            car_wash: { median: 530, p25: 400, p75: 690, unit: 'cars per day', tier_label: 'Based on real car counts' },
-            coffee_drive_thru: { median: 590, p25: 420, p75: 750, unit: 'customers per weekday', tier_label: 'Based on real customer counts' },
-            fast_food_drive_thru: { median: 1030, p25: 720, p75: 1320, unit: 'customers per weekday', tier_label: 'Based on real customer counts' },
+            car_wash: { median: 530, p25: 400, p75: 690, unit: 'cars per day', tier_label: 'Based on measured car counts' },
+            coffee_drive_thru: { median: 590, p25: 420, p75: 750, unit: 'customers per weekday', tier_label: 'Based on measured customer counts' },
+            fast_food_drive_thru: { median: 1030, p25: 720, p75: 1320, unit: 'customers per weekday', tier_label: 'Based on measured customer counts' },
             other: { median: 270, p25: 175, p75: 510, unit: 'customers per weekday', tier_label: 'Based on industry data' }
         };
         function sample(path, body) {
@@ -635,7 +649,7 @@
                         + '<div class="number">' + fmt(d.median) + '</div><div class="unit">' + unit + '</div>'
                         + '<div class="range">Most days: <strong>' + fmt(d.p25) + '</strong> to <strong>' + fmt(d.p75) + '</strong></div>'
                         + '<span class="chip">' + esc(d.tier_label) + '</span>'
-                        + '<div class="site">' + esc(kind) + ' &middot; ' + esc(state.address) + '</div>';
+                        + '<div class="site">' + esc(kind) + ', ' + esc(state.address) + '</div>';
                     $('left').textContent = d.remaining != null ? d.remaining + ' ' + (d.remaining === 1 ? 'estimate' : 'estimates') + ' left' : '';
                     mail += 'Estimate: about ' + fmt(d.median) + ' ' + unit + ' (most days ' + fmt(d.p25) + ' to ' + fmt(d.p75) + ')\n';
                     track('calc-result');

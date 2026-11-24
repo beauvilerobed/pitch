@@ -559,6 +559,16 @@
         .header .cover td:first-child { width: 140px; color: var(--text-light); }
         @media (max-width: 640px) { .header { margin: 0 18px; padding-top: 32px; } .content { padding: 22px 18px; }
             .content table { table-layout: auto; font-size: 0.84em; } .content th, .content td { padding: 6px 5px; } }
+        /* Tighter spacing */
+        .header { padding: 36px 0 12px; }
+        .content { padding: 20px 64px 40px; }
+        .content h2 { margin: 28px 0 10px; }
+        .content h3 { margin: 18px 0 8px; }
+        .content p { margin-bottom: 9px; }
+        .content table { margin: 8px 0 16px; }
+        .content .stack { margin: 4px 0 14px; }
+        .content .sample-banner { margin: 0 0 18px; }
+        .header .cover { margin-top: 12px; }
         @page { size: letter; margin: 0.8in 0.85in; }
         @media print { body { font-size: 10.5pt; } .container { max-width: none; } .header { margin: 0; padding-top: 0; }
             .content { padding: 16px 0 0; } h2, h3 { break-after: avoid; } tr, .map-wrap { break-inside: avoid; } }
@@ -573,7 +583,7 @@
             <tr><td>Subject</td><td>Rural Ohio county seat</td></tr>
             <tr><td>Prepared for</td><td>Sample</td></tr>
             <tr><td>Prepared by</td><td>Robed Beauvile-Owen, PhD &middot; AniPoint Site Research</td></tr>
-            <tr><td>Effective date</td><td>November 23, 2026</td></tr>
+            <tr><td>Effective date</td><td>November 24, 2026</td></tr>
         </table>
     </div>
     <div class="content">
@@ -646,7 +656,7 @@
         <a id="zoning-screening"></a><h3>Zoning &amp; Feasibility Screening</h3>
         <p>A review of public records and maps; no site visit was made. "Flag" indicates an item requiring further
         investigation; "No data" indicates that no record was available.</p>
-        <table class="checks"><tr><th>Item</th><th>Result</th><th>Finding</th></tr><tr><td>Zoning</td><td class="status status-unknown">No data</td><td>No zoning layer found for this county</td></tr><tr><td>Flood</td><td class="status status-pass">Pass</td><td>Zone X: area of minimal flood hazard</td></tr><tr><td>Wetlands</td><td class="status status-pass">Pass</td><td>No NWI wetlands within ~40 m</td></tr><tr><td>Slope</td><td class="status status-flag">Flag</td><td>5.3% grade across ~60 m</td></tr><tr><td>Arterial road access</td><td class="status status-unknown">No data</td><td>OpenStreetMap unavailable (ScreeningSourceError)</td></tr><tr><td>Underground storage tanks</td><td class="status status-pass">Pass</td><td>No tank records within 50 m</td></tr></table>
+        <table class="checks"><tr><th>Item</th><th>Result</th><th>Finding</th></tr><tr><td>Zoning</td><td class="status status-unknown">No data</td><td>No zoning layer found for this county</td></tr><tr><td>Flood</td><td class="status status-pass">Pass</td><td>Zone X: area of minimal flood hazard</td></tr><tr><td>Wetlands</td><td class="status status-pass">Pass</td><td>No NWI wetlands within ~40 m</td></tr><tr><td>Slope</td><td class="status status-flag">Flag</td><td>5.3% grade across ~60 m</td></tr><tr><td>Arterial road access</td><td class="status status-pass">Pass</td><td>~6 m to a main road (primary)</td></tr><tr><td>Underground storage tanks</td><td class="status status-pass">Pass</td><td>No tank records within 50 m</td></tr></table>
         <h2>Financial</h2>
         <h3>Sources and Uses</h3>
         <table class="kv">
