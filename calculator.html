@@ -665,6 +665,7 @@
                     $('left').textContent = '';
                     track('calc-' + (d.error || 'error'));
                 }
+                $('again').hidden = d.remaining === 0 || d.error === 'limit_reached';   // nothing left to try
                 $('email-us').href = 'contact.html?site=' + encodeURIComponent(state.address) + '&msg=' + encodeURIComponent(mail);
                 go(3);
                 });
