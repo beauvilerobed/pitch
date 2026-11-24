@@ -225,12 +225,13 @@
             /* Sharp edges everywhere; only meaningful circles stay round */
         *, *::before, *::after { border-radius: 0 !important; }
         .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
+            .site-header .brand img { display: block; height: 34px; width: auto; }
     </style>
 </head>
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="./" class="brand" aria-label="AniPoint Site Research home">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
+            <a href="./" class="brand" aria-label="AniPoint Site Research home"><img src="images/logo-header.png" alt="AniPoint Site Research" width="114" height="34"></a>
             <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
             <nav id="primaryNav">
                 <ul>

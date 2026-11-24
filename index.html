@@ -57,10 +57,10 @@
         section.dark { background: var(--navy); color: var(--white); border-top: 0; }
         section.dark h2 { color: var(--white); }
         section.dark .lede { color: #b8c4d4; }
+        #analytics .lede { font-size: 0.95rem; }
         section.dark .tab strong { color: var(--white); }
         section.dark .tab span { color: rgba(255,255,255,0.7); }
         section.dark .tab[aria-selected="true"] { background: rgba(255,255,255,0.09); }
-        section.dark .tab:hover strong { color: #7cc8ec; }
         section.dark .view { border-color: rgba(255,255,255,0.15); }
         .head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
 
@@ -77,6 +77,7 @@
         header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
         .brand { font-weight: 800; font-size: 1.15rem; color: var(--navy); text-decoration: none; letter-spacing: -0.02em; }
         .brand span { font-weight: 500; color: var(--faint); margin-left: 6px; }
+        .brand img { display: block; height: 34px; width: auto; }
         nav ul { display: flex; gap: 28px; list-style: none; align-items: center; }
         nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; font-weight: 500; }
         nav a:hover { color: var(--navy); }
@@ -153,7 +154,6 @@
         .tab span { display: none; font-size: 0.9rem; margin-top: 4px; }
         .tab[aria-selected="true"] { background: var(--white); }
         .tab[aria-selected="true"] span { display: block; }
-        .tab:hover strong { color: var(--accent-deep); }
         .view { border: 1px solid var(--line-strong); border-radius: 8px; background: var(--white); overflow: hidden; }
         .view img { width: 100%; cursor: zoom-in; }
         .view-foot { display: flex; justify-content: space-between; gap: 16px; padding: 12px 16px; border-top: 1px solid var(--line); font-size: 0.88rem; color: var(--faint); flex-wrap: wrap; }
@@ -175,9 +175,11 @@
         .point h3 { font-size: 1.05rem; margin-bottom: 4px; }
         .point p { color: var(--muted); font-size: 0.96rem; }
         .cs { min-width: 0; }
-        .cs-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; gap: 16px; }
-        .cs-track::-webkit-scrollbar { display: none; }
-        .cs-track > .proof { flex: 0 0 100%; scroll-snap-align: start; }
+        .cs-viewport { overflow: hidden; }
+        .cs-track { display: flex; transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); will-change: transform; touch-action: pan-y; }
+        .cs-track.dragging { transition: none; }
+        .cs-track > .proof { flex: 0 0 100%; }
+        @media (prefers-reduced-motion: reduce) { .cs-track { transition: none; } }
         .cs-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
         .cs-btn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--white); color: var(--navy); font-size: 1.05rem; cursor: pointer; }
         .cs-btn:hover { border-color: var(--navy); }
@@ -566,6 +568,7 @@
             .cell { border-left: 0 !important; }
             .cell + .cell { border-top: 1px solid var(--line); }
             .product { padding: 16px 0; }
+            .product::after { left: -10px; right: -10px; }
             .product ul { grid-template-columns: 1fr; }
             .about { grid-template-columns: 1fr; }
             .view .demo-stats { grid-template-columns: 1fr 1fr; }
@@ -576,14 +579,14 @@
         *, *::before, *::after { border-radius: 0 !important; }
         .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
         /* Rounded only where it frames visuals: hero cards, the analytics viewer, dashboard popups and the case study card */
-        .hv-map, .hv-chart, .view, .proof, #about-dialog, .demo-dialog { border-radius: 10px !important; }
+        .hv-map, .hv-chart, .view, #about-dialog, .demo-dialog { border-radius: 10px !important; }
         .demo-map, .demo-card { border-radius: 8px !important; overflow: hidden; }
     </style>
 </head>
 <body>
     <header>
         <div class="wrap">
-            <a href="#" class="brand">AniPoint<span>Site Research</span></a>
+            <a href="#" class="brand" aria-label="AniPoint Site Research home"><img src="images/logo-header.png" alt="AniPoint Site Research" width="114" height="34"></a>
             <nav>
                 <ul>
                     <li><a href="#services">Services</a></li>
@@ -604,7 +607,7 @@
                     <a href="contact.html" class="btn btn-solid" data-goatcounter-click="hero-request-quote">Request a Quote</a>
                     <a href="calculator.html" class="btn btn-line" data-goatcounter-click="hero-calculator">Try the Car Count Calculator</a>
                 </div>
-                <p class="hero-note">The calculator is free. Enter an address and get a daily car count with a likely range.</p>
+                <p class="hero-note">The calculator is complimentary. Enter an address and get a daily car count with a likely range (25th-75th percentile).</p>
             </div>
             <div class="hero-visual">
                 <img class="hv-map" src="demo/03-traffic-demand-hamilton.jpg" alt="Sample market study map shading every neighborhood by traffic and demand, with the top five sites marked">
@@ -618,7 +621,7 @@
         <div class="facts">
             <div class="wrap">
                 <div class="fact"><strong>Built on measured data</strong><span>Traffic, demographics, competition and site conditions for every study</span></div>
-                <div class="fact"><strong>Models tested on operating sites</strong><span>Forecasts checked against the actual results of operating locations</span></div>
+                <div class="fact"><strong>Models measured and tested</strong><span>Forecasts checked against the actual results of operating locations</span></div>
                 <div class="fact"><strong>SBA, USDA and bank ready</strong><span>Feasibility studies in the format underwriters expect</span></div>
                 <div class="fact"><strong>Independent</strong><span>No stake in the deal and no referral fees</span></div>
             </div>
@@ -629,36 +632,32 @@
         <section id="services">
             <div class="wrap">
                 <h2>From first look to financing</h2>
-                <p class="lede">Start with a count, then go as deep as the decision needs.</p>
+                <p class="lede">Start with demand, then go as deep as the decision needs.</p>
                 <div class="products">
                     <div class="product free">
                         <div>
                             <h3>Car Count Calculator</h3>
-                            <div class="q">How busy could this site be?</div>
                         </div>
-                        <p class="desc">Free. Enter an address and get a daily customer estimate with a likely range, set for your type of business.</p>
-                        <div class="act"><a href="calculator.html" class="btn btn-solid" data-goatcounter-click="home-calculator">Open calculator</a></div>
+                        <p class="desc">Enter an address and get a daily customer estimate with a likely range, set for your type of business.</p>
+                        <div class="act"><a href="calculator.html" class="arrow" data-goatcounter-click="home-calculator">Open calculator</a></div>
                     </div>
                     <div class="product">
                         <div>
                             <h3>Market Study</h3>
-                            <div class="q">Where in this market should we build?</div>
                         </div>
-                        <p class="desc">Every neighborhood in your market ranked by traffic, competition, revenue and risk.</p>
-                        <div class="act"><a href="#analytics" class="arrow" data-goatcounter-click="home-sample-county-dashboard">See the analytics</a></div>
+                        <p class="desc">Comprehensive analytics for every neighborhood in your market, ranked by traffic, competition, revenue and risk.</p>
+                        <div class="act"><a href="#analytics" class="arrow" data-goatcounter-click="home-sample-county-dashboard">See below</a></div>
                     </div>
                     <div class="product">
                         <div>
                             <h3>Site Evaluation</h3>
-                            <div class="q">Is this site worth pursuing?</div>
                         </div>
-                        <p class="desc">Projected volume, break-even and site red flags for a single address.</p>
+                        <p class="desc">Projected traffic and demand, competitive mapping, break-even and site red flags for a single address.</p>
                         <div class="act"><a href="demo/sample_site_screen.html" class="arrow" target="_blank" rel="noopener" data-goatcounter-click="home-sample-site-screen">View sample</a></div>
                     </div>
                     <div class="product">
                         <div>
                             <h3>Feasibility Study</h3>
-                            <div class="q">Will the numbers hold up for the loan?</div>
                         </div>
                         <p class="desc">A five-year pro forma and loan coverage analysis with a clear go or no-go answer for your lender, in 5 to 7 days.</p>
                         <div class="act"><a href="demo/sample_feasibility_report.html" class="arrow" target="_blank" rel="noopener" data-goatcounter-click="home-sample-feasibility-report">View sample</a></div>
@@ -666,7 +665,6 @@
                     <div class="product">
                         <div>
                             <h3>Advisory &amp; Analytics</h3>
-                            <div class="q">A question that doesn't fit a template?</div>
                         </div>
                         <p class="desc">Portfolio reviews, sales forecasting and expansion modeling, scoped to your question.</p>
                         <div class="act"><a href="contact.html" class="arrow">Talk it through</a></div>
@@ -679,7 +677,7 @@
         <section class="dark" id="analytics">
             <div class="wrap">
                 <h2>The analytics behind every study</h2>
-                <p class="lede">Samples from a Hamilton County, Ohio market study. Pick an analysis to see its numbers, or open it for the full scorecard.</p>
+                <p class="lede">Samples from a Hamilton County, Ohio market study. Pick an analysis or open it for a sample scorecard.</p>
                 <div class="gallery">
                     <div class="tabs" role="tablist">
                         <button class="tab" role="tab" aria-selected="true" data-img="demo/01-location-ranking-hamilton.jpg" data-demo="demo-01"><strong>Location Ranking</strong><span>Ranks neighborhoods by traffic, customer fit and competition, so the strongest options rise to the top.</span></button>
@@ -694,7 +692,7 @@
                     <div class="view">
                         <img id="viewImg" src="demo/01-location-ranking-hamilton.jpg" alt="Sample dashboard">
                         <div id="viewStats"></div>
-                        <div class="view-foot"><span id="viewCap">Location Ranking</span><button type="button" class="arrow" id="viewOpen">Open the full analysis</button></div>
+                        <div class="view-foot"><span id="viewCap">Location Ranking</span><button type="button" class="arrow" id="viewOpen">Open the sample analysis</button></div>
                     </div>
                 </div>
             </div>
@@ -708,11 +706,11 @@
                         <div class="point"><h3>Built for your question</h3><p>Every study starts from your goals, whether that's ranking a region, vetting one address or clearing underwriting.</p></div>
                         <div class="point"><h3>Learns from what failed</h3><p>We study locations that closed, not just the success stories, so your report flags the warning signs that sink a site.</p></div>
                         <div class="point"><h3>Ranges and a downside case</h3><p>Every forecast comes with a likely range and a bad-year scenario, so you can plan for both.</p></div>
-                        <div class="point"><h3>Built and reviewed by hand</h3><p>A PhD mathematician builds and checks every model, and can walk you or your lender through any number in the report.</p></div>
+                        <div class="point"><h3>Built and reviewed by hand</h3><p>An experienced, thorough analyst builds and checks every model, and can walk you or your lender through any number in the report.</p></div>
                     </div>
                     <div class="proof-col" id="studies">
                         <div class="cs" aria-roledescription="carousel" aria-label="Case studies">
-                            <div class="cs-track" tabindex="0">
+                            <div class="cs-viewport"><div class="cs-track">
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="car washes">
                                 <h3 class="cs-title">Car washes</h3>
                                 <div class="stat"><b>8 in 10</b><span>When one site does twice the business of another, our model picks the busier one about 8 times in 10.</span></div>
@@ -741,9 +739,9 @@
                             <div class="proof" role="group" aria-roledescription="slide" aria-label="Hamilton County market study">
                                 <h3 class="cs-title">Market study, Hamilton County, Ohio</h3>
                                 <div class="stat"><b>678</b><span>Neighborhoods ranked by traffic, customer fit, competition and projected revenue.</span></div>
-                                <div class="stat"><b>18</b><span>Recommended locations. The top site scored 82 out of 100 with a 6.0% chance of a loss.</span></div>
+                                <div class="stat"><b>24</b><span>Recommended locations. The top site scored 74.3 out of 100 with a 0.3% chance of a loss.</span></div>
                             </div>
-                            </div>
+                            </div></div>
                             <div class="cs-nav">
                                 <button type="button" class="cs-btn" data-dir="-1" aria-label="Previous case study"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                                 <div class="cs-dots"></div>
@@ -771,7 +769,7 @@
             <div class="wrap">
                 <div>
                     <h2>Have a site or market in mind?</h2>
-                    <p>Start with a free estimate, or tell us what you're deciding and we'll help you get a clearer picture.</p>
+                    <p>Start with an estimate, or tell us what you're deciding and we'll help you get a clearer picture.</p>
                 </div>
                 <div class="hero-cta" style="margin-top:0">
                     <a href="contact.html" class="btn btn-solid" data-goatcounter-click="home-cta-clearer-picture">Get a Clearer Picture</a>
@@ -823,7 +821,7 @@
             </div>
             <div class="demo-body">
                 <figure class="demo-map">
-                    <img src="demo/01-location-ranking-hamilton.jpg" alt="Map of northwest Hamilton County, OH block groups shaded by opportunity, with the top-ranked block group marked 1" loading="lazy" width="1280" height="800">
+                    <img src="demo/01-location-ranking-hamilton.jpg" alt="Map of north Hamilton County, OH block groups shaded by opportunity, with the top five sites marked" loading="lazy" width="1280" height="800">
                     <figcaption class="demo-legend">
                         <span><i style="background:#1e3a5f"></i>Recommended</span>
                         <span><i style="background:#4a7c9b"></i>3+ km from a competitor</span>
@@ -835,11 +833,11 @@
                 </figure>
                 <aside class="demo-card">
                     <p class="demo-card-kicker">Top-ranked site, Tract 205.02, BG 2</p>
-                    <div class="demo-score"><strong>82</strong><span>site score<br>out of 100</span></div>
+                    <div class="demo-score"><strong>74.3</strong><span>site score<br>out of 100</span></div>
                     <table class="demo-table">
                         <tr class="grp"><th colspan="2">Trade area</th></tr>
-                        <tr><td>Population</td><td>3,134</td></tr>
-                        <tr><td>Households</td><td>1,214</td></tr>
+                        <tr><td>Population</td><td>2,802</td></tr>
+                        <tr><td>Households</td><td>1,110</td></tr>
                         <tr><td>Median household income</td><td>$83,421</td></tr>
                         <tr><td>Vehicles per household</td><td>1.92</td></tr>
                         <tr><td>Commute by car</td><td>89.7%</td></tr>
@@ -848,28 +846,28 @@
                         <tr><td>Busiest adjacent road (AADT)</td><td>39,885</td></tr>
                         <tr><td>Trade-area traffic (AADT)</td><td>22,426</td></tr>
                         <tr><td>Nearest competitor</td><td>3.2 km</td></tr>
-                        <tr><td>Car washes within 8 km</td><td>21</td></tr>
+                        <tr><td>Car washes within 8 km</td><td>17</td></tr>
                         <tr class="grp"><th colspan="2">Financials</th></tr>
-                        <tr><td>Projected cars per day <small>(25th-75th pct)</small></td><td>526 <small>(308-861)</small></td></tr>
-                        <tr><td>Expected annual revenue</td><td>$2.07M</td></tr>
-                        <tr><td>Expected margin</td><td>63.9%</td></tr>
-                        <tr><td>Chance of a loss</td><td>6.0%</td></tr>
+                        <tr><td>Projected cars per day <small>(25th-75th pct)</small></td><td>508 <small>(404-626)</small></td></tr>
+                        <tr><td>Base-case annual revenue</td><td>$1.48M</td></tr>
+                        <tr><td>Base-case margin</td><td>54.5%</td></tr>
+                        <tr><td>Chance of a loss</td><td>0.3%</td></tr>
                     </table>
                     <p class="demo-card-kicker demo-card-sub">Top 5 of 678 block groups</p>
                     <table class="demo-rank">
                         <thead><tr><th>#</th><th>Block group</th><th>Score</th><th>Loss</th><th>Nearest</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>205.02 BG 2</td><td>82</td><td>6.0%</td><td>3.2 km</td></tr>
-                            <tr><td>2</td><td>207.01 BG 1</td><td>76</td><td>7.0%</td><td>2.0 km</td></tr>
-                            <tr><td>3</td><td>215.01 BG 2</td><td>76</td><td>6.2%</td><td>1.1 km</td></tr>
-                            <tr><td>4</td><td>205.04 BG 3</td><td>76</td><td>6.2%</td><td>1.7 km</td></tr>
-                            <tr><td>5</td><td>223.01 BG 1</td><td>76</td><td>6.8%</td><td>1.3 km</td></tr>
+                            <tr><td>1</td><td>205.02 BG 2</td><td>74.3</td><td>0.3%</td><td>3.2 km</td></tr>
+                            <tr><td>2</td><td>207.01 BG 1</td><td>68.1</td><td>0.7%</td><td>2.0 km</td></tr>
+                            <tr><td>3</td><td>205.02 BG 1</td><td>66.3</td><td>0.9%</td><td>3.8 km</td></tr>
+                            <tr><td>4</td><td>250.02 BG 2</td><td>66.2</td><td>1.7%</td><td>1.3 km</td></tr>
+                            <tr><td>5</td><td>205.04 BG 3</td><td>64.4</td><td>0.6%</td><td>1.7 km</td></tr>
                         </tbody>
                     </table>
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
-            <div class="demo-stats"><div><strong>678</strong><span>block groups ranked</span></div><div><strong>18</strong><span>recommended locations</span></div><div><strong>98.2%</strong><span>of locations above break-even</span></div><div><strong>48,125</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>82</strong><span>top site score, out of 100</span></div></div>
+            <div class="demo-stats"><div><strong>678</strong><span>block groups ranked</span></div><div><strong>24</strong><span>recommended locations</span></div><div><strong>94.8%</strong><span>of locations above break-even</span></div><div><strong>48,125</strong><span>vehicles a day on the busiest reachable road</span></div><div><strong>74.3</strong><span>top site score, out of 100</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
         <dialog class="demo-dialog demo-rich" id="demo-02" aria-labelledby="demo-02-title">
@@ -910,8 +908,8 @@
                         <tr><td>Areas with 1.8+ vehicles per household</td><td>40%</td></tr>
                         <tr><td>Block groups with 40%+ long commutes</td><td>113</td></tr>
                         <tr class="grp"><th colspan="2">Top-site trade area</th></tr>
-                        <tr><td>Population</td><td>3,134</td></tr>
-                        <tr><td>Households</td><td>1,214</td></tr>
+                        <tr><td>Population</td><td>2,802</td></tr>
+                        <tr><td>Households</td><td>1,110</td></tr>
                     </table>
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
@@ -987,24 +985,24 @@
                 </figure>
                 <aside class="demo-card">
                     <p class="demo-card-kicker">Top-ranked site, typical year</p>
-                    <div class="demo-score"><strong>$2.07M</strong><span>expected annual<br>revenue</span></div>
+                    <div class="demo-score"><strong>$1.48M</strong><span>base-case annual<br>revenue</span></div>
                     <table class="demo-table">
                         <tr class="grp"><th colspan="2">Scenarios</th></tr>
-                        <tr><td>Pessimistic</td><td>$460K</td></tr>
-                        <tr><td>Base case</td><td>$2.07M</td></tr>
-                        <tr><td>Optimistic</td><td>$5.18M</td></tr>
+                        <tr><td>Pessimistic</td><td>$329K</td></tr>
+                        <tr><td>Base case</td><td>$1.48M</td></tr>
+                        <tr><td>Optimistic</td><td>$3.70M</td></tr>
                         <tr class="grp"><th colspan="2">Unit economics</th></tr>
-                        <tr><td>Projected cars per day <small>(25th-75th pct)</small></td><td>526 <small>(308-861)</small></td></tr>
-                        <tr><td>Expected gross profit</td><td>$1.32M</td></tr>
-                        <tr><td>Expected margin</td><td>63.9%</td></tr>
-                        <tr><td>Capacity used</td><td>80.6%</td></tr>
+                        <tr><td>Projected cars per day <small>(25th-75th pct)</small></td><td>508 <small>(404-626)</small></td></tr>
+                        <tr><td>Base-case gross profit</td><td>$807K</td></tr>
+                        <tr><td>Base-case margin</td><td>54.5%</td></tr>
+                        <tr><td>Capacity used</td><td>57.6%</td></tr>
                         <tr><td>Break-even revenue</td><td>$558K</td></tr>
-                        <tr><td>Cushion above break-even</td><td>+271%</td></tr>
+                        <tr><td>Cushion above break-even</td><td>+165%</td></tr>
                     </table>
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
-            <div class="demo-stats"><div><strong>666 of 678</strong><span>block groups above break-even</span></div><div><strong>$1.32M</strong><span>median base-case revenue</span></div><div><strong>$558K</strong><span>break-even revenue a year</span></div><div><strong>623</strong><span>block groups 50%+ above break-even</span></div><div><strong>355</strong><span>average daily customers</span></div></div>
+            <div class="demo-stats"><div><strong>643 of 678</strong><span>block groups above break-even</span></div><div><strong>$1.01M</strong><span>median base-case revenue</span></div><div><strong>$558K</strong><span>break-even revenue a year</span></div><div><strong>545</strong><span>block groups 50%+ above break-even</span></div><div><strong>269</strong><span>average daily customers</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
         <dialog class="demo-dialog demo-rich" id="demo-05" aria-labelledby="demo-05-title">
@@ -1016,39 +1014,36 @@
                 <figure class="demo-map">
                     <img src="demo/05-risk-assessment-hamilton.jpg" alt="Map of north Hamilton County, OH block groups ranked by chance of a loss, with the top five sites marked" loading="lazy" width="1280" height="800">
                     <figcaption class="demo-legend">
-                        <span><i style="background:#1e3a5f"></i>Top 5% (lowest risk)</span>
-                        <span><i style="background:#4a7c9b"></i>5-10%</span>
-                        <span><i style="background:#8fb3cc"></i>10-25%</span>
-                        <span><i style="background:#c9d9e4"></i>25-50%</span>
-                        <span><i style="background:#dfe4e8"></i>Bottom 50%</span>
+                        <span><i style="background:#4a7c9b"></i>Low (under 15%)</span>
+                        <span><i style="background:#e3c48a"></i>Medium (15-25%)</span>
+                        <span><i style="background:#d28b73"></i>High (over 25%)</span>
+                        <span><i class="ring"></i>Top 20 by score</span>
                         <span><i class="pin"></i>Top-ranked sites 1-5</span>
                     </figcaption>
                 </figure>
                 <aside class="demo-card">
                     <p class="demo-card-kicker">Top-ranked site, good years and bad</p>
-                    <div class="demo-score"><strong>6.0%</strong><span>chance of<br>a loss</span></div>
+                    <div class="demo-score"><strong>0.3%</strong><span>chance of<br>a loss</span></div>
                     <table class="demo-table">
                         <tr class="grp"><th colspan="2">Revenue across likely years</th></tr>
-                        <tr><td>Median</td><td>$1.94M</td></tr>
-                        <tr><td>Average</td><td>$2.53M</td></tr>
-                        <tr><td>Bad year (1 in 20)</td><td>$520K</td></tr>
-                        <tr><td>Average of the worst 5%</td><td>$378K</td></tr>
+                        <tr><td>Median</td><td>$1.87M</td></tr>
+                        <tr><td>Average</td><td>$1.94M</td></tr>
+                        <tr><td>Bad year (1 in 20)</td><td>$965K</td></tr>
+                        <tr><td>Average of the worst 5%</td><td>$798K</td></tr>
                     </table>
                     <p class="demo-card-kicker demo-card-sub">Block groups by chance of a loss</p>
                     <table class="demo-rank">
                         <thead><tr><th>Band</th><th>Block groups</th><th>Chance of a loss</th></tr></thead>
                         <tbody>
-                            <tr><td>Top 5%</td><td>34</td><td>5.6-9.6%</td></tr>
-                            <tr><td>5-10%</td><td>34</td><td>9.7-11.8%</td></tr>
-                            <tr><td>10-25%</td><td>102</td><td>11.9-15.1%</td></tr>
-                            <tr><td>25-50%</td><td>169</td><td>15.2-20.4%</td></tr>
-                            <tr><td>Bottom 50%</td><td>339</td><td>20.4-90.4%</td></tr>
+                            <tr><td>Low</td><td>540</td><td>Under 15%</td></tr>
+                            <tr><td>Medium</td><td>78</td><td>15-25%</td></tr>
+                            <tr><td>High</td><td>60</td><td>Over 25%</td></tr>
                         </tbody>
                     </table>
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
-            <div class="demo-stats"><div><strong>339</strong><span>block groups above a 20% chance of a loss</span></div><div><strong>5.6%</strong><span>lowest chance of a loss</span></div><div><strong>20.4%</strong><span>median chance of a loss</span></div><div><strong>68</strong><span>block groups in the top 10%, under 11.8%</span></div><div><strong>$535K</strong><span>best bad-year revenue (1 in 20)</span></div></div>
+            <div class="demo-stats"><div><strong>540</strong><span>low-risk block groups, under 15%</span></div><div><strong>0.3%</strong><span>lowest chance of a loss</span></div><div><strong>8.5%</strong><span>median chance of a loss</span></div><div><strong>60</strong><span>high-risk block groups, over 25%</span></div><div><strong>$965K</strong><span>best bad-year revenue (1 in 20)</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
         <dialog class="demo-dialog demo-rich" id="demo-06" aria-labelledby="demo-06-title">
@@ -1064,6 +1059,7 @@
                         <span><i style="background:#1e3a5f"></i>Tier 1 area</span>
                         <span><i style="background:#4a7c9b"></i>Tier 2</span>
                         <span><i style="background:#8fb3cc"></i>Tier 3</span>
+                        <span><i style="background:#c9d9e4"></i>Tier 4</span>
                         <span><i class="line" style="background:#142a47"></i>High-traffic road</span>
                         <span><i class="pin"></i>Top-ranked sites 1-5</span>
                     </figcaption>
@@ -1073,10 +1069,11 @@
                     <div class="demo-score"><strong>3.2 km</strong><span>to the nearest<br>car wash</span></div>
                     <table class="demo-table">
                         <tr class="grp"><th colspan="2">Near the top site</th></tr>
-                        <tr><td>Car washes within 8 km</td><td>21</td></tr>
+                        <tr><td>Car washes within 8 km</td><td>17</td></tr>
                         <tr class="grp"><th colspan="2">County market</th></tr>
-                        <tr><td>Car washes</td><td>137</td></tr>
-                        <tr><td>Per 10,000 residents</td><td>0.58</td></tr>
+                        <tr><td>Car washes mapped</td><td>101</td></tr>
+                        <tr><td>Registered car wash businesses, 2023</td><td>48</td></tr>
+                        <tr><td>Registered per 10,000 residents</td><td>0.58</td></tr>
                         <tr><td>Ohio county median</td><td>0.46</td></tr>
                         <tr><td>Density rank, 88 Ohio counties</td><td>60th pct</td></tr>
                         <tr><td>Establishments, 2012-2023</td><td>+26.3%</td></tr>
@@ -1086,17 +1083,17 @@
                     <table class="demo-rank">
                         <thead><tr><th>#</th><th>Block group</th><th>Nearest</th><th>Within 8 km</th></tr></thead>
                         <tbody>
-                            <tr><td>1</td><td>205.02 BG 2</td><td>3.2 km</td><td>21</td></tr>
-                            <tr><td>2</td><td>207.01 BG 1</td><td>2.0 km</td><td>24</td></tr>
-                            <tr><td>3</td><td>215.01 BG 2</td><td>1.1 km</td><td>20</td></tr>
-                            <tr><td>4</td><td>205.04 BG 3</td><td>1.7 km</td><td>18</td></tr>
-                            <tr><td>5</td><td>223.01 BG 1</td><td>1.3 km</td><td>21</td></tr>
+                            <tr><td>1</td><td>205.02 BG 2</td><td>3.2 km</td><td>17</td></tr>
+                            <tr><td>2</td><td>207.01 BG 1</td><td>2.0 km</td><td>19</td></tr>
+                            <tr><td>3</td><td>205.02 BG 1</td><td>3.8 km</td><td>9</td></tr>
+                            <tr><td>4</td><td>250.02 BG 2</td><td>1.3 km</td><td>13</td></tr>
+                            <tr><td>5</td><td>205.04 BG 3</td><td>1.7 km</td><td>15</td></tr>
                         </tbody>
                     </table>
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
-            <div class="demo-stats"><div><strong>137</strong><span>car washes in the county</span></div><div><strong>1.2 km</strong><span>median distance to the nearest</span></div><div><strong>29</strong><span>block groups 3+ km from a competitor</span></div><div><strong>0.58</strong><span>washes per 10,000 residents</span></div><div><strong>+26.3%</strong><span>more establishments since 2012</span></div></div>
+            <div class="demo-stats"><div><strong>101</strong><span>car washes in the county</span></div><div><strong>1.3 km</strong><span>median distance to the nearest</span></div><div><strong>41</strong><span>block groups 3+ km from a competitor</span></div><div><strong>0.58</strong><span>washes per 10,000 residents</span></div><div><strong>+26.3%</strong><span>more establishments since 2012</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
         <dialog class="demo-dialog demo-rich" id="demo-07" aria-labelledby="demo-07-title">
@@ -1111,7 +1108,7 @@
                         <span><i style="background:#1e3a5f"></i>High opportunity</span>
                         <span><i style="background:#4a7c9b"></i>Moderate</span>
                         <span><i style="background:#8fb3cc"></i>Low</span>
-                        <span><i style="background:#b9cddb"></i>Minimal</span>
+                        <span><i style="background:#c9d9e4"></i>Minimal</span>
                         <span><i class="pin"></i>Top-ranked sites 1-5</span>
                     </figcaption>
                 </figure>
@@ -1132,16 +1129,16 @@
                     <table class="demo-rank">
                         <thead><tr><th>Opportunity</th><th>Score</th><th>Block groups</th></tr></thead>
                         <tbody>
-                            <tr><td>High</td><td>75-100</td><td>11</td></tr>
-                            <tr><td>Moderate</td><td>50-75</td><td>78</td></tr>
-                            <tr><td>Low</td><td>25-50</td><td>302</td></tr>
-                            <tr><td>Minimal</td><td>Under 25</td><td>287</td></tr>
+                            <tr><td>High</td><td>75-100</td><td>9</td></tr>
+                            <tr><td>Moderate</td><td>50-75</td><td>75</td></tr>
+                            <tr><td>Low</td><td>25-50</td><td>280</td></tr>
+                            <tr><td>Minimal</td><td>Under 25</td><td>314</td></tr>
                         </tbody>
                     </table>
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
-            <div class="demo-stats"><div><strong>$37.1M</strong><span>market revenue today</span></div><div><strong>+1.4%</strong><span>market growth from one site</span></div><div><strong>+$533K</strong><span>new market revenue per added wash</span></div><div><strong>95%</strong><span>likely range reported</span></div><div><strong>11</strong><span>block groups with high opportunity</span></div></div>
+            <div class="demo-stats"><div><strong>$37.1M</strong><span>market revenue today</span></div><div><strong>+1.4%</strong><span>market growth from one site</span></div><div><strong>+$533K</strong><span>new market revenue per added wash</span></div><div><strong>95%</strong><span>likely range reported</span></div><div><strong>9</strong><span>block groups with high opportunity</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
         <dialog class="demo-dialog demo-rich" id="demo-08" aria-labelledby="demo-08-title">
@@ -1162,31 +1159,31 @@
                     </figcaption>
                 </figure>
                 <aside class="demo-card">
-                    <p class="demo-card-kicker">Screening of 85 candidate sites</p>
-                    <div class="demo-score"><strong>22</strong><span>sites with no<br>red flags</span></div>
+                    <p class="demo-card-kicker">Screening of 83 candidate sites</p>
+                    <div class="demo-score"><strong>21</strong><span>sites with no<br>red flags</span></div>
                     <p class="demo-card-kicker demo-card-sub">Results by check</p>
                     <table class="demo-rank">
                         <thead><tr><th>Check</th><th>Pass</th><th>Flag</th><th>No data</th></tr></thead>
                         <tbody>
-                            <tr><td>Main-road access</td><td>35</td><td>50</td><td>0</td></tr>
-                            <tr><td>Slope</td><td>66</td><td>19</td><td>0</td></tr>
-                            <tr><td>Fuel tanks</td><td>72</td><td>13</td><td>0</td></tr>
-                            <tr><td>Flood zone</td><td>80</td><td>5</td><td>0</td></tr>
-                            <tr><td>Wetlands</td><td>84</td><td>1</td><td>0</td></tr>
-                            <tr><td>Zoning</td><td>3</td><td>1</td><td>81</td></tr>
+                            <tr><td>Main-road access</td><td>34</td><td>49</td><td>0</td></tr>
+                            <tr><td>Slope</td><td>65</td><td>18</td><td>0</td></tr>
+                            <tr><td>Fuel tanks</td><td>71</td><td>12</td><td>0</td></tr>
+                            <tr><td>Flood zone</td><td>78</td><td>5</td><td>0</td></tr>
+                            <tr><td>Wetlands</td><td>82</td><td>1</td><td>0</td></tr>
+                            <tr><td>Zoning</td><td>3</td><td>1</td><td>79</td></tr>
                         </tbody>
                     </table>
                     <table class="demo-table">
                         <tr class="grp"><th colspan="2">Sites by red flags</th></tr>
-                        <tr><td>No red flags</td><td>22</td></tr>
-                        <tr><td>1 red flag</td><td>42</td></tr>
-                        <tr><td>2 or more</td><td>21</td></tr>
+                        <tr><td>No red flags</td><td>21</td></tr>
+                        <tr><td>1 red flag</td><td>43</td></tr>
+                        <tr><td>2 or more</td><td>19</td></tr>
                         <tr><td>Passed every check, no gaps</td><td>1</td></tr>
                     </table>
                     <p class="demo-more" aria-hidden="true">Scroll for more &darr;</p>
                 </aside>
             </div>
-            <div class="demo-stats"><div><strong>85</strong><span>candidate sites screened</span></div><div><strong>22</strong><span>with no red flags</span></div><div><strong>50</strong><span>weak main-road access</span></div><div><strong>19</strong><span>steep land</span></div><div><strong>5</strong><span>in a flood zone</span></div></div>
+            <div class="demo-stats"><div><strong>83</strong><span>candidate sites screened</span></div><div><strong>21</strong><span>with no red flags</span></div><div><strong>49</strong><span>weak main-road access</span></div><div><strong>18</strong><span>steep land</span></div><div><strong>5</strong><span>in a flood zone</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
 
@@ -1290,23 +1287,42 @@
     (function() {
         var cs = document.querySelector('.cs'); if (!cs) return;
         var track = cs.querySelector('.cs-track'), cards = track.children, dotsBox = cs.querySelector('.cs-dots');
-        var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches, timer = null;
-        var dots = Array.prototype.map.call(cards, function(c, i) {
+        var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var i = 0, timer = null, stopped = false;
+        var dots = Array.prototype.map.call(cards, function(c, j) {
             var d = document.createElement('button'); d.type = 'button';
             d.setAttribute('aria-label', 'Show ' + c.getAttribute('aria-label'));
-            d.addEventListener('click', function() { stop(); go(i); });
+            d.addEventListener('click', function() { stop(); go(j); });
             dotsBox.appendChild(d); return d;
         });
-        function index() { return track.clientWidth ? Math.round(track.scrollLeft / (cards[0].offsetWidth + 16)) : 0; }
-        function go(i) { i = (i + cards.length) % cards.length; track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft }); }
-        function sync() { var i = index(); dots.forEach(function(d, j) { d.setAttribute('aria-current', i === j ? 'true' : 'false'); }); }
-        function stop() { clearInterval(timer); timer = null; }
-        cs.querySelectorAll('.cs-btn').forEach(function(b) { b.addEventListener('click', function() { stop(); go(index() + Number(b.dataset.dir)); }); });
-        track.addEventListener('scroll', function() { requestAnimationFrame(sync); });
-        ['pointerdown', 'wheel', 'touchstart', 'focusin'].forEach(function(ev) { cs.addEventListener(ev, stop, { passive: true }); });
+        function go(n) {
+            i = (n + cards.length) % cards.length;
+            track.style.transform = 'translateX(' + (-100 * i) + '%)';
+            dots.forEach(function(d, j) { d.setAttribute('aria-current', i === j ? 'true' : 'false'); });
+        }
+        function play() { if (!still && !stopped && !timer) timer = setInterval(function() { go(i + 1); }, 6000); }
+        function pause() { clearInterval(timer); timer = null; }
+        function stop() { stopped = true; pause(); }
+        cs.querySelectorAll('.cs-btn').forEach(function(b) { b.addEventListener('click', function() { stop(); go(i + Number(b.dataset.dir)); }); });
+        cs.addEventListener('mouseenter', pause); cs.addEventListener('mouseleave', play);
+        cs.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') { stop(); go(i - 1); } if (e.key === 'ArrowRight') { stop(); go(i + 1); }
+        });
+        // Swipe: the card follows the finger, then settles on the nearest slide
+        var x0 = null, dx = 0;
+        track.addEventListener('pointerdown', function(e) { x0 = e.clientX; dx = 0; track.classList.add('dragging'); });
+        window.addEventListener('pointermove', function(e) {
+            if (x0 === null) return;
+            dx = e.clientX - x0;
+            track.style.transform = 'translateX(calc(' + (-100 * i) + '% + ' + dx + 'px))';
+        });
+        window.addEventListener('pointerup', function() {
+            if (x0 === null) return;
+            track.classList.remove('dragging'); x0 = null;
+            if (Math.abs(dx) > 50) { stop(); go(i + (dx < 0 ? 1 : -1)); } else go(i);
+        });
         if (cards.length < 2) { cs.querySelector('.cs-nav').hidden = true; return; }
-        if (!still) timer = setInterval(function() { go(index() + 1); }, 6000);
-        sync();
+        go(0); play();
     })();
     (function() {
         document.querySelectorAll('#services .product').forEach(function(row) {
