@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request a Quote | AniPoint Site Research</title>
-    <meta name="description" content="Request a quote for a County Dashboard, Site Screen or Feasibility Study. Fixed fee, agreed before work starts. You'll hear back within one business day.">
+    <meta name="description" content="Request a quote for a Market Study, Site Evaluation or Feasibility Study. Fixed fee, agreed before work starts. You'll hear back within one business day.">
     <link rel="canonical" href="https://anipointresearch.com/contact.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://anipointresearch.com/contact.html">
     <meta property="og:title" content="Request a Quote | AniPoint Site Research">
-    <meta property="og:description" content="Request a quote for a County Dashboard, Site Screen or Feasibility Study. You'll hear back within one business day.">
+    <meta property="og:description" content="Request a quote for a Market Study, Site Evaluation or Feasibility Study. You'll hear back within one business day.">
     <meta property="og:image" content="https://anipointresearch.com/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="20" fill="%231e3a5f"/><text x="128" y="186" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="170" letter-spacing="-4" text-anchor="middle" fill="%23ffffff">A</text></svg>'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* Tokens, header, buttons and footer match homepage.html */
         :root {
@@ -193,6 +193,24 @@
             form { grid-template-columns: 1fr; }
             .form-actions .btn { width: 100%; text-align: center; }
         }
+    
+        /* Match the homepage (Nov 2026 redesign) */
+        :root { --head: 'Inter', Helvetica, Arial, sans-serif; --bg-band: #e8f1f8; }
+        h1, h2, h3 { font-family: var(--head); font-weight: 800; letter-spacing: -0.02em; }
+        .brand { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; text-transform: none; color: #0f1a2b; }
+        .brand .divider { display: none; }
+        .brand .brand-sub { font-weight: 500; letter-spacing: 0; opacity: 1; color: #64748b; margin-left: 6px; }
+        .site-header nav a { text-transform: none; letter-spacing: 0; font-weight: 500; font-size: 0.95rem; color: #475569; }
+        .site-header nav a:hover { color: #0f1a2b; opacity: 1; }
+        .site-header .nav-cta { color: #fff !important; padding: 8px 16px; border-radius: 6px; font-weight: 600; }
+        .btn { text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 0.97rem; border-radius: 6px; padding: 12px 22px; border-width: 1px; }
+        .eyebrow { display: none; }
+        footer { background: #fff !important; color: #64748b !important; border-top: 1px solid #e2e8f0; }
+        footer a { color: #475569 !important; }
+        footer a:hover { color: #0f1a2b !important; }
+        footer .brand { color: #0f1a2b !important; font-size: 1.15rem; }
+        footer p { color: #64748b !important; }
+        .footer-meta { color: #64748b !important; border-top-color: #e2e8f0 !important; }
     </style>
 </head>
 <body>
@@ -202,8 +220,8 @@
             <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
             <nav id="primaryNav">
                 <ul>
-                    <li><a href="./#reports">Reports</a></li>
                     <li><a href="./#services">Services</a></li>
+                    <li><a href="./#analytics">Analytics</a></li>
                     <li><a href="./#about">About</a></li>
                     <li><a href="https://calendly.com/rbeauvile-anipointresearch" target="_blank" rel="noopener" data-goatcounter-click="contact-page-book-call-nav">Book a Call</a></li>
                 </ul>
@@ -269,9 +287,10 @@
                         <select id="need" name="need" required>
                             <option value="">Select one</option>
                             <option value="projection">Complimentary demand projection</option>
-                            <option value="County Dashboard">County Dashboard</option>
-                            <option value="Site Screen">Site Screen</option>
+                            <option value="Market Study">Market Study</option>
+                            <option value="Site Evaluation">Site Evaluation</option>
                             <option value="Feasibility Study">Feasibility Study</option>
+                            <option value="Advisory &amp; Analytics">Advisory &amp; Analytics</option>
                             <option value="Not sure yet">Not sure yet</option>
                         </select>
                     </div>
@@ -299,12 +318,12 @@
             <div class="footer-row">
                 <div class="footer-brand">
                     <a href="./" class="brand">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
-                    <p>Find the demand. Find the opportunity.</p>
+                    <p>Know where to grow.</p>
                 </div>
                 <div class="footer-links">
                     <div>
                         <a href="./#about">About</a>
-                        <a href="./#reports">Reports</a>
+                        <a href="./#services">Services</a>
                         <a href="calculator.html">Car Count Calculator</a>
                         <a href="privacy.html">Privacy</a>
                         <a href="terms.html">Terms</a>
