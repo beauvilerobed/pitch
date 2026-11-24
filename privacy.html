@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | AniPoint Site Research</title>
+    <meta name="description" content="What AniPoint Site Research collects, why, and the services that help us run the website and Car Count Calculator.">
+    <link rel="canonical" href="https://anipointresearch.com/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://anipointresearch.com/privacy.html">
+    <meta property="og:title" content="Privacy Policy | AniPoint Site Research">
+    <meta property="og:description" content="What we collect, why, and who helps us run the site.">
+    <meta property="og:image" content="https://anipointresearch.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="20" fill="%231e3a5f"/><text x="128" y="186" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="170" letter-spacing="-4" text-anchor="middle" fill="%23ffffff">A</text></svg>'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Tokens, header, buttons and footer match homepage.html */
+        :root {
+            --primary: #0f1a2b;
+            --primary-deep: #0a121f;
+            --secondary: #23324a;
+            --accent: #0388c5;
+            --text-dark: #0f1a2b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --bg-band: #eff3f7;
+            --white: #ffffff;
+            --border: #ccd5df;
+            --error: #b42318;
+            --radius: 8px;
+            --head: 'Lora', Georgia, serif;
+            --body: 'Inter', Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-band);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 { font-family: var(--head); color: var(--text-dark); line-height: 1.2; }
+
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--primary); text-decoration: underline; }
+
+        /* Header */
+        .site-header { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; padding-bottom: 14px; }
+        .brand {
+            font-family: var(--body);
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        .brand .divider { font-weight: 400; letter-spacing: 0; margin: 0 12px; opacity: 0.45; }
+        .brand .brand-sub { font-weight: 500; letter-spacing: 2.5px; opacity: 0.8; }
+        .brand:hover { text-decoration: none; color: var(--primary); }
+        .site-header nav ul { list-style: none; display: flex; gap: 30px; align-items: center; }
+        .site-header nav a {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-dark);
+        }
+        .site-header nav a:hover { text-decoration: none; opacity: 0.8; }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--primary);
+            font: 700 0.75rem var(--body);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font: 700 0.85rem var(--body);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            padding: 15px 26px;
+            border: 2px solid transparent;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .btn:hover { text-decoration: none; }
+        .btn-solid { background: var(--accent); color: var(--white); border-color: var(--accent); }
+        .btn-solid:hover { background: var(--secondary); border-color: var(--secondary); color: var(--white); }
+        .btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+        .btn[disabled] { opacity: 0.6; cursor: wait; }
+
+        /* Page head */
+        .page-head { background: var(--primary); color: var(--white); padding: 72px 0 64px; }
+        .eyebrow { font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #7cc6ea; }
+        .page-head h1 { color: var(--white); font-size: 3rem; margin: 10px 0 14px; }
+        .page-head p { max-width: 640px; font-size: 1.08rem; color: rgba(255,255,255,0.88); }
+
+        /* Policy text */
+        .policy { max-width: 860px; margin: 56px auto 96px; }
+        .policy .panel { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px 44px; }
+        .policy h2 { font-size: 1.45rem; margin: 34px 0 12px; }
+        .policy h2:first-child { margin-top: 0; }
+        .policy p { color: var(--text-medium); margin-bottom: 12px; }
+        .policy ul { margin: 0 0 14px 22px; color: var(--text-medium); }
+        .policy li { margin-bottom: 8px; }
+        .policy strong { color: var(--text-dark); font-weight: 600; }
+
+        /* Footer */
+        footer { background: var(--primary-deep); color: rgba(255,255,255,0.85); padding: 48px 0 30px; }
+        .footer-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+        footer .brand { font-size: 1.4rem; color: var(--white); }
+        footer .brand:hover { color: var(--white); }
+        .footer-brand p { margin-top: 6px; font-size: 0.95rem; color: rgba(255,255,255,0.7); }
+        .footer-links { text-align: right; }
+        .footer-links div { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px 28px; margin-bottom: 10px; }
+        footer a { color: rgba(255,255,255,0.85); font-size: 0.95rem; }
+        footer a:hover { color: var(--white); }
+        .footer-meta { margin-top: 32px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.18); font-size: 0.84rem; color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 900px) {
+            .nav-toggle { display: block; }
+            .site-header nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--border); }
+            .site-header nav.open { display: block; }
+            .site-header nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 10px 20px 20px; }
+            .site-header nav a { display: block; padding: 12px 0; }
+            .footer-links, .footer-links div { text-align: left; justify-content: flex-start; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 0 16px; }
+            .brand { font-size: 0.95rem; letter-spacing: 1.5px; }
+            .brand .divider, .brand .brand-sub { display: none; }
+            .page-head { padding: 48px 0 40px; }
+            .page-head h1 { font-size: 2.1rem; }
+            .policy { margin: 32px auto 64px; }
+            .policy .panel { padding: 26px 20px; }
+        }
+</style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="./" class="brand" aria-label="AniPoint Site Research home">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+            <nav id="primaryNav">
+                <ul>
+                    <li><a href="./#reports">Reports</a></li>
+                    <li><a href="./#services">Services</a></li>
+                    <li><a href="./#about">About</a></li>
+                    <li><a href="https://calendly.com/rbeauvile-anipointresearch" target="_blank" rel="noopener" data-goatcounter-click="privacy-book-call-nav">Book a Call</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-head">
+        <div class="container">
+            <div class="eyebrow">Legal</div>
+            <h1>Privacy Policy</h1>
+            <p>How we collect, use and share information. Effective November 23, 2026.</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="policy">
+            <div class="panel">
+                <h2>Who we are</h2>
+                <p>This Privacy Policy describes how AniPoint Site Research ("AniPoint," "we," "us" or "our") collects, uses and shares information through this website and its Car Count Calculator (together, the "Services"). By using the Services, you agree to this Policy and to our <a href="terms.html">Terms of Use</a>. Questions go to <a href="mailto:rbeauvile@anipointresearch.com">rbeauvile@anipointresearch.com</a>.</p>
+
+                <h2>Information we collect</h2>
+                <p><strong>Information you provide.</strong> When you use the Car Count Calculator, we collect the address or map location you enter, the type of business and any optional details you add, and the estimate produced. When you use our contact form, email us or book a call, we collect the information you provide, such as your name, email address, company, phone number, site and message.</p>
+                <p><strong>Information collected automatically.</strong> When you use the Services, we and our service providers may collect technical information such as an identifier stored in your browser, a coded form of your IP address, your device type, the referring page, and the pages you visit and buttons you click. We use this information to operate and secure the Services, prevent misuse and understand how the Services are used.</p>
+                <p>Please do not submit sensitive personal information (such as financial account or government ID numbers) through the Services.</p>
+
+                <h2>How we use information</h2>
+                <ul>
+                    <li>to provide, operate and improve the Services, including our estimates</li>
+                    <li>to respond to your requests and communicate with you</li>
+                    <li>to protect the Services, enforce our Terms of Use, and detect and prevent fraud, abuse and automated access</li>
+                    <li>to comply with law and protect our rights</li>
+                </ul>
+                <p>We do not sell or rent your personal information, and we do not use it for third-party advertising.</p>
+
+                <h2>How we share information</h2>
+                <p>We share information only as described here: with service providers that help us run the Services, when required by law or legal process, to protect the rights, property or safety of AniPoint or others, or in connection with a merger, sale or transfer of our business. Our service providers include:</p>
+                <ul>
+                    <li><strong>Cloudflare Turnstile</strong>, which helps confirm that calculator visitors are people and not automated programs, and collects information about your browser and device to do so. Turnstile is subject to the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a> and the <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener">Cloudflare Turnstile Privacy Addendum</a>.</li>
+                    <li><strong>U.S. Census Bureau</strong>, whose public address lookup receives the address you enter in the calculator.</li>
+                    <li><strong>U.S. Geological Survey</strong>, which supplies the calculator's map images.</li>
+                    <li><strong>Formspree</strong> (contact form), <strong>Calendly</strong> (call booking) and <strong>GoatCounter</strong> (visit counts, without cookies).</li>
+                    <li><strong>GitHub Pages</strong> (website hosting), <strong>Google Fonts</strong> and <strong>cdnjs</strong> (fonts and map code), which receive your IP address when your browser loads files from them.</li>
+                </ul>
+                <p>These providers handle information under their own privacy policies. We are not responsible for their practices.</p>
+
+                <h2>Cookies and similar technologies</h2>
+                <p>We do not use advertising or cross-site tracking cookies. The Services use your browser's storage and similar technologies to operate the calculator and prevent misuse. Our service providers, including Cloudflare, may use similar technologies as described in their policies.</p>
+
+                <h2>Retention</h2>
+                <p>We keep information for as long as reasonably necessary for the purposes described in this Policy, or as required or permitted by law, and then delete or de-identify it.</p>
+
+                <h2>Security</h2>
+                <p>We use reasonable measures to protect information. No method of transmission or storage is completely secure, and we cannot guarantee the security of any information.</p>
+
+                <h2>Your choices</h2>
+                <p>You may ask to access or delete the personal information we hold about you by emailing <a href="mailto:rbeauvile@anipointresearch.com">rbeauvile@anipointresearch.com</a>. We will respond within 30 days, subject to any information we must keep by law or for legitimate business purposes, such as preventing misuse.</p>
+
+                <h2>Where information is processed</h2>
+                <p>The Services are intended for users in the United States. Information is stored and processed in the United States.</p>
+
+                <h2>Children</h2>
+                <p>The Services are intended for businesses and are not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
+
+                <h2>Changes to this Policy</h2>
+                <p>We may update this Policy from time to time. We will post the updated Policy here with a new effective date. Your continued use of the Services after an update means you accept it.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-row">
+                <div class="footer-brand">
+                    <a href="./" class="brand">AniPoint<span class="divider">/</span><span class="brand-sub">Site Research</span></a>
+                    <p>Find the demand. Find the opportunity.</p>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <a href="./#about">About</a>
+                        <a href="./#reports">Reports</a>
+                        <a href="calculator.html">Car Count Calculator</a>
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                        <a href="https://www.linkedin.com/company/anipoint-site-research/" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                    <a href="mailto:rbeauvile@anipointresearch.com">rbeauvile@anipointresearch.com</a>
+                </div>
+            </div>
+            <div class="footer-meta">&copy; 2026 AniPoint Site Research. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        // Live, the homepage is index.html at "./"; opened from disk it is homepage.html.
+        if (location.protocol === 'file:') {
+            document.querySelectorAll('a[href^="./"]').forEach(function (a) {
+                a.setAttribute('href', a.getAttribute('href').replace('./', 'homepage.html'));
+            });
+        }
+
+        var navToggle = document.getElementById('navToggle');
+        var primaryNav = document.getElementById('primaryNav');
+        navToggle.addEventListener('click', function () {
+            var open = primaryNav.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    })();
+
+    </script>
+    <script data-goatcounter="https://robedbeauvileowen.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
