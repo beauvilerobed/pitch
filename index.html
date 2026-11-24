@@ -156,7 +156,8 @@
         .stat span { color: var(--muted); font-size: 0.95rem; }
 
         /* Approach */
-        .split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 40px; align-items: center; }
+        .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; margin-top: 40px; align-items: center; }
+        .split > * { min-width: 0; }
         .points { border-top: 1px solid var(--line); }
         .point { padding: 22px 0; border-bottom: 1px solid var(--line); }
         .point h3 { font-size: 1.05rem; margin-bottom: 4px; }
@@ -529,7 +530,7 @@
             .hero > .wrap, .gallery { grid-template-columns: 1fr; gap: 40px; }
             .hero-visual { margin: 32px 24px 48px; }
             .grid4, .steps { grid-template-columns: 1fr 1fr; }
-            .split { grid-template-columns: 1fr; gap: 40px; }
+            .split { grid-template-columns: minmax(0, 1fr); gap: 40px; }
             .cell:nth-child(3) { border-left: 0; }
             .cell:nth-child(n+3) { border-top: 1px solid var(--line); }
             .product { grid-template-columns: 1fr; gap: 18px; }
