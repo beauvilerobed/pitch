@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AniPoint Site Research | Find the Demand. Find the Opportunity.</title>
-    <meta name="description" content="Location analysis, market studies and feasibility studies that model demand, financial returns and risk, built around your goals.">
+    <meta name="description" content="Predictive location analysis and feasibility studies that model market demand, financial returns and risk, built around your goals.">
     <link rel="canonical" href="https://anipointresearch.com/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://anipointresearch.com/">
     <meta property="og:title" content="AniPoint Site Research">
-    <meta property="og:description" content="Location analysis, market studies and feasibility studies that model demand, financial returns and risk, built around your goals.">
+    <meta property="og:description" content="Predictive location analysis and feasibility studies that model market demand, financial returns and risk, built around your goals.">
     <meta property="og:image" content="https://anipointresearch.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="AniPoint Site Research - strategic site selection &amp; market intelligence for operators">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AniPoint Site Research">
-    <meta name="twitter:description" content="Location analysis, market studies and feasibility studies that model demand, financial returns and risk, built around your goals.">
+    <meta name="twitter:description" content="Predictive location analysis and feasibility studies that model market demand, financial returns and risk, built around your goals.">
     <meta name="twitter:image" content="https://anipointresearch.com/og-image.png">
     <link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" rx="20" fill="%231e3a5f"/><text x="128" y="186" font-family="Helvetica,Arial,sans-serif" font-weight="700" font-size="170" letter-spacing="-4" text-anchor="middle" fill="%23ffffff">A</text></svg>'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,11 +64,11 @@
         section.dark .view { border-color: rgba(255,255,255,0.15); }
         .head-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
 
-        .btn { display: inline-block; font: inherit; font-weight: 600; font-size: 0.97rem; padding: 12px 22px; border-radius: 6px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background 0.15s, border-color 0.15s; }
+        .btn { display: inline-block; font: inherit; font-weight: 600; font-size: 0.97rem; padding: 12px 22px; border-radius: 6px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
         .btn-solid { background: var(--accent); color: var(--white); }
         .btn-solid:hover { background: var(--accent-deep); }
         .btn-line { border-color: var(--line-strong); color: var(--text); background: var(--white); }
-        .btn-line:hover { border-color: var(--navy); }
+        .btn-line:hover { border-color: var(--navy); background: #f5f8fb; }
         .arrow { font-weight: 600; text-decoration: none; background: none; border: 0; font: inherit; font-weight: 600; color: var(--accent); cursor: pointer; padding: 0; }
         .arrow::after { content: none; }
 
@@ -146,6 +146,44 @@
         .product.free .tag { color: var(--accent-deep); }
         .fine { margin-top: 18px; font-size: 0.85rem; color: var(--faint); max-width: 860px; }
 
+        /* Why section */
+        .why-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 64px; align-items: center; }
+        .why-map { width: 340px; height: 340px; border: 2px solid var(--navy); }
+        @media (max-width: 1000px) {
+            .why-grid { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+            .why-map { width: 260px; height: 260px; justify-self: center; }
+        }
+        .why-body { max-width: 700px; margin-top: 24px; }
+        .why-body p { color: var(--muted); margin-top: 14px; }
+        .why-body p:first-child { margin-top: 0; }
+        .why-body strong { color: var(--text); }
+
+        /* How we help cards */
+        .help { position: relative; margin-top: 28px; }
+        .help-grid, .help-overlay { display: grid; border: 1px solid var(--line-strong); background: var(--white); }
+        .help-grid { grid-template-columns: repeat(3, 1fr); }
+        .help-overlay { position: absolute; inset: 0; grid-template-columns: 1fr 1fr; border-color: var(--navy); z-index: 2;
+            opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s; }
+        .help.is-open .help-overlay { opacity: 1; visibility: visible; transform: none; transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s; }
+        .help-card { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 32px 28px; }
+        .help-card + .help-card { border-left: 1px solid var(--line); }
+        .help-card h3 { font-size: 1.15rem; }
+        .help-card img { width: 120px; height: 120px; margin: 20px 0 16px; border: 2px solid var(--navy); }
+        .help-card p { color: var(--muted); font-size: 0.96rem; margin-bottom: 22px; }
+        .help-card .btn { margin-top: auto; min-width: 132px; }
+        .help-close { position: absolute; top: 8px; right: 12px; background: none; border: 0; font-size: 1.6rem; line-height: 1; color: var(--faint); cursor: pointer; }
+        .help-close { transition: color 0.2s ease; }
+        .help-close:hover { color: var(--navy); }
+        @media (max-width: 760px) {
+            .help-grid, .help-overlay { grid-template-columns: 1fr; }
+            .help-card + .help-card { border-left: 0; border-top: 1px solid var(--line); }
+            .help-overlay { position: relative; inset: auto; display: none; }
+            .help.is-open .help-overlay { display: grid; animation: help-in 0.28s ease; }
+            .help.is-open .help-grid { display: none; }
+        }
+        @keyframes help-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+        @media (prefers-reduced-motion: reduce) { .btn, .help-overlay, .help.is-open .help-overlay { transition: none; animation: none; } }
+
         /* Analytics gallery */
         .gallery { display: grid; grid-template-columns: 300px 1fr; gap: 32px; margin-top: 28px; align-items: start; }
         .tabs { display: flex; flex-direction: column; gap: 2px; }
@@ -160,12 +198,12 @@
 
         /* Case studies */
         .proofs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 28px; }
-        .proof { border: 1px solid var(--line); border-radius: 8px; padding: 26px 28px; background: var(--white); }
-        .proof .cs-title { font-size: 1.1rem; margin-bottom: 18px; }
-        .stat { padding: 14px 0; border-top: 1px solid var(--line); }
+        .proof { border: 1px solid var(--line-strong); padding: 32px 28px; background: var(--white); text-align: center; }
+        .proof .cs-title { font-size: 1.15rem; margin-bottom: 20px; }
+        .stat { padding: 16px 0; border-top: 1px solid var(--line); }
         .stat:first-of-type { border-top: 0; padding-top: 0; }
-        .stat b { display: block; font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; color: var(--navy); line-height: 1.1; }
-        .stat span { color: var(--muted); font-size: 0.95rem; }
+        .stat b { display: block; font-size: 2rem; font-weight: 800; letter-spacing: -0.03em; color: var(--navy); line-height: 1.1; }
+        .stat span { display: block; max-width: 420px; margin: 6px auto 0; color: var(--muted); font-size: 0.96rem; }
 
         /* Approach */
         .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; margin-top: 28px; align-items: center; }
@@ -178,7 +216,7 @@
         .cs-viewport { overflow: hidden; }
         .cs-track { display: flex; transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); will-change: transform; touch-action: pan-y; }
         .cs-track.dragging { transition: none; }
-        .cs-track > .proof { flex: 0 0 100%; }
+        .cs-track > .proof { flex: 0 0 100%; display: flex; flex-direction: column; justify-content: center; }
         @media (prefers-reduced-motion: reduce) { .cs-track { transition: none; } }
         .cs-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
         .cs-btn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--white); color: var(--navy); font-size: 1.05rem; cursor: pointer; }
@@ -195,16 +233,15 @@
         .step p { color: var(--muted); font-size: 0.95rem; }
 
         /* CTA */
-        .cta { background: var(--navy); color: var(--white); padding: 56px 0; }
-        .cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
-        .cta h2 { color: var(--white); }
-        .cta p { color: #b8c4d4; margin-top: 10px; max-width: 560px; }
-        .cta .btn-line { background: transparent; color: var(--white); border-color: #3b4c66; }
-        .cta .btn-line:hover { border-color: var(--white); }
+        .cta-box { display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; margin-top: 48px; padding: 32px 36px; border: 1px solid var(--line-strong); background: var(--white); }
+        .cta-box h3 { font-size: 1.5rem; }
+        .cta-box p { color: var(--muted); margin-top: 8px; max-width: 560px; }
+        .cta-box .hero-cta { margin-top: 0; }
 
-        footer { padding: 28px 0; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--faint); }
+        footer { padding: 28px 0; background: var(--navy); font-size: 0.9rem; color: rgba(255,255,255,0.6); }
         footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-        footer nav a { font-size: 0.9rem; }
+        footer nav a { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+        footer nav a:hover { color: var(--white); }
         footer ul { flex-wrap: wrap; gap: 20px; }
 
         /* Dialogs */
@@ -560,7 +597,7 @@
             h2 { font-size: 1.75rem; }
             .hero { padding: 56px 0 0; min-height: 0; }
             .hero h1 { font-size: 2.5rem; }
-            header nav li:not(:last-child) { display: none; }
+            nav ul { gap: 16px; }
             .facts { margin-top: 24px; }
             .facts .wrap, .grid4, .steps { grid-template-columns: 1fr; }
             .fact { border-left: 0; padding: 18px 0; }
@@ -573,15 +610,13 @@
             .about { grid-template-columns: 1fr; }
             .view .demo-stats { grid-template-columns: 1fr 1fr; }
             .view .demo-stats div { border-left: 0; border-top: 1px solid var(--line); }
-            .hero-cta .btn, .cta .btn { width: 100%; text-align: center; }
+            .hero-cta .btn { width: 100%; text-align: center; }
+            .cta-box { padding: 24px 20px; }
         }
             /* Sharp edges everywhere; only meaningful circles stay round */
         *, *::before, *::after { border-radius: 0 !important; }
-        .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
-        /* Rounded only where it frames visuals: hero cards, the analytics viewer, dashboard popups and the case study card */
-        .hv-map, .hv-chart, .view, .demo-dialog { border-radius: 10px !important; }
-        .demo-map { border-radius: 8px !important; overflow: hidden; }
-        .demo-card { border-radius: 8px !important; }
+        .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash, .why-map, .help-card img { border-radius: 50% !important; }
+        .demo-map { overflow: hidden; }
     </style>
 </head>
 <body>
@@ -593,7 +628,6 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#analytics">Analytics</a></li>
                     <li><a href="#about" data-about>About</a></li>
-                    <li><a href="contact.html" class="btn btn-solid" data-goatcounter-click="nav-request-quote">Request a Quote</a></li>
                 </ul>
             </nav>
         </div>
@@ -603,12 +637,11 @@
         <div class="wrap">
             <div>
                 <h1><span>Find the Demand.</span> <span>Find the Opportunity.</span></h1>
-                <p class="lede">Location analysis and feasibility studies that model market demand, financial returns and risk for the sites and markets you're weighing, built around your goals.</p>
+                <p class="lede">Predictive location analysis and feasibility studies that model market demand, financial returns and risk, built around your goals.</p>
                 <div class="hero-cta">
-                    <a href="contact.html" class="btn btn-solid" data-goatcounter-click="hero-request-quote">Request a Quote</a>
-                    <a href="calculator.html" class="btn btn-line" data-goatcounter-click="hero-calculator">Try the Car Count Calculator</a>
+                    <a href="contact.html" class="btn btn-solid" data-goatcounter-click="hero-get-in-touch">Get in Touch</a>
+                    <a href="calculator.html" class="btn btn-line" data-goatcounter-click="hero-calculator">Estimate Traffic Demand</a>
                 </div>
-                <p class="hero-note">The calculator is complimentary. Enter an address and get a daily car count with a likely range (25th-75th percentile).</p>
             </div>
             <div class="hero-visual">
                 <img class="hv-map" src="demo/03-traffic-demand-hamilton.jpg" alt="Sample market study map shading every neighborhood by traffic and demand, with the top five sites marked">
@@ -630,45 +663,59 @@
     </div>
 
     <main>
+        <section id="why" class="band">
+            <div class="wrap why-grid">
+                <div>
+                <h2>Find the Opportunity with Predictive Location Analytics</h2>
+                <p class="lede">Stop choosing locations on traffic counts, visibility, and access alone. Start adding predictive analytics to understand market demand and opportunity.</p>
+                <div class="why-body">
+                    <p>Traffic counts, visibility, and access are only the first step in assessing a location.</p>
+                    <p>The wrong location is one of the main reasons a business struggles or even fails. How do you make sure that your site will make money and avoid loss?</p>
+                    <p>Simple. <strong>Identify the right location using predictive analytics and avoid the potential risk of the wrong location.</strong></p>
+                    <p>At AniPoint, we use data, advanced statistics, and clear communication to help organizations truly understand market demand and uncover opportunities without losing time and effort.</p>
+                </div>
+                </div>
+                <img class="why-map" src="images/map-opportunity.svg" alt="" width="340" height="340">
+            </div>
+        </section>
         <section id="services">
             <div class="wrap">
-                <h2>From first look to financing</h2>
-                <p class="lede">Start with demand, then go as deep as the decision needs.</p>
-                <div class="products">
-                    <div class="product free">
-                        <div>
-                            <h3>Car Count Calculator</h3>
+                <h2>How We Help, From First Look to Financing</h2>
+                <div class="help">
+                    <div class="help-grid">
+                        <div class="help-card">
+                            <h3>Estimate Traffic Demand</h3>
+                            <img src="images/icon-traffic.svg" alt="" width="120" height="120">
+                            <p>See how busy it'll be.</p>
+                            <a href="calculator.html" class="btn btn-line" data-goatcounter-click="home-calculator">Explore</a>
                         </div>
-                        <p class="desc">Enter an address and get a daily customer estimate with a likely range, set for your type of business.</p>
-                        <div class="act"><a href="calculator.html" class="arrow" data-goatcounter-click="home-calculator">Open calculator</a></div>
-                    </div>
-                    <div class="product">
-                        <div>
-                            <h3>Market Study</h3>
+                        <div class="help-card">
+                            <h3>Study a Site</h3>
+                            <img src="images/icon-site.svg" alt="" width="120" height="120">
+                            <p>Know if a site works.</p>
+                            <button type="button" class="btn btn-line" data-help-open aria-expanded="false" aria-controls="help-site" data-goatcounter-click="home-study-site">Explore</button>
                         </div>
-                        <p class="desc">Comprehensive analytics for every neighborhood in your market, ranked by traffic, competition, revenue and risk.</p>
-                        <div class="act"><a href="#analytics" class="arrow" data-goatcounter-click="home-sample-county-dashboard">See below</a></div>
+                        <div class="help-card">
+                            <h3>Study the Market</h3>
+                            <img src="images/icon-market.svg" alt="" width="120" height="120">
+                            <p>Find where demand is strongest.</p>
+                            <a href="#analytics" class="btn btn-line" data-goatcounter-click="home-sample-county-dashboard">Explore</a>
+                        </div>
                     </div>
-                    <div class="product">
-                        <div>
+                    <div class="help-overlay" id="help-site" role="region" aria-label="Study a Site">
+                        <button type="button" class="help-close" aria-label="Close">&times;</button>
+                        <div class="help-card">
                             <h3>Site Evaluation</h3>
+                            <img src="images/icon-site-evaluation.svg" alt="" width="120" height="120">
+                            <p>Traffic, competitors and red flags.</p>
+                            <a href="demo/sample_site_screen.html" class="btn btn-line" target="_blank" rel="noopener" data-goatcounter-click="home-sample-site-screen">View sample</a>
                         </div>
-                        <p class="desc">Projected traffic and demand, competitive mapping, break-even and site red flags for a single address.</p>
-                        <div class="act"><a href="demo/sample_site_screen.html" class="arrow" target="_blank" rel="noopener" data-goatcounter-click="home-sample-site-screen">View sample</a></div>
-                    </div>
-                    <div class="product">
-                        <div>
+                        <div class="help-card">
                             <h3>Feasibility Study</h3>
+                            <img src="images/icon-feasibility.svg" alt="" width="120" height="120">
+                            <p>A lender-ready go or no-go.</p>
+                            <a href="demo/sample_feasibility_report.html" class="btn btn-line" target="_blank" rel="noopener" data-goatcounter-click="home-sample-feasibility-report">View sample</a>
                         </div>
-                        <p class="desc">A five-year pro forma and loan coverage analysis with a clear go or no-go answer for your lender, in 5 to 7 days.</p>
-                        <div class="act"><a href="demo/sample_feasibility_report.html" class="arrow" target="_blank" rel="noopener" data-goatcounter-click="home-sample-feasibility-report">View sample</a></div>
-                    </div>
-                    <div class="product">
-                        <div>
-                            <h3>Advisory &amp; Analytics</h3>
-                        </div>
-                        <p class="desc">Portfolio reviews, sales forecasting and expansion modeling, scoped to your question.</p>
-                        <div class="act"><a href="contact.html" class="arrow">Talk it through</a></div>
                     </div>
                 </div>
                 <p class="fine">Our reports measure demand and opportunity across markets and sites. They don't confirm that a property is for sale, guarantee results, or replace zoning, utility and site-access checks with the municipality and your engineer.</p>
@@ -677,7 +724,7 @@
 
         <section class="dark" id="analytics">
             <div class="wrap">
-                <h2>The analytics behind every study</h2>
+                <h2>The Analytics Behind Our Studies</h2>
                 <p class="lede">Samples from a Hamilton County, Ohio market study. Pick an analysis or open it for a sample scorecard.</p>
                 <div class="gallery">
                     <div class="tabs" role="tablist">
@@ -763,21 +810,18 @@
                     <div class="step"><h3>Analysis</h3><p>Demand, competition, site conditions and the financials.</p></div>
                     <div class="step"><h3>A clear answer</h3><p>Go or no-go, with the reasons and the risks.</p></div>
                 </div>
+                <div class="cta-box">
+                    <div>
+                        <h3>Have a site or market in mind?</h3>
+                        <p>Start with an estimate, or tell us what you're deciding and we'll help you get a clearer picture.</p>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="contact.html" class="btn btn-solid" data-goatcounter-click="home-cta-clearer-picture">Get a Clearer Picture</a>
+                        <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-line" target="_blank" rel="noopener" data-goatcounter-click="home-book-call">Book a 15-Minute Call</a>
+                    </div>
+                </div>
             </div>
         </section>
-
-        <div class="cta">
-            <div class="wrap">
-                <div>
-                    <h2>Have a site or market in mind?</h2>
-                    <p>Start with an estimate, or tell us what you're deciding and we'll help you get a clearer picture.</p>
-                </div>
-                <div class="hero-cta" style="margin-top:0">
-                    <a href="contact.html" class="btn btn-solid" data-goatcounter-click="home-cta-clearer-picture">Get a Clearer Picture</a>
-                    <a href="https://calendly.com/rbeauvile-anipointresearch" class="btn btn-line" target="_blank" rel="noopener" data-goatcounter-click="home-book-call">Book a 15-Minute Call</a>
-                </div>
-            </div>
-        </div>
     </main>
 
     <footer>
@@ -786,7 +830,6 @@
             <nav>
                 <ul>
                     <li><a href="#about" data-about>About</a></li>
-                    <li><a href="calculator.html">Car Count Calculator</a></li>
                     <li><a href="privacy.html">Privacy</a></li>
                     <li><a href="terms.html">Terms</a></li>
                     <li><a href="https://www.linkedin.com/company/anipoint-site-research/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -1327,17 +1370,23 @@
         go(0); play();
     })();
     (function() {
-        document.querySelectorAll('#services .product').forEach(function(row) {
-            var link = row.querySelector('.act a');
-            if (!link) return;
-            row.setAttribute('tabindex', '0');
-            row.setAttribute('role', 'link');
-            row.setAttribute('aria-label', row.querySelector('h3').textContent + ': ' + link.textContent);
-            row.addEventListener('click', function(e) { if (!e.target.closest('a')) link.click(); });
-            row.addEventListener('keydown', function(e) { if (e.key === 'Enter') link.click(); });
+        var overlay = document.getElementById('help-site');
+        var opener = document.querySelector('[data-help-open]');
+        if (!overlay || !opener) return;
+        var box = overlay.parentNode;
+        function show(open) {
+            box.classList.toggle('is-open', open);
+            opener.setAttribute('aria-expanded', open ? 'true' : 'false');
+            (open ? overlay.querySelector('a') : opener).focus({ preventScroll: true });
+        }
+        opener.addEventListener('click', function() { show(true); });
+        overlay.querySelector('.help-close').addEventListener('click', function() { show(false); });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && box.classList.contains('is-open') && !document.querySelector('dialog[open]')) show(false);
         });
     })();
     </script>
+    <script src="calc-popup.js" defer></script>
     <script data-goatcounter="https://robedbeauvileowen.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
 </body>

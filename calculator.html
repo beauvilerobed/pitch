@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+    <script>
+        // ?embed=1: shown inside the popup on the other pages, so only the app is drawn
+        if (/[?&]embed=1(&|$)/.test(location.search)) {
+            document.documentElement.className += ' embed';
+            var b = document.createElement('base'); b.target = '_top'; document.head.appendChild(b);
+        }
+    </script>
     <style>
         :root {
             --primary: #0f1a2b; --primary-deep: #0a121f; --secondary: #23324a; --accent: #0388c5;
@@ -179,12 +186,13 @@
         .site-header .nav-cta { color: #fff !important; padding: 8px 16px; border-radius: 6px; font-weight: 600; }
         .btn { text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 0.97rem; border-radius: 6px; padding: 12px 22px; border-width: 1px; }
         .eyebrow { display: none; }
-        footer { background: #fff !important; color: #64748b !important; border-top: 1px solid #e2e8f0; }
-        footer a { color: #475569 !important; }
-        footer a:hover { color: #0f1a2b !important; }
-        footer .brand { color: #0f1a2b !important; font-size: 1.15rem; }
-        footer p { color: #64748b !important; }
-        .footer-meta { color: #64748b !important; border-top-color: #e2e8f0 !important; }
+        footer { background: #0f1a2b !important; color: rgba(255,255,255,0.6) !important; border-top: 0; }
+        footer a { color: rgba(255,255,255,0.8) !important; }
+        footer a:hover { color: #fff !important; }
+        footer .brand { color: #fff !important; font-size: 1.15rem; }
+        footer .brand .brand-sub { color: rgba(255,255,255,0.6); }
+        footer p { color: rgba(255,255,255,0.6) !important; }
+        .footer-meta { color: rgba(255,255,255,0.5) !important; border-top-color: rgba(255,255,255,0.15) !important; }
         .info-label, .result .label { text-transform: none; letter-spacing: 0; font-size: 0.85rem; font-weight: 600; }
             /* Tighter spacing, matching the homepage */
         .page-head { padding: 48px 0 40px; }
@@ -200,6 +208,21 @@
         *, *::before, *::after { border-radius: 0 !important; }
         .portrait, .demo-legend i.dot, .demo-legend i.pin, .stepper li b, .note li::before, .lg.site, .lg.wash { border-radius: 50% !important; }
             .site-header .brand img { display: block; height: 34px; width: auto; }
+
+        /* Inside the popup: just the app, in the homepage card style */
+        html.embed body { background: #fff; }
+        html.embed .site-header, html.embed .hero, html.embed footer { display: none; }
+        html.embed .container { max-width: none; padding: 0; }
+        html.embed .calc { max-width: none; margin: 0; box-shadow: none; }
+        html.embed .stepper { background: #fff; }
+        html.embed .panel { padding: 24px 28px 28px; }
+        html.embed .btn { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
+        html.embed .btn:hover { transform: none; }
+        html.embed .btn-outline { background: #fff; color: var(--primary); border-color: var(--border); }
+        html.embed .btn-outline:hover { background: #f5f8fb; color: var(--primary); border-color: var(--primary); }
+        html.embed .talk { background: #fff; border: 1px solid var(--border); }
+        html.embed .note { max-width: none; margin: 0; border: 0; border-top: 1px solid var(--border-light); padding: 24px 28px 32px; }
+        @media (max-width: 600px) { html.embed .panel, html.embed .note { padding-left: 16px; padding-right: 16px; } }
     </style>
 </head>
 <body>
@@ -208,13 +231,6 @@
     <header class="site-header">
         <div class="container">
             <a href="./" class="brand" aria-label="AniPoint Site Research home"><img src="images/logo-header.png" alt="AniPoint Site Research" width="114" height="34"></a>
-            <nav>
-                <ul>
-                    <li><a href="./#services">Services</a></li>
-                    <li><a href="./#analytics">Analytics</a></li>
-                    <li><a href="contact.html" class="nav-cta" data-goatcounter-click="calc-nav-request-quote">Request a Quote</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
@@ -222,7 +238,7 @@
         <section class="hero">
             <span class="eyebrow">Car Count Calculator</span>
             <h1>How Busy Will Your Site Be?</h1>
-            <p>Enter an address to see how many cars a day it could get.</p>
+            <p>The calculator is complimentary. Enter an address and get a daily car count with a likely range (25th-75th percentile).</p>
         </section>
 
         <div class="container">
@@ -324,7 +340,6 @@
                     <div>
                         <a href="./#about">About</a>
                         <a href="./#services">Services</a>
-                        <a href="calculator.html">Car Count Calculator</a>
                         <a href="privacy.html">Privacy</a>
                         <a href="terms.html">Terms</a>
                         <a href="https://calendly.com/rbeauvile-anipointresearch" target="_blank" rel="noopener" data-goatcounter-click="footer-book-call">Book a call</a>
@@ -352,6 +367,7 @@
         var SITE_KEY = '0x4AAAAAAGPi6bS2trAyVtnS';
         var LIVE = /(^|\.)anipointresearch\.com$/.test(location.hostname);
         var REF = (new URLSearchParams(location.search).get('ref') || '').slice(0, 60);
+        var EMBED = document.documentElement.classList.contains('embed');
         var STATES = ['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
         var $ = function (id) { return document.getElementById(id); };
         function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -447,7 +463,8 @@
             $('panel-site').hidden = step !== 1; $('panel-map').hidden = step !== 2; $('panel-result').hidden = step !== 3;
             [1, 2, 3].forEach(function (i) { $('s' + i).className = i === step ? 'on' : (i < step ? 'done' : ''); });
             if (step === 2 && state.map) { setTimeout(function () { state.map.invalidateSize(); }, 30); }
-            document.querySelector('.calc').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (EMBED) { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+            else { document.querySelector('.calc').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
         }
 
         // ---- 1. site ----
@@ -683,8 +700,18 @@
         dlg.addEventListener('click', function (e) { if (e.target === dlg) { dlg.close(); } });
 
         if (!LIVE) { $('preview-banner').hidden = false; }
+
+        // ---- inside the popup ----
+        if (EMBED) {
+            // terms and privacy open in a new tab so the estimate isn't lost
+            document.querySelectorAll('.agree a').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
+            // Esc closes the popup even while typing in the form
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !dlg.open && window.parent !== window) { window.parent.postMessage('calc-close', '*'); }
+            });
+        }
     })();
     </script>
-    <script data-goatcounter="https://robedbeauvileowen.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script data-goatcounter="https://robedbeauvileowen.goatcounter.com/count" data-goatcounter-settings='{"allow_frame": true}' async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
