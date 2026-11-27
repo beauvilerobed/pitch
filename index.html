@@ -572,6 +572,17 @@
         }
         @media (prefers-reduced-motion: reduce) { .demo-more { animation: none; } }
 
+        /* Sample report popups: the report scrolls inside a frame. */
+        .demo-dialog.demo-report { width: min(1040px, 96vw); height: 92vh; padding-bottom: 20px; }
+        .demo-report > iframe { flex: 1 1 auto; min-height: 0; width: calc(100% - 64px); margin: 0 32px; border: 1px solid var(--border); background: #fff; }
+        .demo-head-actions { display: flex; align-items: center; gap: 16px; }
+        .demo-newtab { color: var(--white); font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+        .demo-newtab:hover { color: #9cc4e4; }
+        @media (max-width: 640px) {
+            .demo-report > iframe { width: calc(100% - 32px); margin: 0 16px; }
+            .demo-report .demo-dialog-head { padding: 16px; }
+        }
+
         .view .demo-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 0; border-top: 1px solid var(--line); }
         .view .demo-stats div { padding: 14px 16px; border-left: 1px solid var(--line); background: none; border-top: 0; border-right: 0; border-bottom: 0; border-radius: 0; box-shadow: none; animation: none; opacity: 1; }
         .view .demo-stats div:first-child { border-left: 0; }
@@ -708,13 +719,13 @@
                             <h3>Site Evaluation</h3>
                             <img src="images/icon-site-evaluation.svg" alt="" width="120" height="120">
                             <p>Traffic, competitors and red flags.</p>
-                            <a href="demo/sample_site_screen.html" class="btn btn-line" target="_blank" rel="noopener" data-goatcounter-click="home-sample-site-screen">View sample</a>
+                            <a href="demo/sample_site_screen.html" class="btn btn-line" target="_blank" rel="noopener" data-report="report-site" data-goatcounter-click="home-sample-site-screen">View sample</a>
                         </div>
                         <div class="help-card">
                             <h3>Feasibility Study</h3>
                             <img src="images/icon-feasibility.svg" alt="" width="120" height="120">
                             <p>A lender-ready go or no-go.</p>
-                            <a href="demo/sample_feasibility_report.html" class="btn btn-line" target="_blank" rel="noopener" data-goatcounter-click="home-sample-feasibility-report">View sample</a>
+                            <a href="demo/sample_feasibility_report.html" class="btn btn-line" target="_blank" rel="noopener" data-report="report-feasibility" data-goatcounter-click="home-sample-feasibility-report">View sample</a>
                         </div>
                     </div>
                 </div>
@@ -1224,6 +1235,26 @@
             <div class="demo-stats"><div><strong>83</strong><span>candidate sites screened</span></div><div><strong>21</strong><span>with no red flags</span></div><div><strong>49</strong><span>weak main-road access</span></div><div><strong>18</strong><span>steep land</span></div><div><strong>5</strong><span>in a flood zone</span></div></div>
             <p class="demo-dialog-note">Sample analysis of Hamilton County, Ohio. In the full report, maps are interactive: zoom in and hover over any area to see its numbers.</p>
         </dialog>
+        <dialog class="demo-dialog demo-report" id="report-site" aria-labelledby="report-site-title">
+            <div class="demo-dialog-head">
+                <h3 id="report-site-title">Site Evaluation</h3>
+                <div class="demo-head-actions">
+                    <a class="demo-newtab" href="demo/sample_site_screen.html" target="_blank" rel="noopener">Open in new tab</a>
+                    <button type="button" class="demo-close" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <iframe data-src="demo/sample_site_screen.html" title="Site Evaluation sample report" loading="lazy"></iframe>
+        </dialog>
+        <dialog class="demo-dialog demo-report" id="report-feasibility" aria-labelledby="report-feasibility-title">
+            <div class="demo-dialog-head">
+                <h3 id="report-feasibility-title">Feasibility Study</h3>
+                <div class="demo-head-actions">
+                    <a class="demo-newtab" href="demo/sample_feasibility_report.html" target="_blank" rel="noopener">Open in new tab</a>
+                    <button type="button" class="demo-close" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <iframe data-src="demo/sample_feasibility_report.html" title="Feasibility Study sample report" loading="lazy"></iframe>
+        </dialog>
 
     <script>
         function initSliders(root) {
@@ -1305,6 +1336,15 @@
             a.addEventListener('click', function(e) { e.preventDefault(); openDialog(document.getElementById('about-dialog')); });
         });
         if (location.hash === '#about') openDialog(document.getElementById('about-dialog'));
+        // Sample report buttons open the report in a popup; the link stays as a new-tab fallback.
+        document.querySelectorAll('[data-report]').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                var d = document.getElementById(a.dataset.report); if (!d || !d.showModal) return;
+                e.preventDefault();
+                var f = d.querySelector('iframe'); if (!f.getAttribute('src')) f.src = f.dataset.src;
+                openDialog(d);
+            });
+        });
         var img = document.getElementById('viewImg'), cap = document.getElementById('viewCap'), stats = document.getElementById('viewStats');
         var tabs = document.querySelectorAll('.tab'), current = 'demo-01';
         function show(t) {
